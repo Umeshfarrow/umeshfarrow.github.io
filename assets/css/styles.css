@@ -1,0 +1,179 @@
+/* Full white background */
+body {
+  height: calc(100vh - 1rem);
+  width: calc(100vw - 1rem);
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  /* background-image: linear-gradient(145deg, #e6e6e6, #ffffff); */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  min-width: calc(100vw - 3rem); /* Accounts for left/right margin */
+  min-height: calc(100vh - 3rem);
+  max-width: 1000px;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  position: relative;
+  box-sizing: border-box;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Typography */
+h1 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.contact {
+  margin-bottom: 20px;
+}
+
+.contact p {
+  margin: 5px 0;
+}
+
+.summary {
+  border-left: 5px solid #3498db;
+  padding-left: 15px;
+}
+
+/* Blue box */
+.blue-box {
+  position: absolute;
+  top: 12.5rem;
+  right: 8rem; /* Aligns to the right like .container */
+  width: 850px; /* Less than container's 1000px width */
+  height: 180px;
+  background-color: #3498db;
+  transform: skewY(-3deg); /* Optional skew */
+  border-radius: 20px;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Profile layout inside blue box */
+.profile-layout {
+  position: relative;
+  z-index: 2; /* In front of blue box */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem; /* Spacing inside blue area */
+}
+
+.photo {
+  float: right;
+  padding-right: 6rem;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive for medium screens */
+@media (max-width: 1000px) {
+  .blue-box {
+    width: calc(100% - 3rem); /* Match container's padding/margins */
+    right: 1.5rem; /* Align inside viewport */
+  }
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .profile-layout {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .blue-box {
+    top: 10rem;
+    right: 1.5rem;
+    width: calc(100% - 3rem);
+    height: auto;
+    transform: none; /* Remove skew for small screens if needed */
+    border-radius: 16px;
+  }
+
+  .photo {
+    float: none;
+    padding-right: 0;
+    margin: 0 auto;
+    display: block;
+    max-width: 80%;
+  }
+}
+
+.details {
+  margin: 12rem auto auto auto;
+  padding: auto auto auto auto;
+  align-items: center;
+}
+
+
+#contact-list {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+#contact-list i {
+  color: #2c3e50;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+#contact-list a:hover i {
+  color: #3498db;
+}
+
+.typing-text {
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #333; /* Optional cursor */
+  min-height: 1.5em; /* Keeps height stable */
+  display: inline-block;
+  position: relative;
+}
+
+/* Optional blinking cursor */
+.typing-text::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  background-color: #333;
+  animation: blink 0.8s infinite;
+  position: absolute;
+  right: -10px;
+  top: 0;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
