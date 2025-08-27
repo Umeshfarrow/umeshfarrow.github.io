@@ -1,91 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Umesh S - Senior DevOps Engineer</title>
+
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
 </head>
+
 <body>
+  <nav>
+  <a href="#" class="nav-link" data-target="home.html">Home</a>
+  <a href="#" class="nav-link" data-target="about.html">About</a>
+  <a href="#" class="nav-link" data-target="contact.html">Contact</a>
+</nav>
 
-<div class="container">
-  <div class="blue-box"></div>
-  <div class="profile-layout">
-  <div class="details">
-    
-    <h1>Umesh S</h1>
-    <p id="typing-role" class="typing-text"></p>
-    <script src="assets/js/details.js"></script>
-    <div class="contact">
-  <p><i class="fas fa-map-marker-alt"></i> Bengaluru, India</p>
-  <div id="contact-list"></div>
-</div>
-
-    <p id="typing-text" class="typing-text"></p>
+  <div class="container">
+    <div id="page-content">
+    </div>
   </div>
 
-  <div class="photo">
-    <img src="assets/img/profile.png" alt="Umesh S" />
-  </div>
-</div>
-
-
-</div>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-<script>
-  const contactItems = [
-    {
-      icon: 'fas fa-envelope',
-      link: 'mailto:kelsakarya@gmail.com',
-      title: 'Email'
-    },
-    {
-      icon: 'fab fa-linkedin',
-      link: 'https://linkedin.com/in/umeshfarrow',
-      title: 'LinkedIn'
-    },
-    {
-      icon: 'fab fa-github',
-      link: 'https://github.com/umeshfarrow',
-      title: 'GitHub'
-    }
-  ];
-
-  const container = document.getElementById('contact-list');
-
-  contactItems.forEach(item => {
-    const icon = document.createElement('i');
-    icon.className = item.icon;
-    icon.style.marginRight = '10px';
-    icon.style.fontSize = '1.3rem';
-
-    // Add optional tooltip
-    if (item.title) {
-      icon.title = item.title;
-    }
-
-    let wrapper;
-
-    if (item.link) {
-      wrapper = document.createElement('a');
-      wrapper.href = item.link;
-      wrapper.target = '_blank';
-      wrapper.rel = 'noopener noreferrer';
-      wrapper.appendChild(icon);
-    } else {
-      wrapper = document.createElement('span');
-      wrapper.appendChild(icon);
-    }
-
-    container.appendChild(wrapper);
-  });
-</script>
-
-
-
+  <script src="assets/js/details.js"></script>
+  <script src="assets/js/contact-icons.js"></script>
+  <script src="assets/js/router.js"></script>
+  
 </body>
+
 </html>

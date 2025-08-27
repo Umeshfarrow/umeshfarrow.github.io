@@ -1,7 +1,10 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Typing effect
+function initDetails() {
+  // Clear and restart typing effect
   const roleText = "Senior DevOps Engineer";
   const typingEl = document.getElementById("typing-role");
+  if (!typingEl) return; // in case element is missing on some pages
+
+  typingEl.textContent = ''; // reset before typing
   let i = 0;
 
   function typeWriter() {
@@ -14,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   typeWriter();
 
-  // Fade-in on scroll
+  // Fade-in on scroll using IntersectionObserver
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
@@ -26,5 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
     { threshold: 0.2 }
   );
 
+  // Observe all sections and footer
   document.querySelectorAll('section, footer').forEach(el => observer.observe(el));
-});
+}
+
+// Run once on initial page load
+document.addEventListener("DOMContentLoaded", initDetails);

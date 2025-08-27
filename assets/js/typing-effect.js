@@ -1,13 +1,38 @@
-const text = "Building scalable infrastructure, one pipeline at a time...";
-let i = 0;
-const speed = 60;
-const typingTarget = document.getElementById("typing-text");
+function startTypingEffect({
+  elementId = 'typing-role',
+  texts = [],
+  typingSpeed = 100,
+  erasingSpeed = 50,
+  delayBetweenTexts = 2000
+} = {}) {
+  const typingElement = document.getElementById(elementId);
+  if (!typingElement || !texts.length) return;
 
-function typeWriter() {
-  if (i < text.length) {
-    typingTarget.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
+  let textIndex = 0;
+  let charIndex = 0;
+
+  function type() {
+    if (charIndex < texts[textIndex].length) {
+      typingElement.textContent += texts[textIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, typingSpeed);
+    } else {
+      setTimeout(erase, delayBetweenTexts);
+    }
   }
+
+  function erase() {
+    if (charIndex > 0) {
+      typingElement.textContent = texts[textIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(erase, erasingSpeed);
+    } else {
+      textIndex = (textIndex + 1) % texts.length;
+      setTimeout(type, typingSpeed);
+    }
+  }
+
+  type();
 }
-typeWriter();
+
+window.startTypingEffect = startTypingEffect;
