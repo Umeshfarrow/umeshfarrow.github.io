@@ -1,4 +1,4 @@
-function initContactIcons() {
+export function initContactIcons() {
   const contactItems = [
     {
       icon: 'fas fa-envelope',
@@ -20,34 +20,22 @@ function initContactIcons() {
   const container = document.getElementById('contact-list');
   if (!container) return;
 
-  // Clear existing content before adding new icons
   container.innerHTML = '';
-
   contactItems.forEach(item => {
     const icon = document.createElement('i');
     icon.className = item.icon;
     icon.style.marginRight = '10px';
     icon.style.fontSize = '1.3rem';
+    if (item.title) icon.title = item.title;
 
-    if (item.title) {
-      icon.title = item.title;
-    }
-
-    let wrapper;
+    const wrapper = document.createElement(item.link ? 'a' : 'span');
     if (item.link) {
-      wrapper = document.createElement('a');
       wrapper.href = item.link;
       wrapper.target = '_blank';
       wrapper.rel = 'noopener noreferrer';
-      wrapper.appendChild(icon);
-    } else {
-      wrapper = document.createElement('span');
-      wrapper.appendChild(icon);
     }
+    wrapper.appendChild(icon);
 
     container.appendChild(wrapper);
   });
 }
-
-// Run once on initial page load
-document.addEventListener('DOMContentLoaded', initContactIcons);

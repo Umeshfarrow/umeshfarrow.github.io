@@ -1,4 +1,4 @@
-function startTypingEffect({
+export function startTypingEffect({
   elementId = 'typing-role',
   texts = [],
   typingSpeed = 100,
@@ -17,7 +17,8 @@ function startTypingEffect({
       charIndex++;
       setTimeout(type, typingSpeed);
     } else {
-      setTimeout(erase, delayBetweenTexts);
+      // setTimeout(erase, delayBetweenTexts);
+      setTimeout(delayBetweenTexts);
     }
   }
 

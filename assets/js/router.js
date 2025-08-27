@@ -1,21 +1,20 @@
+import { startTypingEffect } from './typing-effect.js';
+import { initContactIcons } from './contact-icons.js';
+
 // 1. Details initializer
 function initDetails() {
-  const roleText = "Senior DevOps Engineer";
-  const typingEl = document.getElementById("typing-role");
-  if (!typingEl) return;
+  const designation = ["Senior DevOps Engineer"];
+  const summary = ["A Senior DevOps Engineer, around 6 years of experience in designing, automating, and optimizing end-to-end software delivery pipelines across cloud, enterprise, and AI-driven platforms. Proven expertise in building CI/CD pipelines with Jenkins integrating SonarQube for automated code quality checks, and enabling secure application delivery with TLS/HTTPS using Let’s Encrypt. Skilled in deploying applications across multi-cloud (AWS/Azure/Orange Cloud), driving scalability, security, and cost optimization for diverse environments. Experienced in managing containerized applications with Docker and strong knowledge on Kubernetes, Terraform Certified, container orchestration practices to enable scalability and resilience. Adept at implementing GitOps workflows for streamlined deployments."];
 
-  typingEl.textContent = '';
-  let i = 0;
-
-  function typeWriter() {
-    if (i < roleText.length) {
-      typingEl.textContent += roleText.charAt(i);
-      i++;
-      setTimeout(typeWriter, 100);
-    }
+  const roleEl = document.getElementById('typing-role');
+  if (roleEl) {
+    startTypingEffect({ elementId: 'typing-role', texts: designation });
   }
 
-  typeWriter();
+  const summaryEl = document.getElementById('typing-summary');
+  if (summaryEl) {
+    startTypingEffect({ elementId: 'typing-summary', texts: summary, typingSpeed: 30 });
+  }
 
   const observer = new IntersectionObserver(
     entries => {
@@ -29,49 +28,6 @@ function initDetails() {
   );
 
   document.querySelectorAll('section, footer').forEach(el => observer.observe(el));
-}
-
-// 2. Contact icons initializer
-function initContactIcons() {
-  const contactItems = [
-    {
-      icon: 'fas fa-envelope',
-      link: 'mailto:kelsakarya@gmail.com',
-      title: 'Email'
-    },
-    {
-      icon: 'fab fa-linkedin',
-      link: 'https://linkedin.com/in/umeshfarrow',
-      title: 'LinkedIn'
-    },
-    {
-      icon: 'fab fa-github',
-      link: 'https://github.com/umeshfarrow',
-      title: 'GitHub'
-    }
-  ];
-
-  const container = document.getElementById('contact-list');
-  if (!container) return;
-
-  container.innerHTML = '';
-  contactItems.forEach(item => {
-    const icon = document.createElement('i');
-    icon.className = item.icon;
-    icon.style.marginRight = '10px';
-    icon.style.fontSize = '1.3rem';
-    if (item.title) icon.title = item.title;
-
-    const wrapper = document.createElement(item.link ? 'a' : 'span');
-    if (item.link) {
-      wrapper.href = item.link;
-      wrapper.target = '_blank';
-      wrapper.rel = 'noopener noreferrer';
-    }
-    wrapper.appendChild(icon);
-
-    container.appendChild(wrapper);
-  });
 }
 
 // 3. Router logic
@@ -103,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
           pageContainer.classList.remove('fade-out');
           pageContainer.classList.add('fade-in');
 
-          // ✅ Call initializers
+          // Call initializers
           initDetails();
           initContactIcons();
 
