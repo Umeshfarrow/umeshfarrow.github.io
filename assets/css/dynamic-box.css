@@ -1,0 +1,30 @@
+/* dynamic-box.css */
+.dynamic-box {
+  position: absolute;
+  top: 12.5rem;
+  right: 8rem;
+  width: var(--dynamic-box-width);
+  height: var(--dynamic-box-height);
+  background-color: #3498db;
+  transform: skewY(-3deg);
+  border-radius: 20px;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  will-change: transform, top, right, width, height, background-color;
+  transition:
+    top var(--box-transition-duration) ease-in-out,
+    right var(--box-transition-duration) ease-in-out,
+    width var(--box-transition-duration) ease-in-out,
+    height var(--box-transition-duration) ease-in-out,
+    transform var(--box-transition-duration) ease-in-out,
+    background-color var(--box-transition-duration) ease-in-out;
+}
+
+.dynamic-box.rotate-about {
+  top: 20rem;
+  right: 70rem;
+  transform: rotate(90deg) skewY(3deg);
+  background-color: orange;
+  height: var(--dynamic-box-rotated-height);
+  width: var(--dynamic-box-rotated-width);
+}

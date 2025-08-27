@@ -1,0 +1,22 @@
+// style.js
+const cssFiles = [
+  "assets/css/variables.css",
+  "assets/css/base.css",
+  "assets/css/dynamic-box.css",
+  "assets/css/about.css",
+  "assets/css/profile.css",
+  "assets/css/transitions.css",
+  "assets/css/nav.css"
+];
+
+function loadStylesheets(files) {
+  files.forEach(file => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = file;
+    document.head.appendChild(link);
+  });
+}
+
+// Call the function to load CSS files
+loadStylesheets(cssFiles);

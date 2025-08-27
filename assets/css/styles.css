@@ -1,10 +1,12 @@
-html, body {
+html,
+body {
   font-family: 'Fira Code', 'Courier New', monospace;
   font-size: 1rem;
 }
 
 .container {
-  min-width: calc(100vw - 3rem); /* Accounts for left/right margin */
+  min-width: calc(100vw - 3rem);
+  /* Accounts for left/right margin */
   min-height: calc(100vh - 3rem);
   max-width: 1000px;
   margin: 1.5rem auto;
@@ -27,30 +29,74 @@ html, body {
   align-items: center;
 }
 
-/* Blue box */
-.blue-box {
+:root {
+  --box-transition-duration: 1s;
+  --dynamic-box-width: 850px;
+  --dynamic-box-height: 180px;
+  --dynamic-box-rotated-width: 500px;
+  --dynamic-box-rotated-height: 10px;
+  --gap: -40rem;
+  /* space between box and content */
+}
+
+/* Base dynamic box styling */
+.dynamic-box {
   position: absolute;
   top: 12.5rem;
-  right: 8rem; /* Aligns to the right like .container */
-  width: 850px; /* Less than container's 1000px width */
-  height: 180px;
+  right: 8rem;
+  width: var(--dynamic-box-width);
+  height: var(--dynamic-box-height);
   background-color: #3498db;
-  transform: skewY(-3deg); /* Optional skew */
+  transform: skewY(-3deg);
   border-radius: 20px;
   z-index: 1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  will-change: transform, top, right, width, height, background-color;
+  transition:
+    top var(--box-transition-duration) ease-in-out,
+    right var(--box-transition-duration) ease-in-out,
+    width var(--box-transition-duration) ease-in-out,
+    height var(--box-transition-duration) ease-in-out,
+    transform var(--box-transition-duration) ease-in-out,
+    background-color var(--box-transition-duration) ease-in-out;
 }
+
+/* Rotated & moved dynamic box for About page */
+.dynamic-box.rotate-about {
+  top: 20rem;
+  right: 70rem;
+  transform: rotate(90deg) skewY(3deg);
+  background-color: orange;
+  height: var(--dynamic-box-rotated-height);
+  width: var(--dynamic-box-rotated-width);
+}
+
+#about {
+  position: relative;
+  margin-left: calc(var(--dynamic-box-width) + var(--gap));
+  margin-top: 10rem;
+  transition: margin-left var(--box-transition-duration) ease-in-out, margin-top var(--box-transition-duration) ease-in-out;
+}
+
+.dynamic-box.rotate-about~#about {
+  margin-left: calc(var(--dynamic-box-rotated-width) + var(--gap));
+  margin-top: 4rem;
+  /* push down only on about page */
+}
+
 
 /* Profile layout inside blue box */
 .profile-layout {
   position: relative;
-  z-index: 2; /* In front of blue box */
+  z-index: 2;
+  /* In front of blue box */
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  padding: 2rem; /* Spacing inside blue area */
+  padding: 2rem;
+  /* Spacing inside blue area */
 }
 
 #contact-list {
@@ -83,6 +129,7 @@ html, body {
 .fade-in {
   opacity: 1;
 }
+
 /* smooth CSS fade transitions */
 
 nav {

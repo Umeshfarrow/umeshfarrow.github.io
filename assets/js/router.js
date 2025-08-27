@@ -39,38 +39,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const pages = ['sections/home.html', 'sections/about.html', 'sections/skills.html'];
   let currentIndex = 0;
 
-  function loadPage(url) {
-    pageContainer.classList.add('fade-out');
+function loadPage(url) {
+  const blueBox = document.querySelector('.dynamic-box');
+  pageContainer.classList.add('fade-out');
 
-    setTimeout(() => {
-      fetch(url)
-        .then(response => response.text())
-        .then(data => {
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = data;
-          const newContent = tempDiv.querySelector('#page-content');
+  setTimeout(() => {
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = data;
 
-          if (newContent) {
-            pageContainer.innerHTML = newContent.innerHTML;
-          } else {
-            pageContainer.innerHTML = data;
-          }
+        const newContent = tempDiv.querySelector('#page-content');
+        if (newContent) {
+          pageContainer.innerHTML = newContent.innerHTML;
+        } else {
+          pageContainer.innerHTML = data;
+        }
 
-          pageContainer.classList.remove('fade-out');
-          pageContainer.classList.add('fade-in');
+        // ✅ Animate blue box transition in both directions
+        if (url.includes('about.html')) {
+          blueBox?.classList.add('rotate-about');
+        } else {
+          blueBox?.classList.remove('rotate-about'); // ← reverse transition
+        }
 
-          // Call initializers
-          initDetails();
-          initContactIcons();
+        initDetails();
+        initContactIcons();
 
-          setTimeout(() => pageContainer.classList.remove('fade-in'), 300);
-        })
-        .catch(err => {
-          console.error('Failed to load page:', err);
-          pageContainer.classList.remove('fade-out');
-        });
-    }, 300);
-  }
+        pageContainer.classList.remove('fade-out');
+        pageContainer.classList.add('fade-in');
+
+        setTimeout(() => pageContainer.classList.remove('fade-in'), 300);
+      })
+      .catch(err => {
+        console.error('Failed to load page:', err);
+        pageContainer.classList.remove('fade-out');
+      });
+  }, 300);
+}
+
 
   // Initial page load
   loadPage(pages[currentIndex]);

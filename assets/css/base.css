@@ -1,0 +1,33 @@
+/* base.css */
+html,
+body {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  min-width: calc(100vw - 3rem);
+  /* Accounts for left/right margin */
+  min-height: calc(100vh - 3rem);
+  max-width: 1000px;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  position: relative;
+  box-sizing: border-box;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.details {
+  margin: 12rem auto auto 18rem;
+  align-items: center;
+}

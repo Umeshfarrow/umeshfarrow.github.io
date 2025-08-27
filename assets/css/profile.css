@@ -1,0 +1,29 @@
+/* profile.css */
+.profile-layout {
+  position: relative;
+  z-index: 2; /* In front of dynamic box */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+#contact-list {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+#contact-list i {
+  color: #2c3e50;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+#contact-list a:hover i {
+  color: #3498db;
+}
