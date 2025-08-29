@@ -1,0 +1,92 @@
+/* Container for certification items */
+.certifications-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  justify-items: center;
+}
+
+/* Certification item styles */
+.certification-item {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  position: relative;  /* For positioning the verify button */
+  transition: box-shadow 0.3s ease; /* Smooth transition for shadow effect */
+}
+
+/* Apply shadow on hover of the whole certification item */
+.certification-item:hover .certification-image {
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5)); /* Shadow on image only */
+}
+
+/* Certification image */
+.certification-image {
+  width: 100%;
+  max-width: 140px;
+  margin-bottom: 15px;
+  background-color: transparent;  /* Ensure image background is transparent */
+  transition: filter 0.3s ease; /* Smooth transition for shadow effect */
+}
+
+/* Hide details when hovering over the certification item */
+.certification-item:hover .certification-title,
+.certification-item:hover .certification-date,
+.certification-item:hover .certification-id {
+  visibility: hidden;  /* Hide text details */
+}
+
+/* Verify link (button) styling */
+.verify-link {
+  display: none;  /* Hide the button initially */
+  position: absolute; /* Position the button inside the item */
+  bottom: 15px; /* Align at the bottom */
+  left: 50%; /* Center the button horizontally */
+  transform: translateX(-50%); /* Correct centering */
+  padding: 8px 15px;
+  color: #007BFF;
+  font-weight: 500;
+  border-radius: 25px;
+  border: 1px solid #007BFF;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Show the button when the item is hovered */
+.certification-item:hover .verify-link {
+  display: inline-block; /* Show the button when the item is hovered */
+  margin-bottom: 6rem;
+}
+
+/* Title and date styling */
+.certification-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.certification-date {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.certification-id {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .certifications-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    padding: 10px;
+  }
+  .certification-item {
+    padding: 15px;
+  }
+}

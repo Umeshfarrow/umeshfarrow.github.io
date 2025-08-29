@@ -1,5 +1,6 @@
 import { startTypingEffect } from './typing-effect.js';
 import { initContactIcons } from './contact-icons.js';
+import { renderCertifications } from './certifications.js';
 
 // 1. Details initializer
 function initDetails() {
@@ -36,60 +37,69 @@ document.addEventListener('DOMContentLoaded', () => {
   const pageContainer = document.getElementById('page-content');
   const container = document.querySelector('.container');
 
-  const pages = ['sections/home.html', 'sections/about.html', 'sections/skills.html', 'sections/experience.html'];
+  const pages = ['sections/home.html', 'sections/about.html', 'sections/skills.html', 'sections/experience.html', 'sections/projects.html', 'sections/certifications.html'];
   let currentIndex = 0;
 
-function loadPage(url) {
-  const dynamicBox = document.querySelector('.dynamic-box');
-  pageContainer.classList.add('fade-out');
+  function loadPage(url) {
+    const dynamicBox = document.querySelector('.dynamic-box');
+    pageContainer.classList.add('fade-out');
 
-  setTimeout(() => {
-    fetch(url)
-      .then(response => response.text())
-      .then(data => {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = data;
+    setTimeout(() => {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = data;
 
-        const newContent = tempDiv.querySelector('#page-content');
-        if (newContent) {
-          pageContainer.innerHTML = newContent.innerHTML;
-        } else {
-          pageContainer.innerHTML = data;
-        }
+          const newContent = tempDiv.querySelector('#page-content');
+          if (newContent) {
+            pageContainer.innerHTML = newContent.innerHTML;
+          } else {
+            pageContainer.innerHTML = data;
+          }
 
-        // ✅ Animate dynamic-box transition in both directions
-        if (url.includes('about.html')) {
-          dynamicBox?.classList.add('rotate-about');
-        } else {
-          dynamicBox?.classList.remove('rotate-about'); // ← reverse transition
-        }
+          // ✅ Animate dynamic-box transition in both directions
+          if (url.includes('about.html')) {
+            dynamicBox?.classList.add('rotate-about');
+          } else {
+            dynamicBox?.classList.remove('rotate-about'); // ← reverse transition
+          }
 
-        if (url.includes('skills.html')) {
-          dynamicBox?.classList.add('rotate-skills');
-        } else {
-          dynamicBox?.classList.remove('rotate-skills'); // ← reverse transition
-        }
+          if (url.includes('skills.html')) {
+            dynamicBox?.classList.add('rotate-skills');
+          } else {
+            dynamicBox?.classList.remove('rotate-skills'); // ← reverse transition
+          }
 
-        if (url.includes('experience.html')) {
-          dynamicBox?.classList.add('rotate-experience');
-        } else {
-          dynamicBox?.classList.remove('rotate-experience'); // ← reverse transition
-        }
+          if (url.includes('experience.html')) {
+            dynamicBox?.classList.add('rotate-experience');
+          } else {
+            dynamicBox?.classList.remove('rotate-experience'); // ← reverse transition
+          }
 
-        initDetails();
-        initContactIcons();
+          if (url.includes('certifications.html')) {
+            renderCertifications();  // Invoke renderCertifications on certs page load
+            dynamicBox?.classList.add('rotate-certifications');
+          } else {
+            dynamicBox?.classList.remove('rotate-certifications'); // ← reverse transition
+          }
 
-        pageContainer.classList.remove('fade-out');
-        pageContainer.classList.add('fade-in');
 
-        setTimeout(() => pageContainer.classList.remove('fade-in'), 300);
-      })
-      .catch(err => {
-        console.error('Failed to load page:', err);
-        pageContainer.classList.remove('fade-out');
-      });
-  }, 300);
-}
+          initDetails();
+          initContactIcons();
+          certifications();
+
+          pageContainer.classList.remove('fade-out');
+          pageContainer.classList.add('fade-in');
+
+          setTimeout(() => pageContainer.classList.remove('fade-in'), 300);
+        })
+        .catch(err => {
+          console.error('Failed to load page:', err);
+          pageContainer.classList.remove('fade-out');
+        });
+    }, 300);
+  }
 
 
   // Initial page load

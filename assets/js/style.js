@@ -8,6 +8,7 @@ const cssFiles = [
   "assets/css/transitions.css",
   "assets/css/skills.css",
   "assets/css/experience.css",
+  "assets/css/certifications.css",
   // "assets/css/nav.css",
 ];
 

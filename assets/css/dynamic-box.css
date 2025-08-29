@@ -62,3 +62,15 @@
   width: var(--dynamic-box-yellowgreen-width);
   z-index: 0;
 }
+
+.dynamic-box.rotate-certifications {
+  position: absolute; /* Fixed positioning relative to the viewport */
+  right: 20px; /* Align at the right of the viewport */
+  background-color: purple;
+  z-index: 0;
+  width: 300px; /* Width of the circle */
+  height: 300px; /* Height of the circle */
+  padding: 0; /* Remove padding, so the button is perfectly circular */
+  border-radius: 100%; /* Make the object a circle */
+  transform: rotate(-160deg) skewY(0deg); /* Apply rotation */
+}
