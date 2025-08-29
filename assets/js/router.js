@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const pageContainer = document.getElementById('page-content');
   const container = document.querySelector('.container');
 
-  const pages = ['sections/home.html', 'sections/about.html', 'sections/skills.html'];
+  const pages = ['sections/home.html', 'sections/about.html', 'sections/skills.html', 'sections/experience.html'];
   let currentIndex = 0;
 
 function loadPage(url) {
-  const blueBox = document.querySelector('.dynamic-box');
+  const dynamicBox = document.querySelector('.dynamic-box');
   pageContainer.classList.add('fade-out');
 
   setTimeout(() => {
@@ -57,11 +57,23 @@ function loadPage(url) {
           pageContainer.innerHTML = data;
         }
 
-        // ✅ Animate blue box transition in both directions
+        // ✅ Animate dynamic-box transition in both directions
         if (url.includes('about.html')) {
-          blueBox?.classList.add('rotate-about');
+          dynamicBox?.classList.add('rotate-about');
         } else {
-          blueBox?.classList.remove('rotate-about'); // ← reverse transition
+          dynamicBox?.classList.remove('rotate-about'); // ← reverse transition
+        }
+
+        if (url.includes('skills.html')) {
+          dynamicBox?.classList.add('rotate-skills');
+        } else {
+          dynamicBox?.classList.remove('rotate-skills'); // ← reverse transition
+        }
+
+        if (url.includes('experience.html')) {
+          dynamicBox?.classList.add('rotate-experience');
+        } else {
+          dynamicBox?.classList.remove('rotate-experience'); // ← reverse transition
         }
 
         initDetails();

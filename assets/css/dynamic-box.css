@@ -1,4 +1,18 @@
 /* dynamic-box.css */
+:root {
+  --box-transition-duration: 1s;
+  --dynamic-box-width: 850px;
+  --dynamic-box-height: 180px;
+  --dynamic-box-orange-width: 500px;
+  --dynamic-box-orange-height: 10px;
+  --dynamic-box-green-width: 400px;
+  --dynamic-box-green-height: 120px;
+  --dynamic-box-yellowgreen-width: 600px;
+  --dynamic-box-yellowgreen-height: 10px;
+  --gap: -40rem;
+  /* space between box and content */
+}
+
 .dynamic-box {
   position: absolute;
   top: 12.5rem;
@@ -25,6 +39,26 @@
   right: 70rem;
   transform: rotate(90deg) skewY(3deg);
   background-color: orange;
-  height: var(--dynamic-box-rotated-height);
-  width: var(--dynamic-box-rotated-width);
+  height: var(--dynamic-box-orange-height);
+  width: var(--dynamic-box-orange-width);
+}
+
+.dynamic-box.rotate-skills {
+  top: 22rem;
+  right: 10rem;
+  transform: rotate(-90deg) skewY(15deg);
+  background-color: green;
+  height: var(--dynamic-box-green-height);
+  width: var(--dynamic-box-green-width);
+  z-index: 0; /* ensure it stays behind content */
+}
+
+.dynamic-box.rotate-experience {
+  top: 24rem;
+  right: 70rem;
+  transform: rotate(-270deg) skewY(0deg);
+  background-color: yellowgreen;
+  height: var(--dynamic-box-yellowgreen-height);
+  width: var(--dynamic-box-yellowgreen-width);
+  z-index: 0;
 }

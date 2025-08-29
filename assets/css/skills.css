@@ -1,0 +1,54 @@
+/* Skill section styling */
+#skills {
+  margin-left: calc(var(--dynamic-box-width) + var(--gap) - 4rem);
+  padding: 6rem;
+  transition: margin-left var(--box-transition-duration) ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.dynamic-box.rotate-about ~ #skills {
+  margin-left: calc(var(--dynamic-box-rotated-width) + var(--gap));
+  opacity: 1;
+  transform: translateY(0);
+} 
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Grid layout for skill rows */
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: 1rem;
+}
+
+.skill-row { 
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+}
+
+.skill-label {
+  flex: 0 0 350px;
+  font-weight: 600;
+}
+
+.skill-value {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .skill-label {
+    flex: 0 0 100%;
+    margin-bottom: 0.25rem;
+  }
+
+  .skill-value {
+    flex: 1 1 100%;
+  }
+}
+
