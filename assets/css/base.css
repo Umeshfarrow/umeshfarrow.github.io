@@ -1,6 +1,7 @@
 /* base.css */
 *, *::before, *::after {
   box-sizing: border-box;
+  /* cursor: pointer !important; */
 }
 
 html,

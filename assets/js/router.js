@@ -37,58 +37,55 @@ document.addEventListener('DOMContentLoaded', () => {
   const pageContainer = document.getElementById('page-content');
   const container = document.querySelector('.container');
 
-  const pages = ['sections/home.html', 'sections/about.html', 'sections/skills.html', 'sections/experience.html', 'sections/projects.html', 'sections/certifications.html'];
+  const pages = ['sections/home.html', 'sections/about.html', 'sections/skills.html', 'sections/experience.html', 'sections/projects.html', 'sections/certifications.html', 'sections/education.html'];
   let currentIndex = 0;
 
   function loadPage(url) {
     const dynamicBox = document.querySelector('.dynamic-box');
+    const rotateClasses = [
+      'rotate-about',
+      'rotate-skills',
+      'rotate-experience',
+      'rotate-projects',
+      'rotate-certifications',
+      'rotate-education'
+    ];
+
+    pageContainer.classList.remove('fade-in', 'fade-out');
     pageContainer.classList.add('fade-out');
 
     setTimeout(() => {
       fetch(url)
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.text();
+        })
         .then(data => {
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = data;
 
           const newContent = tempDiv.querySelector('#page-content');
-          if (newContent) {
-            pageContainer.innerHTML = newContent.innerHTML;
-          } else {
-            pageContainer.innerHTML = data;
-          }
+          pageContainer.innerHTML = newContent ? newContent.innerHTML : data;
 
-          // ✅ Animate dynamic-box transition in both directions
-          if (url.includes('about.html')) {
-            dynamicBox?.classList.add('rotate-about');
-          } else {
-            dynamicBox?.classList.remove('rotate-about'); // ← reverse transition
-          }
+          // Remove previous rotations
+          rotateClasses.forEach(cls => dynamicBox?.classList.remove(cls));
 
-          if (url.includes('skills.html')) {
-            dynamicBox?.classList.add('rotate-skills');
-          } else {
-            dynamicBox?.classList.remove('rotate-skills'); // ← reverse transition
-          }
+          // Add new rotate class based on current section
+          if (url.includes('about.html')) dynamicBox?.classList.add('rotate-about');
+          else if (url.includes('skills.html')) dynamicBox?.classList.add('rotate-skills');
+          else if (url.includes('experience.html')) dynamicBox?.classList.add('rotate-experience');
+          else if (url.includes('projects.html')) dynamicBox?.classList.add('rotate-projects');
+          else if (url.includes('certifications.html')) dynamicBox?.classList.add('rotate-certifications');
+          else if (url.includes('education.html')) dynamicBox?.classList.add('rotate-education');
 
-          if (url.includes('experience.html')) {
-            dynamicBox?.classList.add('rotate-experience');
-          } else {
-            dynamicBox?.classList.remove('rotate-experience'); // ← reverse transition
-          }
-
-          if (url.includes('certifications.html')) {
-            renderCertifications();  // Invoke renderCertifications on certs page load
-            dynamicBox?.classList.add('rotate-certifications');
-          } else {
-            dynamicBox?.classList.remove('rotate-certifications'); // ← reverse transition
-          }
-
-
-          initDetails();
+          // Call relevant initializers
+          if (url.includes('about.html')) initDetails();
+          if (url.includes('certifications.html')) renderCertifications();
           initContactIcons();
-          certifications();
 
+          // Animate fade-in
           pageContainer.classList.remove('fade-out');
           pageContainer.classList.add('fade-in');
 

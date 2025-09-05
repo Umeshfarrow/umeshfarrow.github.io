@@ -14,6 +14,12 @@ export function initContactIcons() {
       icon: 'fab fa-github',
       link: 'https://github.com/umeshfarrow',
       title: 'GitHub'
+    },
+    {
+      // icon: 'fa-solid fa-download',
+      icon: 'fa-solid fa-file-arrow-down',
+      link: 'assets/resume/Umesh_S_Resume.pdf',
+      title: 'Download Resume'
     }
   ];
 

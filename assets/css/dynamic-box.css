@@ -22,7 +22,7 @@
   background-color: #3498db;
   transform: skewY(-3deg);
   border-radius: 20px;
-  z-index: 1;
+  z-index: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   will-change: transform, top, right, width, height, background-color;
   transition:
@@ -63,9 +63,19 @@
   z-index: 0;
 }
 
+.dynamic-box.rotate-projects {
+  top: 6rem;
+  transform: rotate(0deg) skewY(0deg);
+  background-color: darkgoldenrod;
+  height: var(--dynamic-box-yellowgreen-height);
+  width: var(--dynamic-box-yellowgreen-width);
+  z-index: 0;
+}
+
 .dynamic-box.rotate-certifications {
   position: absolute; /* Fixed positioning relative to the viewport */
-  right: 20px; /* Align at the right of the viewport */
+  top: 65%;
+  right: -5%;
   background-color: purple;
   z-index: 0;
   width: 300px; /* Width of the circle */
@@ -73,4 +83,15 @@
   padding: 0; /* Remove padding, so the button is perfectly circular */
   border-radius: 100%; /* Make the object a circle */
   transform: rotate(-160deg) skewY(0deg); /* Apply rotation */
+}
+
+.dynamic-box.rotate-education {
+  position: absolute;
+  top: -2rem;
+  width: 160px;
+  height: 220px;
+  background-color: yellowgreen; /* A bright green */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+  transform: rotate(0deg);
+  z-index: 0;
 }
