@@ -16,13 +16,6 @@ export const certifications = [
     issuedDate: "Issued Aug 2025",
   },
   {
-    title: "Certified Kubernetes Administrator (CKA)",
-    image: "assets/img/terraform.png",  // Local path to image
-    link: "https://www.credly.com/badges/2c05e1f8-8dbe-478e-8737-e24e50380d62",
-    credentialId: "2c05e1f8-8dbe-478e-8737-e24e50380d62",
-    issuedDate: "Issued Aug 2025 · Expires Aug 2027",
-  },
-  {
     title: "HashiCorp Certified: Terraform Associate (003)",
     image: "assets/img/terraform.png",  // Local path to image
     link: "https://www.credly.com/badges/2c05e1f8-8dbe-478e-8737-e24e50380d62",

@@ -1,11 +1,13 @@
 import { startTypingEffect } from './typing-effect.js';
 import { initContactIcons } from './contact-icons.js';
 import { renderCertifications } from './certifications.js';
+import { renderExperience } from './experience.js';
+
 
 // 1. Details initializer
 function initDetails() {
   const designation = ["Senior DevOps Engineer"];
-  const summary = ["A Senior DevOps Engineer, around 6 years of experience in designing, automating, and optimizing end-to-end software delivery pipelines across cloud, enterprise, and AI-driven platforms. Proven expertise in building CI/CD pipelines with Jenkins integrating SonarQube for automated code quality checks, and enabling secure application delivery with TLS/HTTPS using Let’s Encrypt. Skilled in deploying applications across multi-cloud (AWS/Azure/Orange Cloud), driving scalability, security, and cost optimization for diverse environments. Experienced in managing containerized applications with Docker and strong knowledge on Kubernetes, Terraform Certified, container orchestration practices to enable scalability and resilience. Adept at implementing GitOps workflows for streamlined deployments."];
+  const summary = ["Senior DevOps Engineer with 6 years of experience designing and automating end-to-end software delivery pipelines across AWS, Azure, and hybrid cloud platforms. Proven expertise in building CI/CD pipelines (Jenkins, GitHub Actions, GitLab), integrating SonarQube for automated code quality checks, and deploying secure applications using Let’s Encrypt (TLS/HTTPS). Certified in Terraform with strong skills in Docker, Kubernetes, and GitOps practices to drive scalable, resilient infrastructure. Experienced in observability tools (Prometheus, Grafana, OpenTelemetry), enabling 99.9% uptime and reducing release cycles by up to 50%. Passionate about building future-ready infrastructure that is automated, secure, and cost-efficient."];
 
   const roleEl = document.getElementById('typing-role');
   if (roleEl) {
@@ -37,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const pageContainer = document.getElementById('page-content');
   const container = document.querySelector('.container');
 
-  const pages = ['sections/home.html', 'sections/about.html', 'sections/skills.html', 'sections/experience.html', 'sections/projects.html', 'sections/certifications.html', 'sections/education.html'];
+  const pages = ['sections/home.html', 'sections/about.html', 'sections/skills.html', 'sections/experience.html', 'sections/projects.html', 'sections/certifications.html'];
   let currentIndex = 0;
 
   function loadPage(url) {
@@ -47,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'rotate-skills',
       'rotate-experience',
       'rotate-projects',
-      'rotate-certifications',
-      'rotate-education'
+      'rotate-certifications'
+      // 'rotate-education'
     ];
 
     pageContainer.classList.remove('fade-in', 'fade-out');
@@ -82,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Call relevant initializers
           if (url.includes('about.html')) initDetails();
+          if (url.includes('experience.html')) renderExperience();
           if (url.includes('certifications.html')) renderCertifications();
           initContactIcons();
 
