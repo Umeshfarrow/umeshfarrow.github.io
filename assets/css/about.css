@@ -1,7 +1,6 @@
-/* about.css */
+/* about.css summary page*/
 #about {
   position: relative;
-  /* margin: calc(var(--dynamic-box-width) + var(--gap)); */
   margin: calc(var(--dynamic-box-width, 250px) + var(--gap, 1rem));
   margin-top: 10rem;
   transition:
@@ -12,28 +11,4 @@
 .dynamic-box.rotate-about ~ #about {
   margin-left: calc(var(--dynamic-box-rotated-width, 100px) + var(--gap, 1rem));
   margin-top: 4rem;
-}
-
-@media (max-width: 768px) {
-  #about {
-    margin-left: 1rem; /* Override dynamic spacing for better mobile UX */
-    margin-top: 6rem;
-  }
-
-  .dynamic-box.rotate-about ~ #about {
-    margin-left: 1rem;
-    margin-top: 3rem;
-  }
-}
-
-@media (max-width: 480px) {
-  #about {
-    margin-left: 0.75rem;
-    margin-top: 4rem;
-  }
-
-  .dynamic-box.rotate-about ~ #about {
-    margin-left: 0.75rem;
-    margin-top: 2rem;
-  }
 }

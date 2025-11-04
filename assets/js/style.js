@@ -1,14 +1,14 @@
 // style.js
 const cssFiles = [
   "assets/css/variables.css",
-  "assets/css/base.css",
   "assets/css/dynamic-box.css",
-  "assets/css/about.css",
+  "assets/css/base.css",
   "assets/css/profile.css",
-  "assets/css/transitions.css",
+  "assets/css/about.css",
+  // "assets/css/transitions.css",
   "assets/css/skills.css",
-  "assets/css/experience.css",
-  "assets/css/certifications.css",
+  // "assets/css/experience.css",
+  // "assets/css/certifications.css",
   // "assets/css/nav.css",
 ];
 

@@ -1,22 +1,34 @@
 /* dynamic-box.css */
+
+/* === Root Variables === */
 :root {
   --box-transition-duration: 1s;
+
+  /* Default (desktop) */
   --dynamic-box-width: 850px;
   --dynamic-box-height: 180px;
+  --dynamic-box-top: 12.5rem;
+  --dynamic-box-right: 8rem;
+
   --dynamic-box-orange-width: 500px;
   --dynamic-box-orange-height: 10px;
   --dynamic-box-green-width: 400px;
   --dynamic-box-green-height: 120px;
   --dynamic-box-yellowgreen-width: 600px;
   --dynamic-box-yellowgreen-height: 10px;
-  --gap: -40rem;
-  /* space between box and content */
+
+  --circle-size: 300px;
+  --education-width: 160px;
+  --education-height: 220px;
+
+  --gap: -40rem; /* space between box and content */
 }
 
+/* === Base Dynamic Box === */
 .dynamic-box {
   position: absolute;
-  top: 12.5rem;
-  right: 8rem;
+  top: var(--dynamic-box-top);
+  right: var(--dynamic-box-right);
   width: var(--dynamic-box-width);
   height: var(--dynamic-box-height);
   background-color: #3498db;
@@ -34,6 +46,7 @@
     background-color var(--box-transition-duration) ease-in-out;
 }
 
+/* === Variants === */
 .dynamic-box.rotate-about {
   top: 20rem;
   right: 70rem;
@@ -50,7 +63,7 @@
   background-color: green;
   height: var(--dynamic-box-green-height);
   width: var(--dynamic-box-green-width);
-  z-index: 0; /* ensure it stays behind content */
+  z-index: 0;
 }
 
 .dynamic-box.rotate-experience {
@@ -60,7 +73,6 @@
   background-color: yellowgreen;
   height: var(--dynamic-box-yellowgreen-height);
   width: var(--dynamic-box-yellowgreen-width);
-  z-index: 0;
 }
 
 .dynamic-box.rotate-projects {
@@ -69,29 +81,123 @@
   background-color: darkgoldenrod;
   height: var(--dynamic-box-yellowgreen-height);
   width: var(--dynamic-box-yellowgreen-width);
-  z-index: 0;
 }
 
 .dynamic-box.rotate-certifications {
-  position: absolute; /* Fixed positioning relative to the viewport */
+  position: absolute;
   top: 65%;
   right: -5%;
   background-color: purple;
   z-index: 0;
-  width: 300px; /* Width of the circle */
-  height: 300px; /* Height of the circle */
-  padding: 0; /* Remove padding, so the button is perfectly circular */
-  border-radius: 100%; /* Make the object a circle */
-  transform: rotate(-160deg) skewY(0deg); /* Apply rotation */
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 100%;
+  transform: rotate(-160deg);
 }
 
 .dynamic-box.rotate-education {
   position: absolute;
   top: -2rem;
-  width: 160px;
-  height: 220px;
-  background-color: yellowgreen; /* A bright green */
+  width: var(--education-width);
+  height: var(--education-height);
+  background-color: yellowgreen;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
   transform: rotate(0deg);
   z-index: 0;
+}
+
+/* === Responsive Breakpoints === */
+
+/* --- Large Tablets / Small Laptops --- */
+@media (max-width: 1200px) {
+  :root {
+    --dynamic-box-width: 700px;
+    --dynamic-box-height: 160px;
+    --dynamic-box-right: 6rem;
+
+    --dynamic-box-orange-width: 400px;
+    --dynamic-box-green-width: 350px;
+    --dynamic-box-yellowgreen-width: 500px;
+
+    --circle-size: 250px;
+    --education-width: 140px;
+    --education-height: 190px;
+  }
+}
+
+/* --- Tablets --- */
+@media (max-width: 992px) {
+  :root {
+    --dynamic-box-width: 600px;
+    --dynamic-box-height: 140px;
+    --dynamic-box-top: 10rem;
+    --dynamic-box-right: 4rem;
+
+    --dynamic-box-orange-width: 350px;
+    --dynamic-box-green-width: 300px;
+    --dynamic-box-yellowgreen-width: 400px;
+
+    --circle-size: 220px;
+    --education-width: 120px;
+    --education-height: 160px;
+  }
+}
+
+/* --- Mobile Devices --- */
+@media (max-width: 768px) {
+  :root {
+    --dynamic-box-width: 85vw;
+    --dynamic-box-height: 120px;
+    --dynamic-box-top: 8rem;
+    --dynamic-box-right: 2rem;
+
+    --dynamic-box-orange-width: 250px;
+    --dynamic-box-green-width: 220px;
+    --dynamic-box-yellowgreen-width: 300px;
+
+    --circle-size: 180px;
+    --education-width: 100px;
+    --education-height: 130px;
+  }
+
+  .dynamic-box.rotate-about,
+  .dynamic-box.rotate-skills,
+  .dynamic-box.rotate-experience {
+    right: 4rem;
+  }
+
+  .dynamic-box.rotate-certifications {
+    right: 0;
+    top: 70%;
+  }
+}
+
+/* --- Extra Small Phones --- */
+@media (max-width: 480px) {
+  :root {
+    --dynamic-box-width: 90vw;
+    --dynamic-box-height: 100px;
+    --dynamic-box-top: 6rem;
+    --dynamic-box-right: 1rem;
+
+    --dynamic-box-orange-width: 200px;
+    --dynamic-box-green-width: 180px;
+    --dynamic-box-yellowgreen-width: 250px;
+
+    --circle-size: 150px;
+    --education-width: 80px;
+    --education-height: 110px;
+  }
+
+  .dynamic-box.rotate-about,
+  .dynamic-box.rotate-experience {
+    display: none; /* Optional: hide decorative boxes for cleaner mobile UI */
+  }
+
+  .dynamic-box.rotate-certifications {
+    top: 75%;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%) rotate(-160deg);
+  }
 }

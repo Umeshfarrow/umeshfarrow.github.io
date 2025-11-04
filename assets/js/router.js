@@ -2,12 +2,13 @@ import { startTypingEffect } from './typing-effect.js';
 import { initContactIcons } from './contact-icons.js';
 import { renderCertifications } from './certifications.js';
 import { renderExperience } from './experience.js';
+import { renderSkills } from './skills.js';
 
 
 // 1. Details initializer
 function initDetails() {
   const designation = ["Senior DevOps Engineer"];
-  const summary = ["Senior DevOps Engineer with 6 years of experience designing and automating end-to-end software delivery pipelines across AWS, Azure, and hybrid cloud platforms. Proven expertise in building CI/CD pipelines (Jenkins, GitHub Actions, GitLab), integrating SonarQube for automated code quality checks, and deploying secure applications using Let’s Encrypt (TLS/HTTPS). Certified in Terraform with strong skills in Docker, Kubernetes, and GitOps practices to drive scalable, resilient infrastructure. Experienced in observability tools (Prometheus, Grafana, OpenTelemetry), enabling 99.9% uptime and reducing release cycles by up to 50%. Passionate about building future-ready infrastructure that is automated, secure, and cost-efficient."];
+  const summary = ["I'm Senior DevOps Engineer with 6 years of experience designing and automating end-to-end software delivery pipelines across AWS, Azure, and hybrid cloud platforms. Proven expertise in building CI/CD pipelines (Jenkins, GitHub Actions, GitLab), integrating SonarQube for automated code quality checks, and deploying secure applications using Let’s Encrypt (TLS/HTTPS). Certified in Terraform with strong skills in Docker, Kubernetes, and GitOps practices to drive scalable, resilient infrastructure. Experienced in observability tools (Prometheus, Grafana, OpenTelemetry), enabling 99.9% uptime and reducing release cycles by up to 50%. Passionate about building future-ready infrastructure that is automated, secure, and cost-efficient."];
 
   const roleEl = document.getElementById('typing-role');
   if (roleEl) {
@@ -84,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Call relevant initializers
           if (url.includes('about.html')) initDetails();
+          if (url.includes('skills.html')) renderSkills();
           if (url.includes('experience.html')) renderExperience();
           if (url.includes('certifications.html')) renderCertifications();
           initContactIcons();

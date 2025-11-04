@@ -1,57 +1,43 @@
-/* profile.css */
+/* home.html */
+
 .profile-layout {
   position: relative;
-  z-index: 2; /* In front of dynamic box */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
-  padding: clamp(1rem, 2vw, 2rem);
-  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 300px;
 }
 
-#contact-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  margin-top: 1rem;
-  padding: 0.5rem;
+.details {
+  flex: 1;
+  padding-top: 120px;
 }
 
-#contact-list i {
-  color: #2c3e50;
+.contact {
+  padding-left: 34px;
+}
+
+.contact a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.name {
+  font-family: "Bonheur Royale", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 80px;
+}
+#contact-list a {
+  padding: 8px;
+}
+#contact-list a i {
   transition: color 0.3s;
-  cursor: pointer;
+  color: #000000;
 }
 
-#contact-list a:hover i {
-  color: Goldenrod;
-  transform: scale(1.15);
+#contact-list a i:hover {
+  color: #0077b5; /* Example hover color */
 }
-
-@media (max-width: 768px) {
-  .profile-layout {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  #contact-list {
-    justify-content: flex-start;
-    padding-left: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  #contact-list {
-    gap: 0.75rem;
-    margin-top: 0.5rem;
-  }
-
-  #contact-list i {
-    font-size: 1.25rem;
-  }
-}
-

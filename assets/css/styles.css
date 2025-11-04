@@ -1,137 +1,39 @@
-html,
-body {
-  font-family: 'Fira Code', 'Courier New', monospace;
-  font-size: 1rem;
-}
-
-.container {
-  min-width: calc(100vw - 3rem);
-  /* Accounts for left/right margin */
-  min-height: calc(100vh - 3rem);
-  max-width: 1000px;
-  margin: 1.5rem auto;
-  padding: 1.5rem;
-  position: relative;
-  box-sizing: border-box;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5.5px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.details {
-  margin: 12rem auto auto 18rem;
-  padding: auto auto auto auto;
-  align-items: center;
-}
-
 :root {
   --box-transition-duration: 1s;
+
+  /* Default (large screens) */
   --dynamic-box-width: 850px;
   --dynamic-box-height: 180px;
-  --dynamic-box-rotated-width: 500px;
-  --dynamic-box-rotated-height: 10px;
-  --gap: -40rem;
-  /* space between box and content */
+  --dynamic-box-top: 12.5rem;
+  --dynamic-box-right: 8rem;
 }
 
-/* Base dynamic box styling */
-.dynamic-box {
-  position: absolute;
-  top: 12.5rem;
-  right: 8rem;
-  width: var(--dynamic-box-width);
-  height: var(--dynamic-box-height);
-  background-color: #3498db;
-  transform: skewY(-3deg);
-  border-radius: 20px;
-  z-index: 1;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  will-change: transform, top, right, width, height, background-color;
-  transition:
-    top var(--box-transition-duration) ease-in-out,
-    right var(--box-transition-duration) ease-in-out,
-    width var(--box-transition-duration) ease-in-out,
-    height var(--box-transition-duration) ease-in-out,
-    transform var(--box-transition-duration) ease-in-out,
-    background-color var(--box-transition-duration) ease-in-out;
+/* --- Medium screens (laptops, tablets) --- */
+@media (max-width: 1024px) {
+  :root {
+    --dynamic-box-width: 650px;
+    --dynamic-box-height: 160px;
+    --dynamic-box-top: 10rem;
+    --dynamic-box-right: 6rem;
+  }
 }
 
-/* Rotated & moved dynamic box for About page */
-.dynamic-box.rotate-about {
-  top: 20rem;
-  right: 70rem;
-  transform: rotate(90deg) skewY(3deg);
-  background-color: orange;
-  height: var(--dynamic-box-rotated-height);
-  width: var(--dynamic-box-rotated-width);
+/* --- Small screens (tablets, large phones) --- */
+@media (max-width: 768px) {
+  :root {
+    --dynamic-box-width: 80vw;
+    --dynamic-box-height: 150px;
+    --dynamic-box-top: 8rem;
+    --dynamic-box-right: 2rem;
+  }
 }
 
-#about {
-  position: relative;
-  margin-left: calc(var(--dynamic-box-width) + var(--gap));
-  margin-top: 10rem;
-  transition: margin-left var(--box-transition-duration) ease-in-out, margin-top var(--box-transition-duration) ease-in-out;
-}
-
-.dynamic-box.rotate-about~#about {
-  margin-left: calc(var(--dynamic-box-rotated-width) + var(--gap));
-  margin-top: 4rem;
-  /* push down only on about page */
-}
-
-
-/* Profile layout inside blue box */
-.profile-layout {
-  position: relative;
-  z-index: 2;
-  /* In front of blue box */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 2rem;
-  /* Spacing inside blue area */
-}
-
-#contact-list {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-top: 1rem;
-  padding: 0.5rem;
-}
-
-#contact-list i {
-  color: #2c3e50;
-  transition: color 0.3s;
-  cursor: pointer;
-}
-
-#contact-list a:hover i {
-  color: #3498db;
-}
-
-/* smooth CSS fade transitions */
-#page-content {
-  transition: opacity 0.3s ease-in-out;
-}
-
-.fade-out {
-  opacity: 0;
-}
-
-.fade-in {
-  opacity: 1;
-}
-
-/* smooth CSS fade transitions */
-
-nav {
-  display: none;
+/* --- Extra small screens (phones) --- */
+@media (max-width: 480px) {
+  :root {
+    --dynamic-box-width: 90vw;
+    --dynamic-box-height: 130px;
+    --dynamic-box-top: 6rem;
+    --dynamic-box-right: 1rem;
+  }
 }
