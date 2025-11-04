@@ -1,54 +1,107 @@
-/* Skill section styling */
+/* Variables for spacing, sizing, and padding */
+:root {
+  --skills-gap: 1rem;
+  --section-padding-vertical: clamp(1rem, 2vw, 3rem);
+  --section-padding-horizontal: clamp(0.5rem, 2vw, 2rem);
+  --skill-row-padding-vertical: clamp(0rem, 0vw, 0.75rem);
+  --skill-row-padding-horizontal: clamp(0.5rem, 1.5vw, 1rem);
+  --skill-label-width: 300px;
+  --skill-label-margin: 1rem;
+  --skill-font-size: 1rem;
+  --skill-line-height: 1.4;
+
+}
+
+/* Main container */
 #skills {
-  margin-left: calc(var(--dynamic-box-width) + var(--gap) - 4rem);
-  padding: 6rem;
-  transition: margin-left var(--box-transition-duration) ease-in-out;
   position: relative;
-  z-index: 1;
+  flex-wrap: wrap; /* allows items to wrap on small screens */
+  justify-content: center; /* centers horizontally */
+  align-items: center; /* centers vertically */
+  gap: var(--skills-gap); /* space between items */
+  padding: var(--section-padding-vertical) var(--section-padding-horizontal);
+  box-sizing: border-box;
 }
 
-.dynamic-box.rotate-about ~ #skills {
-  margin-left: calc(var(--dynamic-box-rotated-width) + var(--gap));
-  opacity: 1;
-  transform: translateY(0);
-} 
-
+/* Section title */
 .section-title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: var(--section-padding-vertical) var(--section-padding-horizontal);
+  max-width: fit-content;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-/* Grid layout for skill rows */
+/* Skills grid */
 .skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  font-size: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--section-padding-vertical) var(--section-padding-horizontal);
+  max-width: fit-content;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.skill-row { 
+/* Skill row */
+.skill-row {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: baseline;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: var(--skill-row-padding-vertical) var(--skill-row-padding-horizontal);
+  box-sizing: border-box;
 }
 
+/* Skill label styling */
 .skill-label {
-  flex: 0 0 350px;
+  flex: 0 0 var(--skill-label-width);
   font-weight: 600;
+  color: #222;
+  text-align: left;
+  margin-right: var(--skill-label-margin);
+  font-size: var(--skill-font-size);
+  box-sizing: border-box;
 }
 
+/* Skill value styling */
 .skill-value {
   flex: 1;
+  text-align: left;
+  line-height: var(--skill-line-height);
+  word-break: break-word;
+  font-size: var(--skill-font-size);
+  box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-  .skill-label {
-    flex: 0 0 100%;
-    margin-bottom: 0.25rem;
-  }
-
-  .skill-value {
-    flex: 1 1 100%;
+/* Responsive tweaks via variables */
+@media (max-width: 900px) {
+  :root {
+    --section-padding-vertical: 1.5rem;
+    --section-padding-horizontal: 1rem;
+    --skill-row-padding-vertical: 0.5rem;
+    --skill-row-padding-horizontal: 0.5rem;
+    --skill-label-width: 200px;
+    --skill-label-margin: 0.5rem;
   }
 }
 
+@media (max-width: 600px) {
+  :root {
+    --section-padding-vertical: 1rem;
+    --section-padding-horizontal: 0.5rem;
+    --skill-row-padding-vertical: 0.4rem;
+    --skill-row-padding-horizontal: 0.4rem;
+    --skill-label-width: 100%;
+    --skill-label-margin: 0;
+  }
+
+  .skill-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
