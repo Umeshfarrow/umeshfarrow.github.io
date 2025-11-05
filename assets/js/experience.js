@@ -55,15 +55,15 @@ export function renderExperience() {
     const container = document.createElement("div");
 
     container.innerHTML = `
-      <h3 class="text-xl font-semibold">
+      <h3>
         <a href="${item.website}" target="_blank" rel="noopener noreferrer">${item.company}</a>
       </h3>
-      <div class="flex flex-wrap items-center text-sm text-gray-600 dark:text-gray-400 gap-2">
+      <div>
         <span class="font-medium">${item.title}</span>
         <span>- ${item.location}</span>
         <span>| ${item.duration}</span>
       </div>
-      <ul class="list-disc list-inside mt-2 space-y-1">
+      <ul>
         ${item.achievements.map(point => `<li>${point}</li>`).join("")}
       </ul>
     `;

@@ -1,8 +1,9 @@
 import { startTypingEffect } from './typing-effect.js';
 import { initContactIcons } from './contact-icons.js';
-import { renderCertifications } from './certifications.js';
-import { renderExperience } from './experience.js';
 import { renderSkills } from './skills.js';
+import { renderExperience } from './experience.js';
+import { renderProjects } from './projects.js';
+import { renderCertifications } from './certifications.js';
 
 
 // 1. Details initializer
@@ -87,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (url.includes('about.html')) initDetails();
           if (url.includes('skills.html')) renderSkills();
           if (url.includes('experience.html')) renderExperience();
+          if (url.includes('projects.html')) renderProjects();
           if (url.includes('certifications.html')) renderCertifications();
           initContactIcons();
 

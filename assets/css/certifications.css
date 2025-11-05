@@ -80,6 +80,10 @@
   margin-top: 10px;
 }
 
+h2.title {
+  margin: 16px 60px;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .certifications-wrapper {

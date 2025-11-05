@@ -57,10 +57,10 @@
 }
 
 .dynamic-box.rotate-skills {
-  top: 22rem;
+  top: 18rem;
   right: 10rem;
   transform: rotate(-90deg) skewY(15deg);
-  background-color: green;
+  background-color: rgb(187, 255, 0);
   height: var(--dynamic-box-green-height);
   width: var(--dynamic-box-green-width);
   z-index: 0;
@@ -70,7 +70,7 @@
   top: 24rem;
   right: 70rem;
   transform: rotate(-270deg) skewY(0deg);
-  background-color: yellowgreen;
+  background-color: rgb(255, 51, 51);
   height: var(--dynamic-box-yellowgreen-height);
   width: var(--dynamic-box-yellowgreen-width);
 }

@@ -7,9 +7,9 @@ const cssFiles = [
   "assets/css/about.css",
   // "assets/css/transitions.css",
   "assets/css/skills.css",
-  // "assets/css/experience.css",
-  // "assets/css/certifications.css",
-  // "assets/css/nav.css",
+  "assets/css/experience.css",
+  "assets/css/projects.css",
+  "assets/css/certifications.css",
 ];
 
 function loadStylesheets(files) {
