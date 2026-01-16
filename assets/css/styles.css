@@ -1,0 +1,39 @@
+:root {
+  --box-transition-duration: 1s;
+
+  /* Default (large screens) */
+  --dynamic-box-width: 850px;
+  --dynamic-box-height: 180px;
+  --dynamic-box-top: 12.5rem;
+  --dynamic-box-right: 8rem;
+}
+
+/* --- Medium screens (laptops, tablets) --- */
+@media (max-width: 1024px) {
+  :root {
+    --dynamic-box-width: 650px;
+    --dynamic-box-height: 160px;
+    --dynamic-box-top: 10rem;
+    --dynamic-box-right: 6rem;
+  }
+}
+
+/* --- Small screens (tablets, large phones) --- */
+@media (max-width: 768px) {
+  :root {
+    --dynamic-box-width: 80vw;
+    --dynamic-box-height: 150px;
+    --dynamic-box-top: 8rem;
+    --dynamic-box-right: 2rem;
+  }
+}
+
+/* --- Extra small screens (phones) --- */
+@media (max-width: 480px) {
+  :root {
+    --dynamic-box-width: 90vw;
+    --dynamic-box-height: 130px;
+    --dynamic-box-top: 6rem;
+    --dynamic-box-right: 1rem;
+  }
+}

@@ -1,0 +1,30 @@
+/* pagination.css */
+
+.modern-pagination {
+  display: flex;
+  justify-content: center;
+  bottom: 28px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0.5rem; /* smaller, more reasonable spacing */
+}
+
+.modern-pagination .page-indicator {
+  display: flex;
+  gap: 8px; /* compact spacing between dots */
+}
+
+.modern-pagination .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modern-pagination .dot.active {
+  background-color: #007BFF;
+  transform: scale(1.5); /* slightly bigger for active dot */
+}

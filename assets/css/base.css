@@ -1,0 +1,42 @@
+/* index.html  */
+/* base.css */
+*, *::before, *::after {
+  box-sizing: border-box;
+  /* cursor: pointer !important; */
+}
+
+html, body {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: max(95vw, 1200px);
+  height: 90vh;
+  margin: 2rem auto;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5.5px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#page-content {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-family: "Bonheur Royale", cursive;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 40px;
+}

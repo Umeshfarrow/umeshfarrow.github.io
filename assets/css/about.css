@@ -1,0 +1,14 @@
+/* about.css summary page*/
+#about {
+  position: relative;
+  margin: calc(var(--dynamic-box-width, 250px) + var(--gap, 1rem));
+  margin-top: 10rem;
+  transition:
+  margin-left var(--box-transition-duration, 0.3s) ease-in-out,
+  margin-top var(--box-transition-duration, 0.3s) ease-in-out;
+}
+
+.dynamic-box.rotate-about ~ #about {
+  margin-left: calc(var(--dynamic-box-rotated-width, 100px) + var(--gap, 1rem));
+  margin-top: 4rem;
+}

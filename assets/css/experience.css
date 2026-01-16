@@ -1,0 +1,44 @@
+.experience {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 60px;
+}
+
+.experience-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+  
+  /* Optional scroll snapping for smooth sections */
+  scroll-snap-type: x mandatory;
+
+  /* Hide scrollbar visually */
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE/Edge */
+}
+
+.experience .title {
+  padding: 1rem 0;
+}
+
+/* Each card */
+.experience-wrapper > div {
+  scroll-snap-align: start;
+  min-width: 100%;
+  overflow-wrap: anywhere;
+  border-radius: 8px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.experience-wrapper h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.experience-wrapper h3 a:hover {
+  text-decoration: underline;
+}

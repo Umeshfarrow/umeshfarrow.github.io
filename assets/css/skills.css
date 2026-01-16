@@ -1,0 +1,59 @@
+/* Variables for spacing, sizing, and padding */
+:root {
+  --skills-gap: 1rem;
+  --section-padding-vertical: clamp(1rem, 2vw, 3rem);
+  --section-padding-horizontal: clamp(0.5rem, 2vw, 2rem);
+  --skill-row-padding-vertical: clamp(0rem, 0vw, 0.75rem);
+  --skill-row-padding-horizontal: clamp(0.5rem, 1.5vw, 1rem);
+  --skill-label-width: 300px;
+  --skill-label-margin: 1rem;
+  --skill-font-size: 1rem;
+  --skill-line-height: 1.4;
+
+}
+
+.skills {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--skills-gap);
+  padding: var(--section-padding-vertical) var(--section-padding-horizontal);
+  margin-inline: auto;
+  max-width: 100%;
+  width: fit-content;
+  margin-top: 2rem;
+}
+
+.skills .skills-grid {
+  align-items: center;
+}
+
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.4rem;
+}
+
+/* Skill label styling */
+.skill-label {
+  flex: 0 0 var(--skill-label-width);
+  font-weight: 600;
+  color: #222;
+  text-align: left;
+  margin-right: var(--skill-label-margin);
+  font-size: var(--skill-font-size);
+  box-sizing: border-box;
+}
+
+/* Skill value styling */
+.skill-value {
+  flex: 1;
+  text-align: left;
+  line-height: var(--skill-line-height);
+  word-break: break-word;
+  font-size: var(--skill-font-size);
+  box-sizing: border-box;
+}

@@ -1,0 +1,9 @@
+/* variables.css */
+:root {
+  --box-transition-duration: 1s;
+  --dynamic-box-width: 850px;
+  --dynamic-box-height: 180px;
+  --dynamic-box-rotated-width: 500px;
+  --dynamic-box-rotated-height: 10px;
+  --gap: -40rem; /* space between box and content */
+}
