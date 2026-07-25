@@ -1,9 +1,92 @@
-/* variables.css */
 :root {
   --box-transition-duration: 1s;
+
   --dynamic-box-width: 850px;
   --dynamic-box-height: 180px;
-  --dynamic-box-rotated-width: 500px;
-  --dynamic-box-rotated-height: 10px;
-  --gap: -40rem; /* space between box and content */
+  --dynamic-box-top: 12rem;
+  --dynamic-box-right: 14rem;
+
+  --dynamic-box-orange-width: 500px;
+  --dynamic-box-orange-height: 10px;
+  --dynamic-box-green-width: 400px;
+  --dynamic-box-green-height: 120px;
+  --dynamic-box-yellowgreen-width: 600px;
+  --dynamic-box-yellowgreen-height: 10px;
+
+  --circle-size: 300px;
+  --education-width: 160px;
+  --education-height: 220px;
+
+  --dynamic-box-rotated-width: var(--dynamic-box-orange-width);
+  --dynamic-box-rotated-height: var(--dynamic-box-orange-height);
+
+  --gap: -40rem;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --dynamic-box-width: 700px;
+    --dynamic-box-height: 160px;
+    --dynamic-box-right: 6rem;
+    --dynamic-box-orange-width: 400px;
+    --dynamic-box-green-width: 350px;
+    --dynamic-box-yellowgreen-width: 500px;
+    --circle-size: 250px;
+    --education-width: 140px;
+    --education-height: 190px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --dynamic-box-width: 650px;
+    --dynamic-box-height: 160px;
+    --dynamic-box-top: 10rem;
+    --dynamic-box-right: 6rem;
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    --dynamic-box-width: 600px;
+    --dynamic-box-height: 140px;
+    --dynamic-box-top: 10rem;
+    --dynamic-box-right: 4rem;
+    --dynamic-box-orange-width: 350px;
+    --dynamic-box-green-width: 300px;
+    --dynamic-box-yellowgreen-width: 400px;
+    --circle-size: 220px;
+    --education-width: 120px;
+    --education-height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --dynamic-box-width: 85vw;
+    --dynamic-box-height: 120px;
+    --dynamic-box-top: 8rem;
+    --dynamic-box-right: 2rem;
+    --dynamic-box-orange-width: 250px;
+    --dynamic-box-green-width: 220px;
+    --dynamic-box-yellowgreen-width: 300px;
+    --circle-size: 180px;
+    --education-width: 100px;
+    --education-height: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --dynamic-box-width: 90vw;
+    --dynamic-box-height: 100px;
+    --dynamic-box-top: 6rem;
+    --dynamic-box-right: 1rem;
+    --dynamic-box-orange-width: 200px;
+    --dynamic-box-green-width: 180px;
+    --dynamic-box-yellowgreen-width: 250px;
+    --circle-size: 150px;
+    --education-width: 80px;
+    --education-height: 110px;
+  }
 }

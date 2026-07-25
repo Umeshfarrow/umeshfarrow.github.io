@@ -2,7 +2,7 @@ export function initContactIcons() {
   const contactItems = [
     {
       icon: 'fas fa-envelope',
-      link: 'mailto:kelsakarya@gmail.com',
+      link: 'mailto:' + ['kelsakarya', 'gmail.com'].join('@'),
       title: 'Email'
     },
     {

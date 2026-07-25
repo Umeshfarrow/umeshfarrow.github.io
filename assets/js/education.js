@@ -1,72 +1,33 @@
 // education.js
+import { staggerIn } from './stagger.js';
 
 export const education = [
   {
-    title: "LFS169: Introduction to GitOps",
-    image: "assets/img/gitops.png",  // Local path to image
-    link: "https://www.credly.com/badges/697ce02f-ad98-487b-94bc-7aeb55716b21",
-    credentialId: "697ce02f-ad98-487b-94bc-7aeb55716b21",
-    issuedDate: "Issued Aug 2025",
-  },
-  {
-    title: "LFS148: Getting Started with OpenTelemetry",
-    image: "assets/img/opentelemetry.png",  // Local path to image
-    link: "https://www.credly.com/badges/f98e3c3d-92a6-4ead-ae1d-9587f4a1f877",
-    credentialId: "f98e3c3d-92a6-4ead-ae1d-9587f4a1f877",
-    issuedDate: "Issued Aug 2025",
-  },
-  {
-    title: "Certified Kubernetes Administrator (CKA)",
-    image: "assets/img/terraform.png",  // Local path to image
-    link: "https://www.credly.com/badges/2c05e1f8-8dbe-478e-8737-e24e50380d62",
-    credentialId: "2c05e1f8-8dbe-478e-8737-e24e50380d62",
-    issuedDate: "Issued Aug 2025 · Expires Aug 2027",
-  },
-  {
-    title: "HashiCorp Certified: Terraform Associate (003)",
-    image: "assets/img/terraform.png",  // Local path to image
-    link: "https://www.credly.com/badges/2c05e1f8-8dbe-478e-8737-e24e50380d62",
-    credentialId: "2c05e1f8-8dbe-478e-8737-e24e50380d62",
-    issuedDate: "Issued Aug 2025 · Expires Aug 2027",
+    degree: "Bachelor of Engineering (B.E.)",
+    field: "Computer Science & Engineering",
+    institution: "Visvesvaraya Technological University",
+    location: "Belagavi, India",
+    duration: "2015 – 2019",
   }
 ];
 
-// Function to generate HTML for each certification
-const generateCertificationHTML = (cert) => {
-  return `
-    <div class="certification-item">
-      <img src="${cert.image}" alt="${cert.title}" class="certification-image" />
-      <div class="certification-details">
-        <h3 class="certification-title">${cert.title}</h3>
-        <p class="certification-date">${cert.issuedDate}</p>
-        <p class="certification-id">
-          Credential ID: <code>${cert.credentialId}</code>
-        </p>
-        <a href="${cert.link}" target="_blank" rel="noopener noreferrer" class="verify-link">Verify Badge</a>
-      </div>
-    </div>
-  `;
-};
-
-// Function to render education
 export const renderEducation = () => {
   const container = document.getElementById('education-container');
-  if (!container) {
-    console.error('Education container not found');
-    return;
-  }
+  if (!container) return;
 
-  // Clear previous content if any (optional)
   container.innerHTML = '';
 
-  education.forEach(cert => {
-    // Generate HTML for each certification
-    const certHTML = generateCertificationHTML(cert);
-
-    // Append the HTML to the container
-    container.innerHTML += certHTML;
+  education.forEach(edu => {
+    const card = document.createElement('div');
+    card.className = 'education-item';
+    card.innerHTML = `
+      <h3 class="edu-degree">${edu.degree}</h3>
+      <p class="edu-field">${edu.field}</p>
+      <p class="edu-institution">${edu.institution} — ${edu.location}</p>
+      <p class="edu-duration">${edu.duration}</p>
+    `;
+    container.appendChild(card);
   });
-};
 
-// Automatically render education when this script is loaded
-renderEducation();
+  staggerIn(container, { variant: 'up', stagger: 120 });
+};

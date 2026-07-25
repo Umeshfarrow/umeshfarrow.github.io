@@ -7,7 +7,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin: 0 auto;
-  padding-left: 300px;
+  padding-left: 256px;
 }
 
 .details {
@@ -28,14 +28,33 @@
   font-family: "Bonheur Royale", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 80px;
+  font-size: 100px;
+}
+
+.photo {
+  margin-right: 112px;
+  margin-top: -5rem;
+}
+
+.photo img {
+  width: 580px;
+  height: auto;
+}
+
+.role-title {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  padding-left: 34px;
 }
 #contact-list a {
   padding: 8px;
 }
 #contact-list a i {
   transition: color 0.3s;
-  color: #000000;
+  color: var(--text-color);
 }
 
 #contact-list a i:hover {

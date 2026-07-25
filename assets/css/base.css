@@ -21,22 +21,108 @@ html, body {
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--container-bg);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--container-shadow);
   backdrop-filter: blur(5.5px);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 #page-content {
   margin: 0;
-  padding: 0;
+  padding-top: 2rem;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.title {
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.decorative-title {
   font-family: "Bonheur Royale", cursive;
   font-weight: 800;
   font-style: normal;
   font-size: 40px;
 }
+
+.section-title {
+  font-family: "Bonheur Royale", cursive;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 40px;
+  margin: 16px 60px;
+  color: inherit;
+}
+
+.page-loading {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(0,0,0,0.1);
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --container-bg: rgba(255, 255, 255, 0.25);
+  --container-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  --label-color: #222;
+  --muted-color: #555;
+  --cert-border: #ddd;
+  --cert-shadow: rgba(168, 85, 247, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a2e;
+    --text-color: #ffffff;
+    --container-bg: rgba(26, 26, 46, 0.9);
+    --container-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+    --label-color: #ccc;
+    --muted-color: #aaa;
+    --cert-border: #444;
+    --cert-shadow: rgba(168, 85, 247, 0.5);
+  }
+}
+
+html, body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+#contact-list a i {
+  color: var(--text-color);
+}
+
+.skill-label {
+  color: var(--label-color);
+}
+
+.role-title {
+  color: var(--muted-color);
+}
+
+.certification-item {
+  border-color: var(--cert-border);
+}
+

@@ -17,8 +17,7 @@ export function startTypingEffect({
       charIndex++;
       setTimeout(type, typingSpeed);
     } else {
-      // setTimeout(erase, delayBetweenTexts);
-      setTimeout(delayBetweenTexts);
+      setTimeout(erase, delayBetweenTexts);
     }
   }
 

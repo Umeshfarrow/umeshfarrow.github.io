@@ -1,5 +1,6 @@
 // projects.js
 import { initHorizontalPagination } from "./pagination.js";
+import { staggerIn } from "./stagger.js";
 
 export const projects = [
   {
@@ -85,6 +86,8 @@ export function renderProjects() {
 
     wrapper.appendChild(container);
   });
+
+  staggerIn(wrapper, { variant: 'up', stagger: 100 });
 
   initHorizontalPagination({
     wrapperId: 'projects-wrapper',

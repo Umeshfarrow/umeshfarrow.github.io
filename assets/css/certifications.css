@@ -18,8 +18,13 @@
 }
 
 /* Apply shadow on hover of the whole certification item */
+.certification-item:hover {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.3), 0 8px 24px rgba(168, 85, 247, 0.15);
+}
+
 .certification-item:hover .certification-image {
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5)); /* Shadow on image only */
+  filter: drop-shadow(0 4px 10px rgba(168, 85, 247, 0.4));
 }
 
 /* Certification image */
@@ -46,41 +51,47 @@
   left: 50%; /* Center the button horizontally */
   transform: translateX(-50%); /* Correct centering */
   padding: 8px 15px;
-  color: #007BFF;
+  color: #a855f7;
   font-weight: 500;
   border-radius: 25px;
-  border: 1px solid #007BFF;
+  border: 1px solid #a855f7;
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
 }
 
 /* Show the button when the item is hovered */
 .certification-item:hover .verify-link {
-  display: inline-block; /* Show the button when the item is hovered */
+  display: inline-block;
   margin-bottom: 6rem;
+  background: rgba(168, 85, 247, 0.08);
+}
+
+.verify-link:hover {
+  background: #a855f7;
+  color: #fff;
 }
 
 /* Title and date styling */
 .certification-title {
   font-size: 1.02rem;
   font-weight: 600;
-  color: #333;
+  color: var(--label-color);
   margin-bottom: 10px;
 }
 
 .certification-date {
   font-size: 0.95rem;
-  color: #888;
+  color: var(--muted-color);
   margin-bottom: 10px;
 }
 
 .certification-id {
   font-size: 0.85rem;
-  color: #777;
+  color: var(--muted-color);
   margin-top: 10px;
 }
 
-h2.title {
+.certifications .section-title {
   margin: 16px 60px;
 }
 

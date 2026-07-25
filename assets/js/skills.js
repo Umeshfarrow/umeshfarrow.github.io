@@ -1,4 +1,5 @@
 // skills.js
+import { staggerIn } from './stagger.js';
 
 export const skills = [
   {
@@ -27,7 +28,7 @@ export const skills = [
   },
   {
     category: "Streaming & Queueing Systems",
-    items: ["Kafka", "AKHQ", "MongoDB", "RabbitMQ"]
+    items: ["Kafka", "AKHQ", "RabbitMQ"]
   },
   {
     category: "Operating Systems",
@@ -36,6 +37,10 @@ export const skills = [
   {
     category: "Hypervisors",
     items: ["VirtualBox", "Hyper-V", "VMware"]
+  },
+  {
+    category: "Databases",
+    items: ["MongoDB", "MySQL"]
   },
   {
     category: "Programming & Scripting",
@@ -64,4 +69,6 @@ export const renderSkills = () => {
 
     container.appendChild(row);
   });
+
+  staggerIn(container, { variant: 'fade-left', stagger: 150 });
 }

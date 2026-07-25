@@ -5,12 +5,12 @@ const cssFiles = [
   "assets/css/base.css",
   "assets/css/profile.css",
   "assets/css/about.css",
-  // "assets/css/transitions.css",
   "assets/css/skills.css",
   "assets/css/experience.css",
   "assets/css/projects.css",
   "assets/css/certifications.css",
   "assets/css/pagination.css",
+  "assets/css/stagger.css",
 ];
 
 function loadStylesheets(files) {

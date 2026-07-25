@@ -1,5 +1,6 @@
 // experience.js
 import { initHorizontalPagination } from "./pagination.js";
+import { staggerIn } from "./stagger.js";
 
 export const experienceData = [
   {
@@ -72,6 +73,8 @@ export function renderExperience() {
 
     wrapper.appendChild(container);
   });
+
+  staggerIn(wrapper, { variant: 'tilt', stagger: 100 });
 
   initHorizontalPagination({
     wrapperId: 'experience-wrapper',

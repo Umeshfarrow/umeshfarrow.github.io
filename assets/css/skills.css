@@ -41,7 +41,7 @@
 .skill-label {
   flex: 0 0 var(--skill-label-width);
   font-weight: 600;
-  color: #222;
+  color: var(--label-color);
   text-align: left;
   margin-right: var(--skill-label-margin);
   font-size: var(--skill-font-size);

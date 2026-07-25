@@ -1,4 +1,5 @@
 // certifications.js
+import { staggerIn } from "./stagger.js";
 
 export const certifications = [
   {
@@ -66,5 +67,7 @@ export const renderCertifications = () => {
     // Append the HTML to the container
     container.innerHTML += certHTML;
   });
+
+  staggerIn(container, { variant: 'scale-up', stagger: 120 });
 };
 
