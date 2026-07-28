@@ -1,4 +1,3 @@
-// projects.js
 import { initHorizontalPagination } from "./pagination.js";
 import { staggerIn } from "./stagger.js";
 
@@ -73,7 +72,7 @@ export function renderProjects() {
   const wrapper = document.getElementById('projects-wrapper');
   if (!wrapper) return;
 
-  wrapper.innerHTML = ''; // Clear previous content
+  wrapper.innerHTML = '';
 
   projects.forEach((project) => {
     const container = document.createElement('div');
@@ -96,4 +95,3 @@ export function renderProjects() {
   });
 
 }
-

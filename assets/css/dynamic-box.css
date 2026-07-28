@@ -114,8 +114,41 @@
   }
 }
 
+@keyframes circle-in {
+  from { transform: translate(-50%, -50%) scale(0); }
+  to   { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateX(-50%) scale(0.8); }
+  to   { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+
+@keyframes blob {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25% { border-radius: 40% 60% 70% 30% / 40% 60% 30% 70%; }
+  50% { border-radius: 30% 70% 50% 50% / 50% 40% 60% 50%; }
+  75% { border-radius: 70% 30% 40% 60% / 30% 60% 40% 70%; }
+}
+
 @media (max-width: 768px) {
-  .dynamic-box.rotate-about,
+  .dynamic-box.rotate-home {
+    display: none;
+  }
+
+  .dynamic-box.rotate-about {
+    right: auto;
+    left: 50%;
+    top: 24rem;
+    width: 240px;
+    height: 240px;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translateX(-50%) rotate(0deg) skewY(0deg);
+    background: linear-gradient(135deg, rgba(255,140,0,0.5), rgba(255,100,50,0.2));
+    transition: none;
+    animation: fade-in 0.6s ease-out forwards, blob 8s ease-in-out infinite 0.6s;
+  }
+
   .dynamic-box.rotate-skills,
   .dynamic-box.rotate-experience {
     right: 4rem;

@@ -36,7 +36,7 @@ export const certifications = [
 const generateCertificationHTML = (cert) => {
   return `
     <div class="certification-item">
-      <img src="${cert.image}" alt="${cert.title}" class="certification-image" />
+      <img src="${cert.image}" alt="${cert.title}" class="certification-image" loading="lazy" />
       <div class="certification-details">
         <h3 class="certification-title">${cert.title}</h3>
         <p class="certification-date">${cert.issuedDate}</p>

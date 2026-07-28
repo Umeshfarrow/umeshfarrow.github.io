@@ -14,8 +14,8 @@ html, body {
 }
 
 .container {
-  width: max(95vw, 1200px);
-  height: 90vh;
+  width: max(95dvw, 1200px);
+  height: 90dvh;
   margin: 2rem auto;
   padding: 1rem;
   position: relative;
@@ -28,10 +28,40 @@ html, body {
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+@media (max-width: 1200px) {
+  .container {
+    width: 95dvw;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: calc(100dvw - 4rem);
+    min-height: calc(100dvh - 4rem);
+    height: auto;
+    margin: 2rem;
+    padding: 1rem;
+    border: 1px solid var(--muted-color);
+    overflow: visible;
+  }
+
+  body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 #page-content {
   margin: 0;
   padding-top: 2rem;
   transition: opacity 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  #page-content {
+    padding-top: 0.5rem;
+  }
 }
 
 .fade-out {
@@ -49,6 +79,18 @@ html, body {
   font-size: 40px;
 }
 
+@media (max-width: 768px) {
+  .decorative-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .decorative-title {
+    font-size: 28px;
+  }
+}
+
 .section-title {
   font-family: "Bonheur Royale", cursive;
   font-weight: 800;
@@ -56,6 +98,20 @@ html, body {
   font-size: 40px;
   margin: 16px 60px;
   color: inherit;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px;
+    margin: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 24px;
+    margin: 8px 12px;
+  }
 }
 
 .page-loading {
@@ -124,5 +180,18 @@ html, body {
 
 .certification-item {
   border-color: var(--cert-border);
+}
+
+#typing-summary::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+  margin-left: 4px;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 

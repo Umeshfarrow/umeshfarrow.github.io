@@ -4,6 +4,25 @@
   flex-direction: column;
   overflow: hidden;
   margin: 60px;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  .experience {
+    margin: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience {
+    margin: 20px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience {
+    margin: 12px 8px;
+  }
 }
 
 .experience-wrapper {
@@ -22,7 +41,8 @@
 }
 
 .experience .section-title {
-  padding: 1rem 0;
+  margin: 4px 0;
+  padding: 0;
 }
 
 /* Each card */

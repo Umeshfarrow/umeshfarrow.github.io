@@ -20,7 +20,7 @@ export const skills = [
   },
   {
     category: "Infrastructure as Code (IaC)",
-    items: ["Terraform", "Helm"]
+    items: ["Terraform", "CloudFormation"]
   },
   {
     category: "Monitoring & Observability",
@@ -35,7 +35,7 @@ export const skills = [
     items: ["Linux (Ubuntu, Mint, Parrot OS)", "Windows (7/10/11/Server)"]
   },
   {
-    category: "Hypervisors",
+    category: "Virtualization",
     items: ["VirtualBox", "Hyper-V", "VMware"]
   },
   {

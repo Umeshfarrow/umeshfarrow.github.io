@@ -9,7 +9,7 @@ import { staggerIn } from './stagger.js';
 const pages = ['sections/home.html', 'sections/about.html', 'sections/skills.html', 'sections/experience.html', 'sections/projects.html', 'sections/certifications.html'];
 
 const rotateClasses = [
-  'rotate-about', 'rotate-skills', 'rotate-experience',
+  'rotate-home', 'rotate-about', 'rotate-skills', 'rotate-experience',
   'rotate-projects', 'rotate-certifications'
 ];
 
@@ -50,7 +50,7 @@ function loadPage(url) {
         rotateClasses.forEach(cls => dynamicBox?.classList.remove(cls));
 
         const file = url.split('/').pop().replace('.html', '');
-        if (file !== 'home') dynamicBox?.classList.add('rotate-' + file);
+        dynamicBox?.classList.add('rotate-' + file);
 
         if (url.includes('about.html')) {
           initDetails();
@@ -116,6 +116,27 @@ document.addEventListener('DOMContentLoaded', () => {
       goTo(currentIndex - 1);
     }
   });
+
+  let touchStartY = 0;
+  container.addEventListener('touchstart', e => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  container.addEventListener('touchend', e => {
+    if (isScrolling || isNavigating || !touchStartY) return;
+    const deltaY = touchStartY - e.changedTouches[0].clientY;
+    touchStartY = 0;
+    if (Math.abs(deltaY) < 50) return;
+    if (deltaY > 0 && currentIndex < pages.length - 1) {
+      isScrolling = true;
+      goTo(currentIndex + 1);
+      setTimeout(() => isScrolling = false, 1000);
+    } else if (deltaY < 0 && currentIndex > 0) {
+      isScrolling = true;
+      goTo(currentIndex - 1);
+      setTimeout(() => isScrolling = false, 1000);
+    }
+  }, { passive: true });
 
   container.setAttribute('tabindex', '0');
 });

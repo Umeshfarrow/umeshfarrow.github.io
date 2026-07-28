@@ -1,4 +1,3 @@
-// experience.js
 import { initHorizontalPagination } from "./pagination.js";
 import { staggerIn } from "./stagger.js";
 
@@ -10,7 +9,7 @@ export const experienceData = [
     location: "Bengaluru",
     duration: "Oct 2024 - Present",
     achievements: [
-      "Led DevOps initiatives for AI/ML product lines, ensuring 70.5% uptime and scalable cloud-native applications across cloud environments.",
+      "Led DevOps initiatives for AI/ML product lines, ensuring 99.5% uptime and scalable cloud-native applications across cloud environments.",
       "Implemented CI/CD pipelines in Jenkins with SonarQube integration, reducing release cycle time from weekly to daily and cutting deployment errors by 30%.",
       "Standardized infrastructure with Kubernetes, Docker, Helm, and Terraform, improving environment consistency and reducing provisioning time by 40%.",
       "Built observability stack using Prometheus and Grafana, reducing mean time to resolution by 35% through real-time monitoring and alerting.",
@@ -38,21 +37,18 @@ export const experienceData = [
     duration: "Jan 2020 - Sep 2021",
     achievements: [
       "Built and maintained CI/CD pipelines with Jenkins, integrating SonarQube for automated code checks, reducing deployment errors by 25% and enabling bi-weekly secure releases.",
-      "Delivered applications over HTTPS/TLS using Let’s Encrypt, improving platform security compliance and increasing customer trust.",
+      "Delivered applications over HTTPS/TLS using Let's Encrypt, improving platform security compliance and increasing customer trust.",
       "Implemented monitoring with Prometheus and Grafana, improving visibility and reducing release risks, cutting downtime by 20%.",
       "Proactively self-learned Kubernetes and advocated its adoption, initiating discussions on scaling, containerization, and future-ready infrastructure."
     ]
   }
 ];
 
-
-//  logic
-
 export function renderExperience() {
   const wrapper = document.getElementById('experience-wrapper');
   if (!wrapper) return;
 
-  wrapper.innerHTML = ''; // Clear previous content
+  wrapper.innerHTML = '';
 
   experienceData.forEach((item) => {
     const container = document.createElement("div");

@@ -49,14 +49,151 @@
   margin-bottom: 0.5rem;
   padding-left: 34px;
 }
+
 #contact-list a {
   padding: 8px;
 }
+
 #contact-list a i {
   transition: color 0.3s;
   color: var(--text-color);
 }
 
 #contact-list a i:hover {
-  color: #0077b5; /* Example hover color */
+  color: #0077b5;
+}
+
+@media (max-width: 1200px) {
+  .profile-layout {
+    padding-left: 120px;
+  }
+
+  .photo {
+    margin-right: 60px;
+    margin-top: -3rem;
+  }
+
+  .photo img {
+    width: 400px;
+  }
+
+  .name {
+    font-size: 72px;
+  }
+
+  .details {
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .profile-layout {
+    padding-left: 80px;
+  }
+
+  .photo {
+    margin-right: 40px;
+    margin-top: -2rem;
+  }
+
+  .photo img {
+    width: 320px;
+  }
+
+  .name {
+    font-size: 56px;
+  }
+
+  .details {
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-layout {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0 0 0;
+    gap: 0;
+  }
+
+  .details {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .photo {
+    margin: 0 0 0 1rem;
+    order: 2;
+    position: relative;
+    z-index: 1;
+    width: calc(100% - 1rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .photo::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3498db, rgba(52,152,219,0.7));
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: circle-in 0.6s ease-out forwards;
+  }
+
+  .photo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .name {
+    font-size: 48px;
+  }
+
+  .role-title {
+    padding-left: 0;
+    font-size: 1.1rem;
+  }
+
+  .contact {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.05rem;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .photo img {
+    width: 100%;
+  }
+
+  .photo::before {
+    width: 180px;
+    height: 180px;
+  }
+
+  .name {
+    font-size: 36px;
+  }
+
+  .role-title {
+    font-size: 1rem;
+  }
+
+  .contact {
+    font-size: 0.95rem;
+  }
 }

@@ -95,13 +95,25 @@
   margin: 16px 60px;
 }
 
-/* Mobile responsiveness */
 @media (max-width: 768px) {
   .certifications-wrapper {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     padding: 10px;
   }
+
   .certification-item {
     padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certifications-wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 8px;
+  }
+
+  .certification-item {
+    padding: 12px;
   }
 }

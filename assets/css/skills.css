@@ -21,7 +21,11 @@
   margin-inline: auto;
   max-width: 100%;
   width: fit-content;
-  margin-top: 2rem;
+  margin-top: 0;
+}
+
+.skills .section-title {
+  margin: 4px 0;
 }
 
 .skills .skills-grid {
@@ -56,4 +60,28 @@
   word-break: break-word;
   font-size: var(--skill-font-size);
   box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .skill-label {
+    flex: 0 0 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skill-row {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.6rem 0;
+  }
+
+  .skill-label {
+    flex: none;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .skill-value {
+    width: 100%;
+  }
 }

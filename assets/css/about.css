@@ -1,14 +1,25 @@
-/* about.css summary page*/
 #about {
   position: relative;
-  margin: calc(var(--dynamic-box-width, 250px) + var(--gap, 1rem));
-  margin-top: 10rem;
-  transition:
-  margin-left var(--box-transition-duration, 0.3s) ease-in-out,
-  margin-top var(--box-transition-duration, 0.3s) ease-in-out;
+  margin: 0;
+  margin-top: 4rem;
+  margin-left: 8rem;
+  max-width: 1200px;
+  padding: 0 2rem;
 }
 
-.dynamic-box.rotate-about ~ #about {
-  margin-left: calc(var(--dynamic-box-rotated-width, 100px) + var(--gap, 1rem));
-  margin-top: 4rem;
+@media (max-width: 1024px) {
+  #about {
+    margin-top: 3rem;
+    margin-left: 6rem;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  #about {
+    margin-top: 4rem;
+    margin-left: 2rem;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
 }
