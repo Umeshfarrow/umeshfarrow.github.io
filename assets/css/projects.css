@@ -4,6 +4,25 @@
   flex-direction: column;
   overflow: hidden;
   margin: 60px;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  .projects {
+    margin: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    margin: 20px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    margin: 12px 8px;
+  }
 }
 
 .projects-wrapper {
@@ -11,7 +30,7 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 1rem;
-  padding: 1rem 0;
+  padding: 0 0 1rem 0;
   
   /* Optional scroll snapping for smooth sections */
   scroll-snap-type: x mandatory;
@@ -22,7 +41,7 @@
 }
 
 .projects .section-title {
-  padding: 1rem 0;
+  margin: 12px 0 8px 0;
 }
 
 /* Each card */

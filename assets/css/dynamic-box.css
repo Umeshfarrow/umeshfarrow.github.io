@@ -36,19 +36,20 @@
   top: 18rem;
   right: 10rem;
   transform: rotate(-90deg) skewY(15deg);
-  background-color: rgb(187, 255, 0);
+  background-color: #16a085;
   height: var(--dynamic-box-green-height);
   width: var(--dynamic-box-green-width);
   z-index: 0;
 }
 
 .dynamic-box.rotate-experience {
-  top: 24rem;
+  top: 5rem;
   right: 70rem;
   transform: rotate(-270deg) skewY(0deg);
   background-color: rgb(255, 51, 51);
-  height: var(--dynamic-box-yellowgreen-height);
-  width: var(--dynamic-box-yellowgreen-width);
+  width: 80px;
+  height: 80px;
+  border-radius: 0;
 }
 
 .dynamic-box.rotate-projects {
@@ -82,12 +83,47 @@
   z-index: 0;
 }
 
-/* --- Mobile Devices --- */
+@media (max-width: 1200px) {
+  .dynamic-box.rotate-about {
+    right: 20rem;
+  }
+
+  .dynamic-box.rotate-skills {
+    right: 6rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dynamic-box.rotate-about {
+    top: 14rem;
+    right: 8rem;
+  }
+
+  .dynamic-box.rotate-skills {
+    top: 14rem;
+    right: 4rem;
+  }
+
+  .dynamic-box.rotate-experience {
+    top: 18rem;
+    right: 8rem;
+  }
+
+  .dynamic-box.rotate-projects {
+    top: 4rem;
+  }
+}
+
 @media (max-width: 768px) {
   .dynamic-box.rotate-about,
   .dynamic-box.rotate-skills,
   .dynamic-box.rotate-experience {
     right: 4rem;
+    top: 12rem;
+  }
+
+  .dynamic-box.rotate-projects {
+    top: 3rem;
   }
 
   .dynamic-box.rotate-certifications {
@@ -96,11 +132,19 @@
   }
 }
 
-/* --- Extra Small Phones --- */
 @media (max-width: 480px) {
   .dynamic-box.rotate-about,
   .dynamic-box.rotate-experience {
     display: none;
+  }
+
+  .dynamic-box.rotate-skills {
+    top: 10rem;
+    right: 2rem;
+  }
+
+  .dynamic-box.rotate-projects {
+    top: 2rem;
   }
 
   .dynamic-box.rotate-certifications {

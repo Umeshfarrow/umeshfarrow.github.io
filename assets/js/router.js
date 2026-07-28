@@ -19,21 +19,10 @@ let isNavigating = false;
 
 function initDetails() {
   const designation = ["Senior DevOps Engineer"];
-  const summary = ["I'm Senior DevOps Engineer with 6 years of experience designing and automating end-to-end software delivery pipelines across AWS, Azure, and hybrid cloud platforms. Proven expertise in building CI/CD pipelines (Jenkins, GitHub Actions, GitLab), integrating SonarQube for automated code quality checks, and deploying secure applications using Let’s Encrypt (TLS/HTTPS). Certified in Terraform with strong skills in Docker, Kubernetes, and GitOps practices to drive scalable, resilient infrastructure. Experienced in observability tools (Prometheus, Grafana, OpenTelemetry), enabling 99.9% uptime and reducing release cycles by up to 50%. Passionate about building future-ready infrastructure that is automated, secure, and cost-efficient."];
-
-  const roleEl = document.getElementById('typing-role');
-  if (roleEl) startTypingEffect({ elementId: 'typing-role', texts: designation });
+  const summary = ["I'm a Senior DevOps Engineer with 6 years of experience designing and automating end-to-end software delivery pipelines across AWS, Azure, and hybrid cloud platforms. Proven expertise in building CI/CD pipelines (Jenkins, GitHub Actions, GitLab), integrating SonarQube for automated code quality checks, and deploying secure applications using Let’s Encrypt (TLS/HTTPS). Certified in Terraform with strong skills in Docker, Kubernetes, and GitOps practices to drive scalable, resilient infrastructure. Experienced in observability tools (Prometheus, Grafana, OpenTelemetry), enabling 99.9% uptime and reducing release cycles by up to 50%. Passionate about building future-ready infrastructure that is automated, secure, and cost-efficient."];
 
   const summaryEl = document.getElementById('typing-summary');
   if (summaryEl) startTypingEffect({ elementId: 'typing-summary', texts: summary, typingSpeed: 30 });
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll('section, footer').forEach(el => observer.observe(el));
 
   const profileLayout = document.querySelector('.profile-layout');
   if (profileLayout) staggerIn(profileLayout, { variant: 'scale-up', stagger: 100, initialDelay: 200 });
@@ -72,6 +61,7 @@ function loadPage(url) {
         if (url.includes('experience.html')) renderExperience();
         if (url.includes('projects.html')) renderProjects();
         if (url.includes('certifications.html')) renderCertifications();
+
         initContactIcons();
 
         pageContainer.classList.remove('fade-out');
