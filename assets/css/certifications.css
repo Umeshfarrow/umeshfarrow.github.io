@@ -4,6 +4,7 @@
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--space-6);
   padding: var(--space-3) var(--section-gutter);
+  align-items: start;
 }
 
 /* Certification item styles */
