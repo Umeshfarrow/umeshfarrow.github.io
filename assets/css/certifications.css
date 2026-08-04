@@ -17,13 +17,12 @@
   align-items: center;
   gap: var(--space-4);
   overflow: hidden;
-  transition: background-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  transition: background-color var(--dur-fast) var(--ease-out);
 }
 
-/* Apply uniform shadow on hover of the whole certification item */
+/* Apply shadow on hover of the whole certification item */
 .certification-item:hover {
   background-color: var(--card-bg);
-  box-shadow: 0 12px 32px -12px var(--cert-shadow);
 }
 
 /* Certification image */
