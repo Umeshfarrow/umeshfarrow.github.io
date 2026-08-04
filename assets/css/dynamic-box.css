@@ -7,19 +7,19 @@
   right: var(--dynamic-box-right);
   width: var(--dynamic-box-width);
   height: var(--dynamic-box-height);
-  background: radial-gradient(closest-side, rgba(52, 152, 219, 0.16), rgba(52, 152, 219, 0.02));
+  background-color: #3498db;
   transform: skewY(-3deg);
-  border-radius: 50%;
+  border-radius: 20px;
   z-index: 0;
-  filter: blur(14px);
-  will-change: transform, top, right, width, height, background, filter;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  will-change: transform, top, right, width, height, background-color;
   transition:
     top var(--box-transition-duration) ease-in-out,
     right var(--box-transition-duration) ease-in-out,
     width var(--box-transition-duration) ease-in-out,
     height var(--box-transition-duration) ease-in-out,
     transform var(--box-transition-duration) ease-in-out,
-    background var(--box-transition-duration) ease-in-out;
+    background-color var(--box-transition-duration) ease-in-out;
 }
 
 /* === Variants === */
@@ -27,7 +27,7 @@
   top: 20rem;
   right: 70rem;
   transform: rotate(90deg) skewY(3deg);
-  background: radial-gradient(closest-side, rgba(255, 140, 0, 0.16), rgba(255, 140, 0, 0.02));
+  background-color: orange;
   height: var(--dynamic-box-orange-height);
   width: var(--dynamic-box-orange-width);
 }
@@ -36,7 +36,7 @@
   top: 18rem;
   right: 10rem;
   transform: rotate(-90deg) skewY(15deg);
-  background: radial-gradient(closest-side, rgba(22, 160, 133, 0.16), rgba(22, 160, 133, 0.02));
+  background-color: #16a085;
   height: var(--dynamic-box-green-height);
   width: var(--dynamic-box-green-width);
   z-index: 0;
@@ -46,7 +46,7 @@
   top: 5rem;
   right: 70rem;
   transform: rotate(-270deg) skewY(0deg);
-  background: radial-gradient(closest-side, rgba(255, 51, 51, 0.2), rgba(255, 51, 51, 0.03));
+  background-color: rgb(255, 51, 51);
   width: 80px;
   height: 80px;
   border-radius: 0;
@@ -55,7 +55,7 @@
 .dynamic-box.rotate-projects {
   top: 6rem;
   transform: rotate(90deg) skewY(0deg);
-  background: radial-gradient(closest-side, rgba(184, 134, 11, 0.18), rgba(184, 134, 11, 0.02));
+  background-color: darkgoldenrod;
   height: var(--dynamic-box-green-height);
   width: var(--dynamic-box-green-width);
 }
@@ -64,7 +64,7 @@
   position: absolute;
   top: 65%;
   right: -5%;
-  background: radial-gradient(closest-side, rgba(128, 0, 128, 0.16), rgba(128, 0, 128, 0.02));
+  background-color: purple;
   z-index: 0;
   width: var(--circle-size);
   height: var(--circle-size);
@@ -77,7 +77,7 @@
   top: -2rem;
   width: var(--education-width);
   height: var(--education-height);
-  background: radial-gradient(closest-side, rgba(154, 205, 50, 0.16), rgba(154, 205, 50, 0.02));
+  background-color: yellowgreen;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
   transform: rotate(0deg);
   z-index: 0;
@@ -144,8 +144,7 @@
     height: 240px;
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     transform: translateX(-50%) rotate(0deg) skewY(0deg);
-    background: linear-gradient(135deg, rgba(255,140,0,0.25), rgba(255,100,50,0.08));
-    filter: blur(10px);
+    background: linear-gradient(135deg, rgba(255,140,0,0.5), rgba(255,100,50,0.2));
     transition: none;
     animation: fade-in 0.6s ease-out forwards, blob 8s ease-in-out infinite 0.6s;
   }
