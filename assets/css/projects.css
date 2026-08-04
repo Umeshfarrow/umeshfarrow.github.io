@@ -39,11 +39,9 @@
   scroll-snap-align: start;
   min-width: 100%;
   overflow-wrap: anywhere;
-  border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: var(--space-5);
   box-sizing: border-box;
-  background: var(--card-bg);
   transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-med) var(--ease-out);
 }
 
