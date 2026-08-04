@@ -13,8 +13,11 @@
   border-radius: 12px;
   padding: var(--space-5);
   text-align: center;
-  position: relative;  /* For positioning the verify button */
   background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
   transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-med) var(--ease-out);
 }
 
@@ -25,72 +28,53 @@
   box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.25);
 }
 
-.certification-item:hover .certification-image {
-  filter: drop-shadow(0 4px 10px rgba(168, 85, 247, 0.4));
-}
-
 /* Certification image */
 .certification-image {
-  width: 100%;
-  max-width: 140px;
-  margin-bottom: 15px;
-  background-color: transparent;  /* Ensure image background is transparent */
-  transition: filter 0.3s ease; /* Smooth transition for shadow effect */
-}
-
-/* Hide details when hovering over the certification item */
-.certification-item:hover .certification-title,
-.certification-item:hover .certification-date,
-.certification-item:hover .certification-id {
-  visibility: hidden;  /* Hide text details */
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: var(--space-2);
 }
 
 /* Verify link (button) styling */
 .verify-link {
-  display: none;  /* Hide the button initially */
-  position: absolute; /* Position the button inside the item */
-  bottom: 15px; /* Align at the bottom */
-  left: 50%; /* Center the button horizontally */
-  transform: translateX(-50%); /* Correct centering */
-  padding: 8px 15px;
-  color: #a855f7;
+  margin-top: auto;
+  padding: 8px 20px;
+  color: var(--accent-color);
   font-weight: 500;
   border-radius: 25px;
-  border: 1px solid #a855f7;
+  border: 1px solid var(--accent-color);
   text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-/* Show the button when the item is hovered */
-.certification-item:hover .verify-link {
-  display: inline-block;
-  margin-bottom: 6rem;
-  background: rgba(168, 85, 247, 0.08);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
 
 .verify-link:hover {
-  background: #a855f7;
+  background: var(--accent-color);
   color: #fff;
 }
 
 /* Title and date styling */
+.certification-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
 .certification-title {
   font-size: 1.02rem;
   font-weight: 600;
   color: var(--label-color);
-  margin-bottom: 10px;
 }
 
 .certification-date {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--muted-color);
-  margin-bottom: 10px;
 }
 
 .certification-id {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--muted-color);
-  margin-top: 10px;
 }
 
 .certifications .section-title {

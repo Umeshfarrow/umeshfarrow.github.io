@@ -1,7 +1,6 @@
-// async-css.js - load non-critical stylesheets (fonts, icon fonts) without blocking first paint
+// async-css.js - load non-critical stylesheets (fonts) without blocking first paint
 const asyncStylesheets = [
   'assets/css/fonts.css',
-  'assets/css/fontawesome/all.min.css',
 ];
 
 asyncStylesheets.forEach(href => {
