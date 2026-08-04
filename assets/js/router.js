@@ -5,6 +5,7 @@ import { renderExperience } from './experience.js';
 import { renderProjects } from './projects.js';
 import { renderCertifications } from './certifications.js';
 import { staggerIn } from './stagger.js';
+import { safeHTML } from './trusted.js';
 
 const pages = ['sections/home.html', 'sections/about.html', 'sections/skills.html', 'sections/experience.html', 'sections/projects.html', 'sections/certifications.html'];
 
@@ -45,7 +46,7 @@ function loadPage(url) {
     fetch(url)
       .then(response => response.text())
       .then(data => {
-        pageContainer.innerHTML = data;
+        pageContainer.innerHTML = safeHTML(data);
 
         rotateClasses.forEach(cls => dynamicBox?.classList.remove(cls));
 

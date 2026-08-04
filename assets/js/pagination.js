@@ -1,3 +1,5 @@
+import { safeHTML } from "./trusted.js";
+
 export function initHorizontalPagination({wrapperId, totalItems, paginationId}) {
   const wrapper = document.getElementById(wrapperId);
   if (!wrapper) return;
@@ -13,13 +15,13 @@ export function initHorizontalPagination({wrapperId, totalItems, paginationId}) 
   wrapper.after(pagination);
 
   function renderPagination() {
-    pagination.innerHTML = `
+    pagination.innerHTML = safeHTML(`
       <div class="page-indicator">
         ${Array.from({length: totalItems}).map((_, i) => `
           <span class="dot ${i === currentPage ? 'active' : ''}" data-index="${i}"></span>
         `).join('')}
       </div>
-    `;
+    `);
 
     // Click dots to scroll
     pagination.querySelectorAll('.dot').forEach(dot => {

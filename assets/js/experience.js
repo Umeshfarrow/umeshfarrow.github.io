@@ -1,5 +1,6 @@
 import { initHorizontalPagination } from "./pagination.js";
 import { staggerIn } from "./stagger.js";
+import { safeHTML } from "./trusted.js";
 
 export const experienceData = [
   {
@@ -48,12 +49,12 @@ export function renderExperience() {
   const wrapper = document.getElementById('experience-wrapper');
   if (!wrapper) return;
 
-  wrapper.innerHTML = '';
+  wrapper.innerHTML = safeHTML('');
 
   experienceData.forEach((item) => {
     const container = document.createElement("div");
 
-    container.innerHTML = `
+    container.innerHTML = safeHTML(`
       <h3>
         <a href="${item.website}" target="_blank" rel="noopener noreferrer">${item.company}</a>
       </h3>
@@ -65,7 +66,7 @@ export function renderExperience() {
       <ul>
         ${item.achievements.map(point => `<li>${point}</li>`).join("")}
       </ul>
-    `;
+    `);
 
     wrapper.appendChild(container);
   });

@@ -1,3 +1,5 @@
+import { safeHTML } from './trusted.js';
+
 export function initContactIcons() {
   const contactItems = [
     {
@@ -26,7 +28,7 @@ export function initContactIcons() {
   const container = document.getElementById('contact-list');
   if (!container) return;
 
-  container.innerHTML = '';
+  container.innerHTML = safeHTML('');
   contactItems.forEach(item => {
     const icon = document.createElement('i');
     icon.className = item.icon;

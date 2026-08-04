@@ -1,5 +1,6 @@
 // skills.js
 import { staggerIn } from './stagger.js';
+import { safeHTML } from './trusted.js';
 
 export const skills = [
   {
@@ -56,16 +57,16 @@ export const renderSkills = () => {
     return;
   }
 
-  container.innerHTML = ""; // clear old content
+  container.innerHTML = safeHTML(''); // clear old content
 
   skills.forEach(skill => {
     const row = document.createElement("div");
     row.classList.add("skill-row");
 
-    row.innerHTML = `
+    row.innerHTML = safeHTML(`
       <span class="skill-label">[${skill.category}]:</span>
       <span class="skill-value">${skill.items.join(", ")}</span>
-    `;
+    `);
 
     container.appendChild(row);
   });

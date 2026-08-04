@@ -1,5 +1,6 @@
 import { initHorizontalPagination } from "./pagination.js";
 import { staggerIn } from "./stagger.js";
+import { safeHTML } from "./trusted.js";
 
 export const projects = [
   {
@@ -72,16 +73,16 @@ export function renderProjects() {
   const wrapper = document.getElementById('projects-wrapper');
   if (!wrapper) return;
 
-  wrapper.innerHTML = '';
+  wrapper.innerHTML = safeHTML('');
 
   projects.forEach((project) => {
     const container = document.createElement('div');
 
-    container.innerHTML = `
+    container.innerHTML = safeHTML(`
       <h3>${project.title} | ${project.role}</h3>
       <p>${project.description}</p>
       <p>${project.technologies.join(' · ')}</p>
-    `;
+    `);
 
     wrapper.appendChild(container);
   });

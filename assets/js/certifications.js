@@ -1,5 +1,6 @@
 // certifications.js
 import { staggerIn } from "./stagger.js";
+import { safeHTML } from "./trusted.js";
 
 export const certifications = [
   {
@@ -36,7 +37,7 @@ export const certifications = [
 const generateCertificationHTML = (cert) => {
   return `
     <div class="certification-item">
-      <img src="${cert.image}" alt="${cert.title}" class="certification-image" loading="lazy" />
+      <img src="${cert.image}" alt="${cert.title}" class="certification-image" loading="lazy" width="400" height="400" />
       <div class="certification-details">
         <h3 class="certification-title">${cert.title}</h3>
         <p class="certification-date">${cert.issuedDate}</p>
@@ -58,14 +59,14 @@ export const renderCertifications = () => {
   }
 
   // Clear previous content if any (optional)
-  container.innerHTML = '';
+  container.innerHTML = safeHTML('');
 
   certifications.forEach(cert => {
     // Generate HTML for each certification
     const certHTML = generateCertificationHTML(cert);
 
     // Append the HTML to the container
-    container.innerHTML += certHTML;
+    container.innerHTML = safeHTML(container.innerHTML + certHTML);
   });
 
   staggerIn(container, { variant: 'scale-up', stagger: 120 });
