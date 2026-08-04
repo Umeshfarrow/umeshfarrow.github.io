@@ -74,23 +74,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-2);
+  width: 100%;
+  overflow: hidden;
 }
 
 .certification-title {
   font-size: 1.02rem;
   font-weight: 600;
   color: var(--label-color);
+  margin: 0 0 var(--space-2) 0;
 }
 
 .certification-date {
   font-size: 0.9rem;
   color: var(--muted-color);
+  margin: 0 0 var(--space-2) 0;
+  max-height: 3rem;
+  overflow: hidden;
+  opacity: 1;
+  transition: max-height var(--dur-med) var(--ease-out), opacity var(--dur-med) var(--ease-out), margin-bottom var(--dur-med) var(--ease-out);
 }
 
 .certification-id {
   font-size: 0.8rem;
   color: var(--muted-color);
+  margin: 0;
+  max-height: 3rem;
+  overflow: hidden;
+  opacity: 1;
+  transition: max-height var(--dur-med) var(--ease-out), opacity var(--dur-med) var(--ease-out), margin-bottom var(--dur-med) var(--ease-out);
+}
+
+/* Hover-capable devices: collapse the issued date and credential ID */
+@media (hover: hover) {
+  .certification-item:hover .certification-date,
+  .certification-item:hover .certification-id {
+    max-height: 0;
+    opacity: 0;
+    margin-bottom: 0;
+  }
 }
 
 .certifications .section-title {
