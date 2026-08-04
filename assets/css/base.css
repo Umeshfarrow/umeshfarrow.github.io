@@ -24,7 +24,6 @@ html, body {
   background: var(--container-bg);
   border-radius: 16px;
   box-shadow: var(--container-shadow);
-  backdrop-filter: blur(5.5px);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
