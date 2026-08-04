@@ -25,7 +25,7 @@
 }
 
 .skills .section-title {
-  margin: 4px 0;
+  margin: var(--space-2) 0 var(--space-4) 0;
 }
 
 .skills .skills-grid {
@@ -39,6 +39,12 @@
   width: 100%;
   box-sizing: border-box;
   padding: 0.4rem;
+  border-radius: 8px;
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.skill-row:hover {
+  background-color: var(--card-bg);
 }
 
 /* Skill label styling */

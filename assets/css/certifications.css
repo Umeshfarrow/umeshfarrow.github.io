@@ -2,25 +2,27 @@
 .certifications-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
-  padding: 20px;
+  gap: var(--space-6);
+  padding: var(--space-3) var(--section-gutter);
   justify-items: center;
 }
 
 /* Certification item styles */
 .certification-item {
-  border: 1px solid #ddd;
+  border: 1px solid var(--card-border);
   border-radius: 12px;
-  padding: 20px;
+  padding: var(--space-5);
   text-align: center;
   position: relative;  /* For positioning the verify button */
-  transition: box-shadow 0.3s ease; /* Smooth transition for shadow effect */
+  background: var(--card-bg);
+  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-med) var(--ease-out);
 }
 
 /* Apply shadow on hover of the whole certification item */
 .certification-item:hover {
-  border-color: #a855f7;
-  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.3), 0 8px 24px rgba(168, 85, 247, 0.15);
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.25);
 }
 
 .certification-item:hover .certification-image {
@@ -92,28 +94,28 @@
 }
 
 .certifications .section-title {
-  margin: 16px 60px;
+  margin: var(--space-4) var(--section-gutter);
 }
 
 @media (max-width: 768px) {
   .certifications-wrapper {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    padding: 10px;
+    padding: var(--space-3) var(--space-4);
   }
 
   .certification-item {
-    padding: 15px;
+    padding: var(--space-4);
   }
 }
 
 @media (max-width: 480px) {
   .certifications-wrapper {
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 8px;
+    gap: var(--space-4);
+    padding: var(--space-2);
   }
 
   .certification-item {
-    padding: 12px;
+    padding: var(--space-3);
   }
 }

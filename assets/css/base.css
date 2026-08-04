@@ -96,21 +96,19 @@ html, body {
   font-weight: 800;
   font-style: normal;
   font-size: 40px;
-  margin: 16px 60px;
+  margin: var(--space-4) var(--section-gutter);
   color: inherit;
 }
 
 @media (max-width: 768px) {
   .section-title {
     font-size: 28px;
-    margin: 12px 20px;
   }
 }
 
 @media (max-width: 480px) {
   .section-title {
     font-size: 24px;
-    margin: 8px 12px;
   }
 }
 
@@ -146,6 +144,9 @@ html, body {
   --muted-color: #555;
   --cert-border: #ddd;
   --cert-shadow: rgba(168, 85, 247, 0.3);
+  --accent-color: #3498db;
+  --card-bg: rgba(255, 255, 255, 0.55);
+  --card-border: rgba(0, 0, 0, 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -158,6 +159,9 @@ html, body {
     --muted-color: #aaa;
     --cert-border: #444;
     --cert-shadow: rgba(168, 85, 247, 0.5);
+    --accent-color: #4fa8e0;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
   }
 }
 

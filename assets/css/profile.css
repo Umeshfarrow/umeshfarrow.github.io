@@ -144,7 +144,8 @@
     width: 260px;
     height: 260px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #3498db, rgba(52,152,219,0.7));
+    background: radial-gradient(closest-side, rgba(52,152,219,0.22), rgba(52,152,219,0.03));
+    filter: blur(8px);
     transform: translate(-50%, -50%);
     z-index: -1;
     animation: circle-in 0.6s ease-out forwards;

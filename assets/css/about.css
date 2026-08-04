@@ -1,25 +1,32 @@
 #about {
   position: relative;
   margin: 0;
-  margin-top: 4rem;
-  margin-left: 8rem;
+  margin-top: var(--space-8);
+  margin-left: var(--space-10);
   max-width: 1200px;
-  padding: 0 2rem;
+  padding: 0 var(--space-5);
 }
 
 @media (max-width: 1024px) {
   #about {
-    margin-top: 3rem;
-    margin-left: 6rem;
+    margin-top: var(--space-7);
+    margin-left: var(--space-9);
     max-width: 600px;
   }
 }
 
 @media (max-width: 768px) {
   #about {
-    margin-top: 4rem;
+    margin-top: var(--space-6);
     margin-left: 2rem;
     max-width: 100%;
-    padding: 0 1rem;
+    padding: 0 var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  #about {
+    margin-top: var(--space-5);
+    margin-left: var(--section-gutter);
   }
 }
