@@ -80,37 +80,36 @@ function Work() {
               <div className="work__header">
 
                 {/* NUMBER */}
-                <span className="works_number">
+                <span className="work__number">
                   {work.number}
                 </span>
 
                 {/* DESIGNATION */}
-                <span className="works_designation">
+                <span className="work__designation">
                   {work.designation}
                 </span>
 
                 {/* RIGHT META */}
-                <div className="works_meta_right">
+                <div className="work__meta-right">
 
-                  <span className="works_location">
+                  <span className="work__location">
                     {work.location}
                   </span>
 
-                  <span className="works_separator">
+                  <span className="work__separator">
                     *
                   </span>
 
-                  <span className="works_years">
+                  <span className="work__years">
                     {work.year}
                   </span>
 
                   {work.year.includes("Current") && (
-                    <>
-                      <span
-                        className="works_status_dot"
-                        aria-label="Current position"
-                      />
-                    </>
+                    <span
+                      className="work__status-dot"
+                      role="img"
+                      aria-label="Current position"
+                    />
                   )}
 
                 </div>
@@ -121,20 +120,21 @@ function Work() {
               {/* COMPANY DESCRIPTION */}
               <div className="work__company">
 
-                <a
-                  className="works_org"
+<a
+                  className="work__org"
                   href={work.linkedin}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
+                  referrerPolicy="no-referrer"
                 >
                   <HoverFill>{work.organization} ↗</HoverFill>
                 </a>
 
-                <span className="works_org_separator">
+                <span className="work__org-separator">
                   -
                 </span>
 
-                <span className="works_org_desc">
+                <span className="work__org-desc">
                   {work.org_desc}
                 </span>
 
@@ -142,7 +142,7 @@ function Work() {
 
 
               {/* CONTRIBUTIONS */}
-              <div className="works_contribution">
+              <div className="work__contribution">
 
                 {work.contribution.map((item, index) => (
                   <p key={index}>

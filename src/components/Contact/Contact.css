@@ -191,12 +191,16 @@
 
 @media (max-width: 700px) {
   .contact {
-    min-height: 100svh;
+    min-height: 100dvh;
+
+    height: auto;
 
     padding:
       20px
       var(--page-padding)
       24px;
+
+    overflow: visible;
   }
 
   .contact::before {
@@ -207,11 +211,55 @@
     display: block;
   }
 
+  /* STACK: left content above portrait */
+
+  .contact__main {
+    grid-template-columns: 1fr;
+
+    min-height: 0;
+  }
+
+  .contact__left {
+    padding: 1.5rem 0 0;
+  }
+
   .contact__title {
     max-width: 92%;
     font-size: clamp(54px, 15vw, 64px);
     line-height: 0.82;
   }
+
+  /* INFO BLOCKS */
+
+  .contact__info {
+    margin: 20px 0 8px;
+  }
+
+  .contact__info > a,
+  .contact__info > div {
+    grid-template-columns: 72px 20px minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 10px 8px;
+    font-size: 10px;
+  }
+
+  /* PORTRAIT — fluid, no fixed 320px + offset */
+
+  .contact__right {
+    padding: 1.5rem 0;
+  }
+
+  .contact_border {
+    position: static;
+    width: min(320px, 100%);
+    max-width: 100%;
+    margin: 0 auto;
+
+    left: auto;
+    bottom: auto;
+  }
+
+  /* LINKS */
 
   .contact__links {
     display: block;

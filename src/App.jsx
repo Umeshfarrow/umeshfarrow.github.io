@@ -18,10 +18,6 @@ function App() {
           <Work />
         </section>
 
-        {/* <section className="snap-page">
-          <Statement />
-        </section> */}
-
         <section className="snap-page">
           <Contact />
         </section>

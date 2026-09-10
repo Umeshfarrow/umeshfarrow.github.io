@@ -2,7 +2,7 @@
   position: relative;
 
   height: calc(100svh - var(--header-height));
-  min-height: calc(100svh - 28px);
+  min-height: 0;
 
   padding: 12px var(--page-padding) 18px;
 
@@ -102,11 +102,13 @@
 
 @media (max-width: 700px) {
   .intro {
-    height: calc(100svh - var(--header-height));
-    min-height: 0;
+    height: auto;
+    min-height: calc(100svh - var(--header-height));
 
     padding-top: 10px;
     padding-bottom: 16px;
+
+    overflow: visible;
   }
 
   /* MAIN */
@@ -151,10 +153,7 @@
   /* BOTTOM */
 
   .intro__bottom {
-    grid-template-columns:
-      84px
-      minmax(0, 1fr)
-      auto;
+    grid-template-columns: minmax(0, 1fr) auto;
 
     gap: 16px;
   }
@@ -174,9 +173,7 @@
   }
 
   .intro__bottom {
-    grid-template-columns:
-      64px
-      1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .intro__scroll {

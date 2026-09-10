@@ -63,11 +63,25 @@
 
 @media (max-width: 700px) {
   .header {
-    height: var(--header-height);
-    font-size: 12px;
+    height: auto;
+    min-height: var(--header-height);
+
+    flex-wrap: wrap;
+    row-gap: 6px;
+
+    font-size: 10px;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .header__logo {
+    font-size: 18px;
+    padding: 2px 4px;
   }
 
   .header__nav {
-    gap: 11px;
+    gap: 10px;
+    flex-wrap: wrap;
   }
 }

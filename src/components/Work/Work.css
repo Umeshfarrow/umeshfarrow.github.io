@@ -6,8 +6,8 @@
 .work {
   position: relative;
 
-  height: calc(100svh - var(--header-height));
-  min-height: calc(100svh - 28px);
+  height: 100svh;
+  min-height: 0;
 
   padding: 12px var(--page-padding) 18px;
 
@@ -150,7 +150,7 @@
    NUMBER
 ================================ */
 
-.works_number {
+.work__number {
   color: var(--color-text-muted);
 
   white-space: nowrap;
@@ -161,7 +161,7 @@
    DESIGNATION
 ================================ */
 
-.works_designation {
+.work__designation {
   font-family: var(--font-kode);
 
   font-size: clamp(18px, 2vw, 28px);
@@ -182,7 +182,7 @@
    RIGHT META
 ================================ */
 
-.works_meta_right {
+.work__meta-right {
   display: flex;
 
   align-items: center;
@@ -201,7 +201,7 @@
    LOCATION
 ================================ */
 
-.works_location {
+.work__location {
   color: var(--color-text-muted);
 
   white-space: nowrap;
@@ -212,7 +212,7 @@
    SEPARATOR
 ================================ */
 
-.works_separator {
+.work__separator {
   color: var(--color-text-muted);
 
   opacity: 0.7;
@@ -223,7 +223,7 @@
    YEAR
 ================================ */
 
-.works_years {
+.work__years {
   color: var(--color-text-muted);
 
   white-space: nowrap;
@@ -234,7 +234,7 @@
    GREEN STATUS DOT
 ================================ */
 
-.works_status_dot {
+.work__status-dot {
   width: 5px;
   height: 5px;
 
@@ -295,19 +295,19 @@
   text-transform: none;
 }
 
-.works_org {
+.work__org {
   font-size: inherit;
   font-weight: 500;
 }
 
-.works_org_separator {
+.work__org-separator {
   font-size: inherit;
   font-weight: 400;
 
   color: var(--color-text-muted);
 }
 
-.works_org_desc {
+.work__org-desc {
   font-size: inherit;
   font-weight: 400;
   line-height: inherit;
@@ -315,7 +315,7 @@
   color: var(--color-text-muted);
 }
 
-.works_org:hover {
+.work__org:hover {
   border-color: var(--color-text);
 }
 
@@ -324,7 +324,7 @@
    CONTRIBUTIONS
 ================================ */
 
-.works_contribution {
+.work__contribution {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -333,7 +333,7 @@
   text-transform: none;
 }
 
-.works_contribution p {
+.work__contribution p {
   position: relative;
   margin: 0;
   padding-left: 16px;
@@ -342,7 +342,7 @@
   line-height: 1.5;
 }
 
-.works_contribution p::before {
+.work__contribution p::before {
   content: "-";
   position: absolute;
   left: 0;
@@ -378,16 +378,16 @@
 @media (max-width: 700px) {
 
   .work {
-    min-height: 100svh;
+    min-height: 100dvh;
 
-    height: 100svh;
+    height: auto;
 
     padding:
       10px
       var(--page-padding)
       16px;
 
-    overflow-y: auto;
+    overflow: visible;
   }
 
 
@@ -433,20 +433,20 @@
 
   /* NUMBER */
 
-  .works_number {
+  .work__number {
     padding-top: 3px;
   }
 
   /* DESIGNATION */
 
-  .works_designation {
+  .work__designation {
     font-size: 21px;
     white-space: normal;
   }
 
   /* RIGHT META */
 
-  .works_meta_right {
+  .work__meta-right {
     grid-column: 2;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -464,12 +464,12 @@
 
   /* CONTRIBUTIONS */
 
-  .works_contribution {
+  .work__contribution {
     margin-left: 36px;
     gap: 6px;
   }
 
-  .works_contribution p {
+  .work__contribution p {
     font-size: 10px;
     line-height: 1.55;
   }
