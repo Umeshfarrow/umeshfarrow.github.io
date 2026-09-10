@@ -1,12 +1,15 @@
 /**
- * Sound engine — GTA San Andreas-style menu blips, synthesized with the
- * Web Audio API. No audio assets: two short square-wave glides
- * (navigate/blip + select/confirm). AudioContext is created lazily and
- * only resumed after a user gesture, so it never autoplays.
+ * Sound engine — the real GTA San Andreas menu click
+ * (public/audio/menu.mp3, the Zedge ringtone).
+ *
+ * Autoplay policy: browsers only allow programmatic play() after a user
+ * gesture on the page, so a one-time, silent warm-up play is triggered on
+ * the first pointer/key/touch interaction. Hover sounds then fire freely.
  */
 
-let ctx = null;
+let audio = null;
 let muted = false;
+let unlocked = false;
 
 try {
   muted = localStorage.getItem("portfolio.sound.muted") === "1";
@@ -14,51 +17,58 @@ try {
   /* storage unavailable — default unmuted */
 }
 
-function getCtx() {
-  if (!ctx) {
-    const AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) return null;
-    ctx = new AC();
+function getAudio() {
+  if (!audio) {
+    audio = new Audio("/audio/menu.mp3");
+    audio.preload = "auto";
   }
-  return ctx;
+  return audio;
 }
 
-function ensureRunning() {
-  const c = getCtx();
-  if (c && c.state === "suspended") c.resume();
-  return c;
+function unlock() {
+  if (unlocked) return;
+  unlocked = true;
+  try {
+    const a = getAudio();
+    a.volume = 0.0001;
+    a.play()
+      .then(() => {
+        a.pause();
+        a.currentTime = 0;
+        a.volume = muted ? 0 : 1;
+      })
+      .catch(() => {
+        a.volume = muted ? 0 : 1;
+      });
+  } catch {
+    /* audio unavailable */
+  }
 }
 
-function blip({ start = 660, end = 330, duration = 0.07, volume = 0.05 } = {}) {
+["pointerdown", "keydown", "touchstart"].forEach((eventName) => {
+  window.addEventListener(eventName, unlock, { once: true, passive: true });
+});
+
+function playSound(volume) {
   if (muted) return;
-  const c = ensureRunning();
-  if (!c || c.state !== "running") return;
-
-  const osc = c.createOscillator();
-  const gain = c.createGain();
-  const now = c.currentTime;
-
-  osc.type = "square";
-  osc.frequency.setValueAtTime(start, now);
-  osc.frequency.exponentialRampToValueAtTime(Math.max(end, 1), now + duration);
-
-  gain.gain.setValueAtTime(0.0001, now);
-  gain.gain.exponentialRampToValueAtTime(volume, now + 0.005);
-  gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-
-  osc.connect(gain).connect(c.destination);
-  osc.start(now);
-  osc.stop(now + duration + 0.02);
+  try {
+    const a = getAudio();
+    a.volume = volume;
+    a.currentTime = 0;
+    a.play().catch(() => {});
+  } catch {
+    /* audio unavailable */
+  }
 }
 
-/** Menu hover — short high→low tick. */
+/** Menu hover / HoverFill hover — the SA menu click. */
 export function playScroll() {
-  blip({ start: 720, end: 380, duration: 0.065, volume: 0.05 });
+  playSound(0.5);
 }
 
-/** Menu select — deeper, slightly longer confirm. */
+/** Selection — same click, slightly louder. */
 export function playSelect() {
-  blip({ start: 500, end: 240, duration: 0.13, volume: 0.06 });
+  playSound(0.7);
 }
 
 export function isSoundMuted() {
@@ -72,8 +82,6 @@ export function toggleSound() {
   } catch {
     /* ignore */
   }
-  if (!muted) {
-    blip({ start: 640, end: 320, duration: 0.09, volume: 0.05 });
-  }
+  if (!muted) playSound(0.7);
   return muted;
 }

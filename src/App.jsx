@@ -5,6 +5,7 @@ import Work from "./components/Work/Work";
 import Projects from "./components/Projects/Projects";
 import Blog from "./components/Blog/Blog";
 import Contact from "./components/Contact/Contact";
+import SoundToggle from "./components/SoundToggle/SoundToggle";
 
 import "./App.css";
 
@@ -37,6 +38,8 @@ function App() {
           <Contact />
         </section>
       </div>
+
+      <SoundToggle />
     </main>
   );
 }

@@ -1,15 +1,7 @@
-import { useState } from "react";
 import "./Header.css";
-import {
-  playScroll,
-  playSelect,
-  isSoundMuted,
-  toggleSound,
-} from "../../lib/sound";
+import { playScroll, playSelect } from "../../lib/sound";
 
 function Header() {
-  const [muted, setMuted] = useState(isSoundMuted);
-
   const handleAnchorClick = (event) => {
     playSelect();
 
@@ -29,10 +21,6 @@ function Header() {
       behavior: reduceMotion ? "auto" : "smooth",
       block: "start",
     });
-  };
-
-  const handleToggleSound = () => {
-    setMuted(toggleSound());
   };
 
   return (
@@ -62,16 +50,6 @@ function Header() {
           0.5 Contact
         </a>
       </nav>
-
-      <button
-        className={`header__sound${muted ? " header__sound--muted" : ""}`}
-        type="button"
-        onClick={handleToggleSound}
-        aria-pressed={!muted}
-        title={muted ? "Unmute menu sounds" : "Mute menu sounds"}
-      >
-        {muted ? "snd·off" : "snd·on"}
-      </button>
     </header>
   );
 }
