@@ -125,6 +125,11 @@ repo** (the "content repo"), read via the GitHub REST API by
   and confirm the HTML references `/assets/index-*.js` (a built bundle).
   If it references `/src/main.jsx`, the raw source is being served and
   something is wrong with the deploy.
+- `actions/deploy-pages` can intermittently time out while Pages stays in
+  `updating_pages` (infra, not build). The deployment may still land; if
+  the site isn't updated after ~10 min, re-run the workflow via
+  `workflow_dispatch` — that both republishes and is the "sync blog &
+  publish" flow.
 
 ## Conventions
 
