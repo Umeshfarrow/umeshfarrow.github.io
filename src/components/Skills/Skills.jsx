@@ -60,19 +60,27 @@ const certifications = [
     number: "0.1.8",
     code: "TF-003",
     name: "HashiCorp Certified: Terraform Associate (003)",
-    meta: "HashiCorp · Issued Aug 2025 · Expires Aug 2027",
+    issuer: "HashiCorp",
+    issued: "Aug 2025",
+    expires: "Aug 2027",
   },
   {
     number: "0.1.9",
     code: "LFS169",
     name: "LFS169: Introduction to GitOps",
-    meta: "Linux Foundation · Issued Aug 2025 · Argo CD · Flux V2 · Deployment Automation",
+    issuer: "Linux Foundation",
+    issued: "Aug 2025",
+    expires: "—",
+    topics: "Argo CD · Flux V2 · Deployment Automation",
   },
   {
     number: "0.1.10",
     code: "LFS148",
     name: "LFS148: Getting Started with OpenTelemetry",
-    meta: "Linux Foundation · Issued Aug 2025 · Observability · Prometheus · Distributed Tracing",
+    issuer: "Linux Foundation",
+    issued: "Aug 2025",
+    expires: "—",
+    topics: "Observability · Prometheus · Distributed Tracing",
   },
 ];
 
@@ -132,18 +140,49 @@ function Skills() {
             </span>
           </div>
 
-          <div className="skills__certs-table">
+          <div className="skills__certs-list">
             {certifications.map((cert) => (
-              <div className="skills__cert" key={cert.code}>
-                <span className="skills__cert-index">{cert.number}</span>
+              <article className="skills__cert-card" key={cert.code}>
+                {/* STAMP + NAME */}
+                <div className="skills__cert-top">
+                  <div className="skills__cert-stamp">
+                    <span className="skills__cert-stamp-check" aria-hidden="true">
+                      ✓
+                    </span>
+                    <span className="skills__cert-code">{cert.code}</span>
+                  </div>
 
-                <span className="skills__cert-code">{cert.code}</span>
-
-                <div className="skills__cert-body">
-                  <span className="skills__cert-name">{cert.name}</span>
-                  <span className="skills__cert-meta">{cert.meta}</span>
+                  <div className="skills__cert-main">
+                    <span className="skills__cert-index">{cert.number}</span>
+                    <h4 className="skills__cert-name">{cert.name}</h4>
+                  </div>
                 </div>
-              </div>
+
+                {/* PERFORATED STUB — FIELD DATA */}
+                <div className="skills__cert-fields">
+                  <div className="skills__cert-field">
+                    <span className="skills__cert-key">issuer</span>
+                    <span className="skills__cert-value">{cert.issuer}</span>
+                  </div>
+
+                  <div className="skills__cert-field">
+                    <span className="skills__cert-key">issued</span>
+                    <span className="skills__cert-value">{cert.issued}</span>
+                  </div>
+
+                  <div className="skills__cert-field">
+                    <span className="skills__cert-key">valid thru</span>
+                    <span className="skills__cert-value">{cert.expires}</span>
+                  </div>
+
+                  {cert.topics && (
+                    <div className="skills__cert-field skills__cert-field--wide">
+                      <span className="skills__cert-key">topics</span>
+                      <span className="skills__cert-value">{cert.topics}</span>
+                    </div>
+                  )}
+                </div>
+              </article>
             ))}
           </div>
         </div>
