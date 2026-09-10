@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [new-era-2026]
+  workflow_dispatch:
 
 permissions:
   contents: read

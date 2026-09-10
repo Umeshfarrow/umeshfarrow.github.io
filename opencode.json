@@ -1,0 +1,52 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["AGENTS.md"],
+  "skills": {
+    "paths": [".opencode/skills"]
+  },
+  "agent": {
+    "pages": {
+      "description": "Builds and verifies the GitHub Pages deployment for this portfolio.",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "npm run build*": "allow",
+          "npm run lint*": "allow",
+          "git status*": "allow",
+          "git log*": "allow",
+          "git diff*": "allow",
+          "*": "ask"
+        }
+      }
+    },
+    "ux": {
+      "description": "Reviews the portfolio UI for consistency with design tokens and conventions in src/styles/variables.css.",
+      "mode": "subagent",
+      "permission": {
+        "bash": {
+          "npm run lint*": "allow",
+          "*": "ask"
+        }
+      }
+    }
+  },
+  "mcp": {},
+  "permission": {
+    "bash": {
+      "npm run dev*": "allow",
+      "npm run build*": "allow",
+      "npm run lint*": "allow",
+      "npm run preview*": "allow",
+      "npm ci*": "allow",
+      "npm install*": "allow",
+      "git status*": "allow",
+      "git log*": "allow",
+      "git diff*": "allow",
+      "git branch*": "allow",
+      "git checkout*": "allow",
+      "*": "ask"
+    },
+    "edit": "allow"
+  }
+}

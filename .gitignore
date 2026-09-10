@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# opencode local state (do not commit)
+.opencode/node_modules/
+.opencode/opencode.db
+.opencode/opencode.db-*
+.opencode/opencode.db-wal
+.opencode/opencode.db-shm
