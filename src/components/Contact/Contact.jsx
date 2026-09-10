@@ -1,6 +1,7 @@
 import "./Contact.css";
 import PageMeta from "../PageMeta/PageMeta";
 import HoverFill from "../HoverFill/HoverFill";
+import { playScroll, playSelect } from "../../lib/sound";
 
 function Contact() {
   return (
@@ -20,7 +21,12 @@ function Contact() {
           <div className="contact__group">
             <span className="contact__group-label">channels</span>
 
-            <a className="contact__card" href="tel:+919538984603">
+            <a
+              className="contact__card"
+              href="tel:+919538984603"
+              onMouseEnter={playScroll}
+              onClick={playSelect}
+            >
               <span className="contact__card-icon" aria-hidden="true">
                 ✆
               </span>
@@ -31,7 +37,12 @@ function Contact() {
               </span>
             </a>
 
-            <a className="contact__card" href="mailto:kelsakarya@gmail.com">
+            <a
+              className="contact__card"
+              href="mailto:kelsakarya@gmail.com"
+              onMouseEnter={playScroll}
+              onClick={playSelect}
+            >
               <span className="contact__card-icon" aria-hidden="true">
                 ✉
               </span>
@@ -48,6 +59,8 @@ function Contact() {
               target="_blank"
               rel="noopener noreferrer nofollow"
               referrerPolicy="no-referrer"
+              onMouseEnter={playScroll}
+              onClick={playSelect}
             >
               <span className="contact__card-icon" aria-hidden="true">
                 in
@@ -67,6 +80,8 @@ function Contact() {
               target="_blank"
               rel="noopener noreferrer nofollow"
               referrerPolicy="no-referrer"
+              onMouseEnter={playScroll}
+              onClick={playSelect}
             >
               <span className="contact__card-icon" aria-hidden="true">
                 ◉
@@ -85,7 +100,7 @@ function Contact() {
           <div className="contact__group">
             <span className="contact__group-label">geo</span>
 
-            <div className="contact__card">
+            <div className="contact__card" onMouseEnter={playScroll}>
               <span className="contact__card-icon" aria-hidden="true">
                 ⌖
               </span>
@@ -99,7 +114,7 @@ function Contact() {
           <div className="contact__group">
             <span className="contact__group-label">education</span>
 
-            <div className="contact__card">
+            <div className="contact__card" onMouseEnter={playScroll}>
               <span className="contact__card-icon" aria-hidden="true">
                 ◆
               </span>
@@ -110,7 +125,7 @@ function Contact() {
               <span className="contact__card-tag">2015-2018</span>
             </div>
 
-            <div className="contact__card">
+            <div className="contact__card" onMouseEnter={playScroll}>
               <span className="contact__card-icon" aria-hidden="true">
                 ◆
               </span>
@@ -126,6 +141,8 @@ function Contact() {
               href="/Umesh_S_Resume.pdf"
               download="Umesh_S_Resume.pdf"
               className="contact__card contact__card--action"
+              onMouseEnter={playScroll}
+              onClick={playSelect}
             >
               <span className="contact__card-icon" aria-hidden="true">
                 ↓
@@ -153,9 +170,21 @@ function Contact() {
       </div>
 
       <div className="contact__links">
-        <a href="mailto:kelsakarya@gmail.com">kelsakarya@gmail.com</a>
+        <a
+          href="mailto:kelsakarya@gmail.com"
+          onMouseEnter={playScroll}
+          onClick={playSelect}
+        >
+          kelsakarya@gmail.com
+        </a>
 
-        <a href="mailto:kelsakarya@gmail.com">Get in touch ↗</a>
+        <a
+          href="mailto:kelsakarya@gmail.com"
+          onMouseEnter={playScroll}
+          onClick={playSelect}
+        >
+          Get in touch ↗
+        </a>
       </div>
     </section>
   );

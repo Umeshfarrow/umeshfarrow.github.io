@@ -1,5 +1,6 @@
 import "./Projects.css";
 import PageMeta from "../PageMeta/PageMeta";
+import { playScroll } from "../../lib/sound";
 
 const projects = [
   {
@@ -76,7 +77,11 @@ function Projects() {
               : "archived";
 
             return (
-              <article className="projects__item" key={project.number}>
+              <article
+                className="projects__item"
+                key={project.number}
+                onMouseEnter={playScroll}
+              >
                 <div className="projects__header">
                   <span className="projects__number">{project.number}</span>
 

@@ -3,6 +3,7 @@ import { marked } from "marked";
 import "./Blog.css";
 import PageMeta from "../PageMeta/PageMeta";
 import postsData from "../../generated/blog-posts.json";
+import { playScroll, playSelect } from "../../lib/sound";
 
 const { posts } = postsData;
 
@@ -62,7 +63,11 @@ function Blog() {
                 <button
                   className="blog__post-open"
                   type="button"
-                  onClick={() => setOpen(post)}
+                  onMouseEnter={playScroll}
+                  onClick={() => {
+                    playSelect();
+                    setOpen(post);
+                  }}
                 >
                   <span className="blog__post-number">
                     0.4.{String(index + 1).padStart(2, "0")}

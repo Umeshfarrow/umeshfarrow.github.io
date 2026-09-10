@@ -1,5 +1,6 @@
 import "./Skills.css";
 import PageMeta from "../PageMeta/PageMeta";
+import { playScroll } from "../../lib/sound";
 
 const stacks = [
   {
@@ -142,7 +143,11 @@ function Skills() {
 
           <div className="skills__certs-list">
             {certifications.map((cert) => (
-              <article className="skills__cert-card" key={cert.code}>
+              <article
+                className="skills__cert-card"
+                key={cert.code}
+                onMouseEnter={playScroll}
+              >
                 {/* STAMP + NAME */}
                 <div className="skills__cert-top">
                   <div className="skills__cert-stamp">
