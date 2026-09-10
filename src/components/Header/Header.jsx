@@ -1,10 +1,8 @@
 import "./Header.css";
-import { playScroll, playSelect } from "../../lib/sound";
+import { playScroll } from "../../lib/sound";
 
 function Header() {
   const handleAnchorClick = (event) => {
-    playSelect();
-
     const hash = event.currentTarget.getAttribute("href");
     if (!hash || !hash.startsWith("#")) return;
 

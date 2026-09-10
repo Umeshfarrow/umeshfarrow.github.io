@@ -114,7 +114,11 @@ function Projects() {
 
                   <div className="projects__tags">
                     {project.stack.split(" · ").map((tech) => (
-                      <span className="projects__tag" key={tech}>
+                      <span
+                        className="projects__tag"
+                        key={tech}
+                        onMouseEnter={playScroll}
+                      >
                         {tech}
                       </span>
                     ))}

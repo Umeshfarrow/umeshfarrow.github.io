@@ -122,7 +122,11 @@ function Skills() {
 
               <div className="skills__tags">
                 {stack.tags.map((tag) => (
-                  <span className="skills__tag" key={tag}>
+                  <span
+                    className="skills__tag"
+                    key={tag}
+                    onMouseEnter={playScroll}
+                  >
                     {tag}
                   </span>
                 ))}
