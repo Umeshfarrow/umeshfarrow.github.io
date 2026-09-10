@@ -97,31 +97,62 @@ function Skills() {
           </span>
         </div>
 
-        {/* THE RACK */}
-        <div className="skills__table">
-          {stacks.map((stack) => (
-            <div className="skills__rack" key={stack.number}>
-              <div className="skills__rack-label">
-                <span className="skills__rack-name">
-                  <span className="skills__rack-number">{stack.number}</span>
-                  <span className="skills__rack-slash">/</span>
+        {/* CONSOLE INVENTORY */}
+        <div className="skills__console">
+          {/* WINDOW CHROME */}
+          <div className="skills__console-bar">
+            <span className="skills__console-dots" aria-hidden="true">
+              <span className="skills__console-dot skills__console-dot--busy" />
+              <span className="skills__console-dot" />
+              <span className="skills__console-dot" />
+            </span>
+
+            <span className="skills__console-title">
+              stack_inventory — umesh.s
+            </span>
+
+            <span className="skills__console-port">0.1 / shell·tty</span>
+          </div>
+
+          {/* TERMINAL BODY */}
+          <div className="skills__console-body">
+            {stacks.map((stack) => (
+              <div className="skills__line" key={stack.number}>
+                <span className="skills__prompt">~/rack $</span>
+
+                <span className="skills__path">
+                  {stack.number}
+                  <span className="skills__path-sep">/</span>
                   {stack.name}
                 </span>
 
-                <span className="skills__rack-count">
-                  {String(stack.tags.length).padStart(2, "0")}
+                <span className="skills__count">
+                  +{String(stack.tags.length).padStart(2, "0")}
+                </span>
+
+                <span className="skills__tags">
+                  {stack.tags.map((tag) => (
+                    <span className="skills__tag" key={tag}>
+                      {tag}
+                    </span>
+                  ))}
                 </span>
               </div>
+            ))}
 
-              <div className="skills__rack-tags">
-                {stack.tags.map((tag) => (
-                  <span className="skills__tag" key={tag}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            {/* CURSOR TAIL */}
+            <div className="skills__line skills__line--tail">
+              <span className="skills__prompt">~/rack $</span>
+
+              <span className="skills__cursor" aria-hidden="true">
+                ▊
+              </span>
+
+              <span className="skills__tail-note">
+                — {totalTags} entries on rack, ready.
+              </span>
             </div>
-          ))}
+          </div>
         </div>
 
         {/* CREDENTIALS */}
@@ -141,7 +172,7 @@ function Skills() {
                   {cert.number}
                 </span>
 
-                <span className="skills__cert-code">{cert.code}</span>
+                <span className="skills__cert-code">[{cert.code}]</span>
 
                 <div className="skills__cert-body">
                   <span className="skills__cert-name">{cert.name}</span>
