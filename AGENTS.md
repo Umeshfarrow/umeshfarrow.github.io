@@ -17,7 +17,8 @@ branch (`new-era-2026`).
 
 ```
 .
-├── .github/workflows/deploy.yml   # Build & deploy to GitHub Pages (Actions)
+├── .github/workflows/deploy.yml   # Build, lint, audit & deploy to GitHub Pages (Actions)
+├── .github/workflows/ci.yml       # Quality gates: lint, build, npm audit, CodeQL SAST
 ├── .opencode/                     # opencode project config (agents/commands/skills/plugin)
 ├── .oxlintrc.json                 # Lint config (oxlint)
 ├── AGENTS.md                      # This file
@@ -63,6 +64,10 @@ All commands run from the repo root.
 - Do **not** commit `dist/` (it is gitignored; CI builds it).
 - `npm ci` must succeed for CI — keep `package-lock.json` in sync with
   `package.json`.
+- AppSec/code-quality CI (`.github/workflows/ci.yml`) runs oxlint, the
+  production build, `npm audit --omit=dev` and CodeQL SAST
+  (`security-and-quality`) on every push/PR to `new-era-2026`. The deploy
+  pipeline also runs lint + the same npm audit before publishing.
 
 ## Deployment (GitHub Pages)
 
