@@ -45,6 +45,10 @@ const projects = [
 ];
 
 function Projects() {
+  const activeCount = projects.filter((project) =>
+    project.period.includes("Present")
+  ).length;
+
   return (
     <section className="projects">
       {/* PAGE HEADER */}
@@ -57,34 +61,63 @@ function Projects() {
         {/* SECTION TITLE */}
         <div className="projects__heading">
           <h2>Project_log</h2>
+
+          <span className="projects__total">
+            {String(projects.length).padStart(2, "0")} shipments ·{" "}
+            {activeCount} live
+          </span>
         </div>
 
-        {/* PROJECT LIST */}
+        {/* CARGO MANIFEST CARDS */}
         <div className="projects__list">
-          {projects.map((project) => (
-            <article className="projects__item" key={project.number}>
-              <div className="projects__header">
-                <span className="projects__number">{project.number}</span>
+          {projects.map((project) => {
+            const status = project.period.includes("Present")
+              ? "active"
+              : "archived";
 
-                <span className="projects__name">{project.name}</span>
+            return (
+              <article className="projects__item" key={project.number}>
+                <div className="projects__header">
+                  <span className="projects__number">{project.number}</span>
 
-                <div className="projects__meta-right">
-                  <span className="projects__role">{project.role}</span>
+                  <h3 className="projects__name">{project.name}</h3>
 
-                  <span className="projects__separator">*</span>
-
-                  <span className="projects__period">{project.period}</span>
+                  <span
+                    className={`projects__status projects__status--${status}`}
+                  >
+                    <span className="projects__status-dot" aria-hidden="true" />
+                    {status}
+                  </span>
                 </div>
-              </div>
 
-              <p className="projects__desc">{project.description}</p>
+                <div className="projects__meta">
+                  <span className="projects__meta-key">role</span>
+                  <span className="projects__meta-value">{project.role}</span>
 
-              <span className="projects__stack">
-                <span className="projects__stack-label">Tech stack</span>
-                {project.stack}
-              </span>
-            </article>
-          ))}
+                  <span className="projects__meta-sep" aria-hidden="true">
+                    *
+                  </span>
+
+                  <span className="projects__meta-key">period</span>
+                  <span className="projects__meta-value">{project.period}</span>
+                </div>
+
+                <p className="projects__desc">{project.description}</p>
+
+                <div className="projects__stack">
+                  <span className="projects__stack-label">stack</span>
+
+                  <div className="projects__tags">
+                    {project.stack.split(" · ").map((tech) => (
+                      <span className="projects__tag" key={tech}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

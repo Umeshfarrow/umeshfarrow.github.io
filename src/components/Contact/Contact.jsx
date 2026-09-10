@@ -16,79 +16,124 @@ function Contact() {
             Ping me in LinkedIn. I'm in IST and I try to reply within a day.
           </p>
 
-          <div className="contact__info">
-            <a href="tel:+919538984603">
-              <span>phone</span>
-              <span>✆</span>
-              <span>+91 9538984603</span>
-              <span>↗</span>
+          {/* CHANNELS */}
+          <div className="contact__group">
+            <span className="contact__group-label">channels</span>
+
+            <a className="contact__card" href="tel:+919538984603">
+              <span className="contact__card-icon" aria-hidden="true">
+                ✆
+              </span>
+              <span className="contact__card-key">phone</span>
+              <span className="contact__card-value">+91 9538984603</span>
+              <span className="contact__card-action" aria-hidden="true">
+                ↗
+              </span>
             </a>
 
-            <a href="mailto:kelsakarya@gmail.com">
-              <span>email</span>
-              <span>✉</span>
-              <span>kelsakarya@gmail.com</span>
-              <span>↗</span>
+            <a className="contact__card" href="mailto:kelsakarya@gmail.com">
+              <span className="contact__card-icon" aria-hidden="true">
+                ✉
+              </span>
+              <span className="contact__card-key">email</span>
+              <span className="contact__card-value">kelsakarya@gmail.com</span>
+              <span className="contact__card-action" aria-hidden="true">
+                ↗
+              </span>
             </a>
 
             <a
+              className="contact__card"
               href="https://linkedin.com/in/umeshfarrow"
               target="_blank"
               rel="noopener noreferrer nofollow"
               referrerPolicy="no-referrer"
             >
-              <span>linkedin</span>
-              <span>in</span>
-              <span>linkedin.com/in/umeshfarrow</span>
-              <span>↗</span>
+              <span className="contact__card-icon" aria-hidden="true">
+                in
+              </span>
+              <span className="contact__card-key">linkedin</span>
+              <span className="contact__card-value">
+                linkedin.com/in/umeshfarrow
+              </span>
+              <span className="contact__card-action" aria-hidden="true">
+                ↗
+              </span>
             </a>
 
             <a
+              className="contact__card"
               href="https://github.com/Umeshfarrow"
               target="_blank"
               rel="noopener noreferrer nofollow"
               referrerPolicy="no-referrer"
             >
-              <span>github</span>
-              <span>◉</span>
-              <span>github.com/Umeshfarrow</span>
-              <span>↗</span>
+              <span className="contact__card-icon" aria-hidden="true">
+                ◉
+              </span>
+              <span className="contact__card-key">github</span>
+              <span className="contact__card-value">
+                github.com/Umeshfarrow
+              </span>
+              <span className="contact__card-action" aria-hidden="true">
+                ↗
+              </span>
             </a>
           </div>
 
-          <div className="contact__info">
-            <div>
-              <span>geo</span>
-              <span>⌖</span>
-              <span>Bengaluru, India</span>
-              <span>IST</span>
+          {/* GEO */}
+          <div className="contact__group">
+            <span className="contact__group-label">geo</span>
+
+            <div className="contact__card">
+              <span className="contact__card-icon" aria-hidden="true">
+                ⌖
+              </span>
+              <span className="contact__card-key">location</span>
+              <span className="contact__card-value">Bengaluru, India</span>
+              <span className="contact__card-tag">IST</span>
             </div>
           </div>
 
-          <div className="contact__info">
-            <div>
-              <span>education</span>
-              <span>◆</span>
-              <span>MCA · The Oxford College of Science</span>
-              <span>2015-2018</span>
+          {/* EDUCATION */}
+          <div className="contact__group">
+            <span className="contact__group-label">education</span>
+
+            <div className="contact__card">
+              <span className="contact__card-icon" aria-hidden="true">
+                ◆
+              </span>
+              <span className="contact__card-key">MCA</span>
+              <span className="contact__card-value">
+                The Oxford College of Science
+              </span>
+              <span className="contact__card-tag">2015-2018</span>
             </div>
-            <div>
-              <span>education</span>
-              <span>◆</span>
-              <span>BCA · BES College</span>
-              <span>2012-2015</span>
+
+            <div className="contact__card">
+              <span className="contact__card-icon" aria-hidden="true">
+                ◆
+              </span>
+              <span className="contact__card-key">BCA</span>
+              <span className="contact__card-value">BES College</span>
+              <span className="contact__card-tag">2012-2015</span>
             </div>
           </div>
 
-          <HoverFill>
+          {/* DOWNLOAD */}
+          <div className="contact__group">
             <a
               href="/Umesh_S_Resume.pdf"
               download="Umesh_S_Resume.pdf"
-              className="contact__resume"
+              className="contact__card contact__card--action"
             >
-              <span>Download Resume ↓</span>
+              <span className="contact__card-icon" aria-hidden="true">
+                ↓
+              </span>
+              <span className="contact__card-value">Download Resume</span>
+              <span className="contact__card-tag">PDF</span>
             </a>
-          </HoverFill>
+          </div>
         </div>
 
         <div className="contact__right">
