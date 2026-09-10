@@ -1,5 +1,15 @@
 name: Quality & security
 
+# Pipeline stages (run on every push/PR to the deploy branch):
+#   Stage 1 · Lint            (oxlint — code smells)
+#   Stage 2 · Production build (vite build)
+#   Stage 3 · Dependency audit (AppSec — npm audit on prod deps)
+#   Stage 4 · CodeQL SAST      (AppSec — security-and-quality queries)
+#
+# Stage 1 and 2 are a linear gate; Stage 3 and 4 run in parallel
+# once the build is proven. No test stage: this is a single-page
+# static site with no test framework (see AGENTS.md).
+
 on:
   push:
     branches: [new-era-2026]
@@ -7,18 +17,22 @@ on:
     branches: [new-era-2026]
   workflow_dispatch:
 
+concurrency:
+  group: quality-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
-  quality:
-    name: Lint, build & dependencies
+  lint:
+    name: Stage 1 · Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -27,18 +41,53 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint (code smells)
+      - name: Lint (oxlint)
         run: npm run lint
 
-      - name: Build
+  build:
+    name: Stage 2 · Production build
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (vite)
         run: npm run build
 
-      - name: Dependency audit (AppSec)
+  audit:
+    name: Stage 3 · Dependency audit
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
 
   codeql:
-    name: CodeQL SAST (AppSec)
+    name: Stage 4 · CodeQL SAST
     runs-on: ubuntu-latest
+    needs: build
     permissions:
       contents: read
       security-events: write
@@ -54,5 +103,5 @@ jobs:
           queries: security-and-quality
           build-mode: none
 
-      - name: Analyze
+      - name: Perform CodeQL analysis
         uses: github/codeql-action/analyze@v3

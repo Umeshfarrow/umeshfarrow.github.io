@@ -1,5 +1,11 @@
 name: Deploy to GitHub Pages
 
+# Pipeline stages (run on every push to the deploy branch):
+#   Stage 1 · Lint, audit & build  (quality + AppSec gates before publish)
+#   Stage 2 · Deploy to GitHub Pages
+#
+# Stage 2 depends on Stage 1 passing; nothing is published from a dirty build.
+
 on:
   push:
     branches: [new-era-2026]
@@ -16,12 +22,13 @@ concurrency:
 
 jobs:
   build:
+    name: Stage 1 · Lint, audit & build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -30,13 +37,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint
+      - name: Lint (oxlint)
         run: npm run lint
 
-      - name: Dependency audit (AppSec)
+      - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
 
-      - name: Build
+      - name: Build (vite)
         run: npm run build
 
       - name: Setup Pages
@@ -48,6 +55,7 @@ jobs:
           path: ./dist
 
   deploy:
+    name: Stage 2 · Deploy to GitHub Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
