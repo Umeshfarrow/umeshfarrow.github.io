@@ -3,7 +3,7 @@ import PageMeta from "../PageMeta/PageMeta";
 
 const stacks = [
   {
-    number: "01",
+    number: "0.1.1",
     name: "Cloud",
     tags: [
       "AWS EC2",
@@ -18,12 +18,12 @@ const stacks = [
     ],
   },
   {
-    number: "02",
+    number: "0.1.2",
     name: "Containers & Orchestration",
     tags: ["Docker", "Kubernetes", "Helm", "Docker Swarm", "Nginx", "Ingress"],
   },
   {
-    number: "03",
+    number: "0.1.3",
     name: "CI/CD",
     tags: [
       "Jenkins",
@@ -34,22 +34,22 @@ const stacks = [
     ],
   },
   {
-    number: "04",
+    number: "0.1.4",
     name: "Infrastructure as Code",
     tags: ["Terraform", "Ansible"],
   },
   {
-    number: "05",
+    number: "0.1.5",
     name: "Monitoring & Observability",
     tags: ["Prometheus", "Grafana", "OpenTelemetry", "Zabbix"],
   },
   {
-    number: "06",
+    number: "0.1.6",
     name: "Streaming & Messaging",
     tags: ["Kafka", "AKHQ", "RabbitMQ", "MongoDB", "MySQL"],
   },
   {
-    number: "07",
+    number: "0.1.7",
     name: "Scripting & Automation",
     tags: ["Bash", "Python", "Git"],
   },
@@ -57,16 +57,19 @@ const stacks = [
 
 const certifications = [
   {
+    number: "0.1.8",
     code: "TF-003",
     name: "HashiCorp Certified: Terraform Associate (003)",
     meta: "HashiCorp · Issued Aug 2025 · Expires Aug 2027",
   },
   {
+    number: "0.1.9",
     code: "LFS169",
     name: "LFS169: Introduction to GitOps",
     meta: "Linux Foundation · Issued Aug 2025 · Argo CD · Flux V2 · Deployment Automation",
   },
   {
+    number: "0.1.10",
     code: "LFS148",
     name: "LFS148: Getting Started with OpenTelemetry",
     meta: "Linux Foundation · Issued Aug 2025 · Observability · Prometheus · Distributed Tracing",
@@ -132,10 +135,10 @@ function Skills() {
           </div>
 
           <div className="skills__certs-table">
-            {certifications.map((cert, index) => (
+            {certifications.map((cert) => (
               <div className="skills__cert" key={cert.code}>
                 <span className="skills__cert-index">
-                  CERT / {String(index + 1).padStart(2, "0")}
+                  {cert.number}
                 </span>
 
                 <span className="skills__cert-code">{cert.code}</span>
