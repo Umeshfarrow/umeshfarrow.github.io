@@ -36,8 +36,11 @@ function Header() {
         <a href="#projects" onClick={handleAnchorClick}>
           0.3 Projects
         </a>
+        <a href="#blog" onClick={handleAnchorClick}>
+          0.4 Blog
+        </a>
         <a href="#contact" onClick={handleAnchorClick}>
-          0.4 Contact
+          0.5 Contact
         </a>
       </nav>
     </header>

@@ -6,9 +6,13 @@ repository. Read this file first.
 ## What this project is
 
 A single-page portfolio for Umesh S (Senior DevOps Engineer). It is a
-**React 19 + Vite 8** static site. There is no router, no backend, and no
-test framework — the entire product is one scrolling page with
-scroll-snap sections (Intro, Skills, Work, Projects, Contact).
+**React 19 + Vite 8** static site. There is no router and no backend —
+the entire product is one scrolling page with scroll-snap sections
+(Intro, Skills, Work, Projects, Blog, Contact).
+
+Blog posts are **not** authored in this repo: they live as markdown in a
+separate public GitHub repo (see "Blog" below) and are pulled into the
+bundle at build time by `npm run blog:sync`.
 
 Deployed to GitHub Pages at <https://umeshfarrow.github.io> from this
 branch (`new-era-2026`).
@@ -22,6 +26,7 @@ branch (`new-era-2026`).
 ├── .opencode/                     # opencode project config (agents/commands/skills/plugin)
 ├── .oxlintrc.json                 # Lint config (oxlint)
 ├── AGENTS.md                      # This file
+├── blog.config.json               # Blog content source repo + posts dir
 ├── index.html                     # Vite HTML entry (source of truth for dev)
 ├── opencode.json                  # opencode configuration
 ├── package.json                   # npm scripts + deps
@@ -30,9 +35,12 @@ branch (`new-era-2026`).
 │   ├── icons.svg
 │   ├── images/                    # portrait.jpg/png/webp
 │   └── Umesh_S_Resume.pdf
+├── scripts/
+│   └── sync-blog.mjs              # Pull blog posts from the content repo (blog:sync)
 ├── src/
 │   ├── components/
-│   │   ├── Contact/               # 0.4 Contact section (phone/email/links/education)
+│   │   ├── Blog/                  # 0.4 Blog section (+ in-page reader overlay)
+│   │   ├── Contact/               # 0.5 Contact section (phone/email/links/education)
 │   │   ├── Header/                # Top nav (smooth-scrolls to section anchors)
 │   │   ├── HoverFill/             # Reusable hover-fill UI wrapper
 │   │   ├── Intro/                 # 0.0 Intro section (hero)
@@ -42,6 +50,8 @@ branch (`new-era-2026`).
 │   │   ├── Skills/                # 0.1 Skills & certifications
 │   │   ├── TypingText/            # Typewriter effect
 │   │   └── Work/                  # 0.2 Experience log
+│   ├── generated/
+│   │   └── blog-posts.json        # Output of `npm run blog:sync` (committed, empty-only)
 │   ├── styles/
 │   │   ├── reset.css              # Global reset + cursor/focus/motion rules
 │   │   └── variables.css          # Design tokens (colors, fonts, spacing)
@@ -60,6 +70,7 @@ All commands run from the repo root.
 | `npm run build`   | Production build → `dist/` (must pass)         |
 | `npm run preview` | Serve the built `dist/` locally                |
 | `npm run lint`    | Run oxlint (warnings ok, errors not ok)        |
+| `npm run blog:sync` | Pull posts from the blog content repo → `src/generated/blog-posts.json` |
 
 - Do **not** commit `dist/` (it is gitignored; CI builds it).
 - `npm ci` must succeed for CI — keep `package-lock.json` in sync with
@@ -69,12 +80,43 @@ All commands run from the repo root.
   (`security-and-quality`) on every push/PR to `new-era-2026`. The deploy
   pipeline also runs lint + the same npm audit before publishing.
 
+## Blog (content synced from a GitHub repo)
+
+Blog posts are plain markdown files living in a **separate public GitHub
+repo** (the "content repo"), read via the GitHub REST API by
+`scripts/sync-blog.mjs` during CI and inlined into the bundle
+(`src/generated/blog-posts.json` → rendered client-side with `marked`).
+
+- Content repo + posts dir are configured in `blog.config.json`
+  (`owner`, `repo`, `postsDir` — default `posts`).
+- Post files need frontmatter at the top:
+  ```
+  ---
+  title: "My post"
+  date: "2026-08-01"
+  tags: ["terraform", "aws"]
+  description: "Shown in the post list."
+  repo: "https://github.com/Umeshfarrow/xyz"   # optional → implementation link
+  ---
+  ```
+- Files without `title`/`date` are skipped with a warning. Posts sort by
+  `date` descending. `blog:sync` uses the workflow's `GITHUB_TOKEN`
+  (rate-limit safe) and 404s/empty posts dirs publish an empty blog
+  rather than failing the build.
+- **Publishing flow (manual):** push a post to the content repo → run the
+  `Deploy to GitHub Pages` workflow via `workflow_dispatch` (GitHub →
+  Actions → Deploy → Run workflow). The deploy's Stage 1 syncs content
+  before building. Pushing to `new-era-2026` also triggers the same sync.
+- `src/generated/blog-posts.json` is committed as an **empty** placeholder
+  so `npm run build` works locally without network access; CI overwrites it.
+
 ## Deployment (GitHub Pages)
 
 - Live URL: <https://umeshfarrow.github.io>
 - Source: **GitHub Actions** workflow — `.github/workflows/deploy.yml`
   triggers on push to `new-era-2026` (and via manual `workflow_dispatch`).
-- Pipeline: `npm ci` → `npm run build` → upload `dist/` with
+- Pipeline: `npm ci` → `npm run lint` → `npm audit --omit=dev` →
+  `npm run blog:sync` → `npm run build` → upload `dist/` with
   `actions/upload-pages-artifact@v3` → `actions/deploy-pages@v4`.
 - `vite.config.js` sets `base: "/"` (user site — served from root).
 - Pages is a user site (`https://umeshfarrow.github.io`), so paths are

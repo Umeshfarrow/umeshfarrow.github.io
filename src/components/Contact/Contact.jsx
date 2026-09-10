@@ -6,7 +6,7 @@ function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="contact__top">
-        <PageMeta number="0.4" label="Contact" />
+        <PageMeta number="0.5" label="Contact" />
       </div>
 
       <div className="contact__main">
