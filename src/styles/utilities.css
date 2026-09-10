@@ -1,0 +1,43 @@
+.site {
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.page-scroll {
+  width: 100%;
+  height: calc(100svh - 56px);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scroll-snap-stop: always;
+
+  overscroll-behavior-y: contain;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+
+.page-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.snap-page {
+  width: 100%;
+  height: 100svh;
+
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  overflow: hidden;
+}
+
+/* First page contains header + intro */
+.snap-page--intro {
+  display: flex;
+  flex-direction: column;
+}

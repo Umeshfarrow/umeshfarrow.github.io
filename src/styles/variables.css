@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=B612+Mono:wght@400;700&family=Geist+Mono:wght@400;500;600;700&family=Kode+Mono:wght@400;500;600;700&family=Sometype+Mono:wght@400;500;600;700&display=swap");
+
+:root {
+  /* ========================================
+     COLORS
+  ======================================== */
+
+  --color-bg: #f4f4f1;
+  --color-text: #111111;
+  --color-blue: #2117ff;
+  --color-orange: #FFA500;
+  /* --color-border: rgba(17, 17, 17, 0.14); */
+  --color-border: #111;
+  --color-grey: #d4d4d4;
+
+  /* ========================================
+     LAYOUT
+  ======================================== */
+
+  --page-padding: 14px 72px;
+  --header-height: 82px;
+  --header-margin: 100px;
+
+  /* FONTS */
+
+  /* default font size */
+  font-size: 14px;
+
+  --font-geist:
+    "Geist Mono",
+    monospace;
+
+  --font-kode:
+    "Kode Mono",
+    monospace;
+
+  --font-sometype:
+    "Sometype Mono",
+    monospace;
+
+  --font-b612:
+    "B612 Mono",
+    monospace;
+
+  /* ========================================
+     TYPE ROLES
+  ======================================== */
+
+  --font-ui: var(--font-geist);
+  --font-display: var(--font-kode);
+  --font-body: var(--font-sometype);
+  --font-meta: var(--font-b612);
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+  :root {
+    --page-padding: 10px;
+    --header-height: 25px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  :root {
+    --page-padding: 8px;
+  }
+}

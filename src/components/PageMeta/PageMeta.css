@@ -1,0 +1,20 @@
+.page-meta {
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  font-family: var(--font-meta);
+  font-size: 8px;
+  line-height: 1;
+
+  text-transform: uppercase;
+}
+
+.page-meta__number {
+  color: var(--color-text);
+}
+
+.page-meta__slash {
+  color: orange;
+}

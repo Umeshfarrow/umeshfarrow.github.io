@@ -1,0 +1,28 @@
+.typing-text {
+  display: inline;
+}
+
+.typing-text__cursor {
+  display: inline-block;
+  margin-left: 2px;
+
+  animation: typing-cursor 900ms steps(1) infinite;
+}
+
+@keyframes typing-cursor {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-text__cursor {
+    animation: none;
+  }
+}

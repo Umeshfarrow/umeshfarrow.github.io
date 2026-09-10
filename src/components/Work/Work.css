@@ -1,0 +1,485 @@
+
+/* ================================
+   WORK
+================================ */
+
+.work {
+  position: relative;
+
+  height: calc(100svh - var(--header-height));
+  min-height: calc(100svh - 28px);
+
+  padding: 12px var(--page-padding) 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-top: 1px solid var(--color-border);
+
+  /*
+    IMPORTANT:
+    Content can exceed viewport.
+    Allow the whole work section to scroll.
+  */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: none;
+  font-size: 14px;
+}
+
+.work::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ================================
+   PAGE HEADER
+================================ */
+
+.work__top {
+  flex-shrink: 0;
+
+  padding: 2rem;
+}
+
+
+/* ================================
+   MAIN
+================================ */
+
+.work__main {
+  width: 100%;
+
+  /*
+    Do not use auto margins here.
+    They can prevent the content from
+    behaving correctly when it becomes
+    taller than the viewport.
+  */
+  margin: 0;
+
+  flex: 0 0 auto;
+}
+
+
+/* ================================
+   SECTION TITLE
+================================ */
+
+.work__heading {
+  padding: 2rem;
+}
+
+.work__heading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+
+/* ================================
+   EXPERIENCE LIST
+================================ */
+
+.work__list {
+  width: 100%;
+  padding-left: 3rem;
+}
+
+
+/* ================================
+   EXPERIENCE ITEM
+================================ */
+
+.work__item {
+  width: 100%;
+  padding: 0.8rem;
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-meta);
+  font-size: 12px;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.work__item:first-child {
+  border-top: 0;
+}
+
+
+/* ================================
+   EXPERIENCE HEADER
+================================ */
+
+/*
+  Target layout:
+
+  0.2.3   Senior DevOps engineer
+                              Bengaluru * Sept-2024 → Current * ●
+*/
+
+.work__header {
+  display: grid;
+
+  /*
+    Number
+    Designation
+    Flexible space
+    Right metadata
+  */
+  grid-template-columns:
+    42px
+    minmax(180px, auto)
+    1fr
+    auto;
+
+  align-items: center;
+
+  width: 100%;
+
+  column-gap: 12px;
+
+  margin-bottom: 7px;
+}
+
+
+/* ================================
+   NUMBER
+================================ */
+
+.works_number {
+  color: var(--color-text-muted);
+
+  white-space: nowrap;
+}
+
+
+/* ================================
+   DESIGNATION
+================================ */
+
+.works_designation {
+  font-family: var(--font-kode);
+
+  font-size: clamp(18px, 2vw, 28px);
+
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.055em;
+
+  text-transform: none;
+
+  white-space: nowrap;
+}
+
+
+/* ================================
+   RIGHT META
+================================ */
+
+.works_meta_right {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 7px;
+
+  color: var(--color-text-muted);
+
+  white-space: nowrap;
+}
+
+
+/* ================================
+   LOCATION
+================================ */
+
+.works_location {
+  color: var(--color-text-muted);
+
+  white-space: nowrap;
+}
+
+
+/* ================================
+   SEPARATOR
+================================ */
+
+.works_separator {
+  color: var(--color-text-muted);
+
+  opacity: 0.7;
+}
+
+
+/* ================================
+   YEAR
+================================ */
+
+.works_years {
+  color: var(--color-text-muted);
+
+  white-space: nowrap;
+}
+
+
+/* ================================
+   GREEN STATUS DOT
+================================ */
+
+.works_status_dot {
+  width: 5px;
+  height: 5px;
+
+  display: inline-block;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: green;
+
+  box-shadow:
+    0 0 0 2px rgba(57, 255, 136, 0.08),
+    0 0 8px rgba(57, 255, 136, 0.65);
+
+  animation: work-status-blink 1.5s ease-in-out infinite;
+}
+
+@keyframes work-status-blink {
+  0%,
+  100% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 0 2px rgba(57, 255, 136, 0.08),
+      0 0 8px rgba(57, 255, 136, 0.65);
+  }
+
+  50% {
+    opacity: 0.25;
+
+    box-shadow:
+      0 0 0 2px rgba(57, 255, 136, 0.02),
+      0 0 2px rgba(57, 255, 136, 0.2);
+  }
+}
+
+
+/* ================================
+   COMPANY DESCRIPTION
+================================ */
+
+.work__company {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  margin-left: 42px;
+  margin-bottom: 18px;
+  padding-left: 12px;
+
+  gap: 5px;
+
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.45;
+
+  text-transform: none;
+}
+
+.works_org {
+  font-size: inherit;
+  font-weight: 500;
+}
+
+.works_org_separator {
+  font-size: inherit;
+  font-weight: 400;
+
+  color: var(--color-text-muted);
+}
+
+.works_org_desc {
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+
+  color: var(--color-text-muted);
+}
+
+.works_org:hover {
+  border-color: var(--color-text);
+}
+
+
+/* ================================
+   CONTRIBUTIONS
+================================ */
+
+.works_contribution {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: 42px;
+  padding: 0;
+  text-transform: none;
+}
+
+.works_contribution p {
+  position: relative;
+  margin: 0;
+  padding-left: 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.works_contribution p::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-text-muted);
+}
+
+
+/* ================================
+   IN-PAGE SCROLL
+================================ */
+
+.work__scroll {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  align-self: flex-end;
+  flex-shrink: 0;
+  margin-top: auto;
+  padding-top: 12px;
+  font-family: var(--font-meta);
+  font-size: 7px;
+  line-height: 1;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+
+  .work {
+    min-height: 100svh;
+
+    height: 100svh;
+
+    padding:
+      10px
+      var(--page-padding)
+      16px;
+
+    overflow-y: auto;
+  }
+
+
+  /* PAGE HEADER */
+
+  .work__top {
+    padding: 1rem 0;
+  }
+
+  /* MAIN */
+
+  .work__main {
+    margin: 0;
+  }
+
+  /* SECTION TITLE */
+
+  .work__heading {
+    padding: 1rem 0;
+  }
+
+  /* LIST */
+
+  .work__list {
+    padding: 0;
+  }
+
+  /* ITEM */
+
+  .work__item {
+    padding: 20px 0 24px;
+  }
+
+  /* HEADER */
+
+  .work__header {
+    grid-template-columns: 36px minmax(0, 1fr);
+    align-items: start;
+    row-gap: 8px;
+    column-gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  /* NUMBER */
+
+  .works_number {
+    padding-top: 3px;
+  }
+
+  /* DESIGNATION */
+
+  .works_designation {
+    font-size: 21px;
+    white-space: normal;
+  }
+
+  /* RIGHT META */
+
+  .works_meta_right {
+    grid-column: 2;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+    white-space: normal;
+  }
+
+
+  /* COMPANY */
+
+  .work__company {
+    margin-left: 36px;
+    margin-bottom: 18px;
+  }
+
+  /* CONTRIBUTIONS */
+
+  .works_contribution {
+    margin-left: 36px;
+    gap: 6px;
+  }
+
+  .works_contribution p {
+    font-size: 10px;
+    line-height: 1.55;
+  }
+
+
+  /* SCROLL */
+
+  .work__scroll {
+    position: sticky;
+    bottom: 0;
+    padding-top: 10px;
+  }
+}
