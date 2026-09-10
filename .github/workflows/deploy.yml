@@ -30,6 +30,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Lint
+        run: npm run lint
+
+      - name: Dependency audit (AppSec)
+        run: npm audit --omit=dev --audit-level=high
+
       - name: Build
         run: npm run build
 

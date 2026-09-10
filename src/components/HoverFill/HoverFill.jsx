@@ -11,8 +11,6 @@ function HoverFill({ children, className = "" }) {
       } ${className}`}
       onMouseEnter={() => setActivated(true)}
     >
-      <div className="hover-fill__background" />
-      
       <div className="hover-fill__content">
         {children}
       </div>

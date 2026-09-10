@@ -4,7 +4,6 @@ import "./PageMeta.css";
 function PageMeta({
   number = "0.0",
   label = "introducing",
-  slashColor = "orange",
 }) {
   return (
     <div className="page-meta">
@@ -14,7 +13,6 @@ function PageMeta({
 
       <span
         className="page-meta__slash"
-        style={{ color: slashColor }}
         aria-hidden="true"
       >
         /

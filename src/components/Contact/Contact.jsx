@@ -57,8 +57,12 @@ function Contact() {
           </div>
 
           <div className="contact__info">
-            <span>Geo ⌖ Bengaluru, India</span>
-            <span />
+            <div>
+              <span>geo</span>
+              <span>⌖</span>
+              <span>Bengaluru, India</span>
+              <span>IST</span>
+            </div>
           </div>
 
           <div className="contact__info">

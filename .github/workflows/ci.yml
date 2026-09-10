@@ -1,0 +1,58 @@
+name: Quality & security
+
+on:
+  push:
+    branches: [new-era-2026]
+  pull_request:
+    branches: [new-era-2026]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    name: Lint, build & dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint (code smells)
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Dependency audit (AppSec)
+        run: npm audit --omit=dev --audit-level=high
+
+  codeql:
+    name: CodeQL SAST (AppSec)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+          queries: security-and-quality
+          build-mode: none
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@v3

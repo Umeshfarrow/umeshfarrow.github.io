@@ -14,8 +14,6 @@ function TypingText({
     let timeout;
     let interval;
 
-    // setDisplayText("");
-
     timeout = setTimeout(() => {
       let index = 0;
 

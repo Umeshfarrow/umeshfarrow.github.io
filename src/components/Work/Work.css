@@ -315,10 +315,6 @@
   color: var(--color-text-muted);
 }
 
-.work__org:hover {
-  border-color: var(--color-text);
-}
-
 
 /* ================================
    CONTRIBUTIONS
