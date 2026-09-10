@@ -57,7 +57,13 @@
 =============================== */
 
 .skills__heading {
-  padding: 0 2rem 2rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  padding: 0 2rem 1rem;
 }
 
 .skills__heading h2 {
@@ -69,94 +75,192 @@
   border-bottom: 1px solid var(--color-border);
 }
 
+.skills__total {
+  font-family: var(--font-meta);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  white-space: nowrap;
 
-/* ================================
-   SKILLS GRID
-=============================== */
-
-.skills__grid {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  border-top: 1px solid var(--color-border);
-  border-left: 1px solid var(--color-border);
+  border: 1px solid var(--color-border);
+  padding: 5px 10px;
 }
 
-.skills__cell {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 
-  padding: 16px;
+/* ================================
+   THE RACK
+=============================== */
 
-  border-right: 1px solid var(--color-border);
+.skills__table {
+  width: 100%;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.skills__rack {
+  display: grid;
+  grid-template-columns: minmax(0, 0.3fr) 1fr;
+
   border-bottom: 1px solid var(--color-border);
 }
 
-.skills__label {
+/* RACK LABEL */
+
+.skills__rack-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding: 14px 16px;
+
+  border-right: 1px solid var(--color-border);
+
   font-family: var(--font-meta);
-  font-size: 9px;
+  font-size: 10px;
   line-height: 1.2;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
+}
 
+.skills__rack-number {
   color: var(--color-text-muted);
 }
 
-.skills__items {
+.skills__rack-slash {
+  color: var(--color-orange);
+  margin: 0 6px;
+}
+
+.skills__rack-count {
+  font-family: var(--font-meta);
+  font-size: 10px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* RACK TAGS */
+
+.skills__rack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  padding: 12px 16px;
+
+  align-content: flex-start;
+}
+
+/* TAG */
+
+.skills__tag {
+  display: inline-block;
+
+  padding: 5px 10px;
+
+  border: 1px solid var(--color-border);
+
   font-family: var(--font-body);
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 11px;
+  line-height: 1;
+
+  white-space: nowrap;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.skills__tag:hover {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
 }
 
 
 /* ================================
-   CERTIFICATIONS
+   CREDENTIALS
 =============================== */
 
 .skills__certs {
   padding: 2rem;
 }
 
-.skills__certs-title {
-  display: block;
-  margin-bottom: 10px;
+.skills__certs-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
 
-  font-family: var(--font-meta);
-  font-size: 9px;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
 
-  color: var(--color-text-muted);
+.skills__certs-heading h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.skills__certs-table {
+  border-top: 1px solid var(--color-border);
 }
 
 .skills__cert {
+  display: grid;
+  grid-template-columns: 96px 84px 1fr;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 16px;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skills__cert-index {
+  font-family: var(--font-meta);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+
+  white-space: nowrap;
+}
+
+.skills__cert-code {
+  width: max-content;
+
+  font-family: var(--font-meta);
+  font-size: 10px;
+
+  border: 1px solid var(--color-border);
+  padding: 4px 8px;
+}
+
+.skills__cert-body {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 8px 16px;
+  flex-direction: column;
+  gap: 3px;
 
-  padding: 10px 0;
-
-  border-top: 1px solid var(--color-border);
-
-  font-family: var(--font-body);
-  font-size: 12px;
-  line-height: 1.4;
+  min-width: 0;
 }
 
 .skills__cert-name {
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 .skills__cert-meta {
-  white-space: nowrap;
-
+  font-family: var(--font-meta);
+  font-size: 9px;
+  line-height: 1.4;
   color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 
@@ -194,24 +298,45 @@
     font-size: 24px;
   }
 
-  /* GRID — single column */
+  /* RACK — stack label above tags */
 
-  .skills__grid {
+  .skills__rack {
     grid-template-columns: 1fr;
   }
 
-  /* CERTIFICATIONS */
+  .skills__rack-label {
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+
+    padding: 10px 8px;
+  }
+
+  .skills__rack-tags {
+    padding: 10px 8px;
+  }
+
+  .skills__tag {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  /* CREDENTIALS */
 
   .skills__certs {
     padding: 1rem 0;
   }
 
-  .skills__cert {
-    flex-direction: column;
-    gap: 4px;
+  .skills__certs-heading h3 {
+    font-size: 22px;
   }
 
-  .skills__cert-meta {
-    white-space: normal;
+  .skills__cert {
+    grid-template-columns: 68px 64px 1fr;
+    gap: 8px;
+    padding: 10px 8px;
+  }
+
+  .skills__cert-name {
+    font-size: 11px;
   }
 }

@@ -12,7 +12,8 @@ const pagesCsp = [
   "img-src 'self' data:",
   "connect-src 'self'",
   "object-src 'none'",
-  "frame-ancestors 'none'",
+  // frame-ancestors is NOT honored when delivered via a <meta> element
+  // (header-only directive) — omitted on purpose to avoid the console warning.
   "base-uri 'self'",
   "form-action 'none'",
   "upgrade-insecure-requests",
