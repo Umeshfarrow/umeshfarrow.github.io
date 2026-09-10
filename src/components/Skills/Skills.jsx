@@ -97,81 +97,54 @@ function Skills() {
           </span>
         </div>
 
-        {/* SYSTEM STATUS CONSOLE */}
-        <div className="skills__console">
-          {/* WINDOW CHROME */}
-          <div className="skills__console-bar">
-            <span className="skills__console-dots" aria-hidden="true">
-              <span className="skills__console-dot skills__console-dot--busy" />
-              <span className="skills__console-dot" />
-              <span className="skills__console-dot" />
-            </span>
+        {/* STACK CARDS */}
+        <div className="skills__grid">
+          {stacks.map((stack) => (
+            <article className="skills__card" key={stack.number}>
+              <header className="skills__card-head">
+                <span className="skills__card-number">{stack.number}</span>
 
-            <span className="skills__console-title">
-              system_status — umesh.s
-            </span>
+                <h3 className="skills__card-name">{stack.name}</h3>
 
-            <span className="skills__console-port">0.1 / tty</span>
-          </div>
-
-          {/* TERMINAL BODY */}
-          <div className="skills__console-body">
-            {stacks.map((stack) => (
-              <div className="skills__line" key={stack.number}>
-                <span className="skills__prompt">~/rack $</span>
-
-                <span className="skills__path">
-                  {stack.number}
-                  <span className="skills__path-sep">/</span>
-                  {stack.name}
-                </span>
-
-                <span className="skills__count">
+                <span className="skills__card-count">
                   +{String(stack.tags.length).padStart(2, "0")}
                 </span>
+              </header>
 
-                <span className="skills__tags">
-                  {stack.tags.map((tag) => (
-                    <span className="skills__tag" key={tag}>
-                      {tag}
-                    </span>
-                  ))}
-                </span>
+              <div className="skills__tags">
+                {stack.tags.map((tag) => (
+                  <span className="skills__tag" key={tag}>
+                    {tag}
+                  </span>
+                ))}
               </div>
-            ))}
+            </article>
+          ))}
+        </div>
 
-            {/* CREDENTIALS GROUP */}
-            <div className="skills__line skills__line--comment">
-              <span className="skills__comment"># credentials</span>
-            </div>
+        {/* CREDENTIALS */}
+        <div className="skills__certs">
+          <div className="skills__certs-heading">
+            <h3>Credentials</h3>
 
+            <span className="skills__total">
+              {String(certifications.length).padStart(2, "0")} certs
+            </span>
+          </div>
+
+          <div className="skills__certs-table">
             {certifications.map((cert) => (
-              <div className="skills__line" key={cert.code}>
-                <span className="skills__prompt">~/rack $</span>
+              <div className="skills__cert" key={cert.code}>
+                <span className="skills__cert-index">{cert.number}</span>
 
-                <span className="skills__path">CERT / {cert.number}</span>
+                <span className="skills__cert-code">{cert.code}</span>
 
-                <span className="skills__tag">{cert.code}</span>
-
-                <span className="skills__name">{cert.name}</span>
-
-                <span className="skills__cert-meta">{cert.meta}</span>
+                <div className="skills__cert-body">
+                  <span className="skills__cert-name">{cert.name}</span>
+                  <span className="skills__cert-meta">{cert.meta}</span>
+                </div>
               </div>
             ))}
-
-            {/* CURSOR TAIL */}
-            <div className="skills__line skills__line--tail">
-              <span className="skills__prompt">~/rack $</span>
-
-              <span className="skills__cursor" aria-hidden="true">
-                ▊
-              </span>
-
-              <span className="skills__tail-note">
-                — {totalTags} tags · {certifications.length} certs on rack,
-                ready.
-              </span>
-            </div>
           </div>
         </div>
       </div>
