@@ -83,7 +83,7 @@ function Skills() {
     <section className="skills">
       {/* PAGE HEADER */}
       <div className="skills__top">
-        <PageMeta number="0.1" label="stack" />
+        <PageMeta number="0.1" label="status" />
       </div>
 
       {/* MAIN */}
@@ -97,7 +97,7 @@ function Skills() {
           </span>
         </div>
 
-        {/* CONSOLE INVENTORY */}
+        {/* SYSTEM STATUS CONSOLE */}
         <div className="skills__console">
           {/* WINDOW CHROME */}
           <div className="skills__console-bar">
@@ -108,10 +108,10 @@ function Skills() {
             </span>
 
             <span className="skills__console-title">
-              stack_inventory — umesh.s
+              system_status — umesh.s
             </span>
 
-            <span className="skills__console-port">0.1 / shell·tty</span>
+            <span className="skills__console-port">0.1 / tty</span>
           </div>
 
           {/* TERMINAL BODY */}
@@ -140,6 +140,25 @@ function Skills() {
               </div>
             ))}
 
+            {/* CREDENTIALS GROUP */}
+            <div className="skills__line skills__line--comment">
+              <span className="skills__comment"># credentials</span>
+            </div>
+
+            {certifications.map((cert) => (
+              <div className="skills__line" key={cert.code}>
+                <span className="skills__prompt">~/rack $</span>
+
+                <span className="skills__path">CERT / {cert.number}</span>
+
+                <span className="skills__tag">{cert.code}</span>
+
+                <span className="skills__name">{cert.name}</span>
+
+                <span className="skills__cert-meta">{cert.meta}</span>
+              </div>
+            ))}
+
             {/* CURSOR TAIL */}
             <div className="skills__line skills__line--tail">
               <span className="skills__prompt">~/rack $</span>
@@ -149,37 +168,10 @@ function Skills() {
               </span>
 
               <span className="skills__tail-note">
-                — {totalTags} entries on rack, ready.
+                — {totalTags} tags · {certifications.length} certs on rack,
+                ready.
               </span>
             </div>
-          </div>
-        </div>
-
-        {/* CREDENTIALS */}
-        <div className="skills__certs">
-          <div className="skills__certs-heading">
-            <h3>Credentials</h3>
-
-            <span className="skills__total">
-              {String(certifications.length).padStart(2, "0")} certs
-            </span>
-          </div>
-
-          <div className="skills__certs-table">
-            {certifications.map((cert) => (
-              <div className="skills__cert" key={cert.code}>
-                <span className="skills__cert-index">
-                  {cert.number}
-                </span>
-
-                <span className="skills__cert-code">[{cert.code}]</span>
-
-                <div className="skills__cert-body">
-                  <span className="skills__cert-name">{cert.name}</span>
-                  <span className="skills__cert-meta">{cert.meta}</span>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
