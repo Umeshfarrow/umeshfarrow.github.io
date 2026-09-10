@@ -8,7 +8,7 @@ repository. Read this file first.
 A single-page portfolio for Umesh S (Senior DevOps Engineer). It is a
 **React 19 + Vite 8** static site. There is no router, no backend, and no
 test framework — the entire product is one scrolling page with
-scroll-snap sections (Intro, Work, Contact).
+scroll-snap sections (Intro, Skills, Work, Projects, Contact).
 
 Deployed to GitHub Pages at <https://umeshfarrow.github.io> from this
 branch (`new-era-2026`).
@@ -31,19 +31,18 @@ branch (`new-era-2026`).
 │   └── Umesh_S_Resume.pdf
 ├── src/
 │   ├── components/
-│   │   ├── Contact/               # 0.4 Contact section
-│   │   ├── Header/                # Top nav
+│   │   ├── Contact/               # 0.4 Contact section (phone/email/links/education)
+│   │   ├── Header/                # Top nav (smooth-scrolls to section anchors)
 │   │   ├── HoverFill/             # Reusable hover-fill UI wrapper
 │   │   ├── Intro/                 # 0.0 Intro section (hero)
 │   │   ├── Metrics/               # Metric cells inside Intro
 │   │   ├── PageMeta/              # "number / label" meta header (uses TypingText)
-│   │   ├── Statement/             # (unused — commented out in App.jsx)
-│   │   ├── Table/                 # (placeholder, unused)
+│   │   ├── Projects/              # 0.3 Project log (Aicon/Enliven/Learning Cloud/Petzy)
+│   │   ├── Skills/                # 0.1 Skills & certifications
 │   │   ├── TypingText/            # Typewriter effect
 │   │   └── Work/                  # 0.2 Experience log
 │   ├── styles/
 │   │   ├── reset.css              # Global reset + cursor/focus/motion rules
-│   │   ├── utilities.css
 │   │   └── variables.css          # Design tokens (colors, fonts, spacing)
 │   ├── App.jsx                    # Section composition
 │   └── main.jsx                   # React entry

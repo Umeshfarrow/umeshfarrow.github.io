@@ -1,0 +1,217 @@
+/* ================================
+   SKILLS
+=============================== */
+
+.skills {
+  position: relative;
+
+  height: 100svh;
+  min-height: 0;
+
+  padding: 12px var(--page-padding) 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-top: 1px solid var(--color-border);
+
+  /* Allow the whole section to scroll if content exceeds viewport. */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: none;
+  font-size: 14px;
+}
+
+.skills::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ================================
+   PAGE HEADER
+=============================== */
+
+.skills__top {
+  flex-shrink: 0;
+
+  padding: 2rem;
+}
+
+
+/* ================================
+   MAIN
+=============================== */
+
+.skills__main {
+  width: 100%;
+
+  margin: 0;
+
+  flex: 0 0 auto;
+}
+
+
+/* ================================
+   SECTION TITLE
+=============================== */
+
+.skills__heading {
+  padding: 0 2rem 2rem;
+}
+
+.skills__heading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+
+/* ================================
+   SKILLS GRID
+=============================== */
+
+.skills__grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
+.skills__cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 16px;
+
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skills__label {
+  font-family: var(--font-meta);
+  font-size: 9px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: var(--color-text-muted);
+}
+
+.skills__items {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* ================================
+   CERTIFICATIONS
+=============================== */
+
+.skills__certs {
+  padding: 2rem;
+}
+
+.skills__certs-title {
+  display: block;
+  margin-bottom: 10px;
+
+  font-family: var(--font-meta);
+  font-size: 9px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: var(--color-text-muted);
+}
+
+.skills__cert {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+
+  padding: 10px 0;
+
+  border-top: 1px solid var(--color-border);
+
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.skills__cert-name {
+  font-weight: 500;
+}
+
+.skills__cert-meta {
+  white-space: nowrap;
+
+  color: var(--color-text-muted);
+}
+
+
+/* ================================
+   MOBILE
+=============================== */
+
+@media (max-width: 700px) {
+  .skills {
+    min-height: 100dvh;
+
+    height: auto;
+
+    padding:
+      10px
+      var(--page-padding)
+      16px;
+
+    overflow: visible;
+  }
+
+  /* PAGE HEADER */
+
+  .skills__top {
+    padding: 1rem 0;
+  }
+
+  /* SECTION TITLE */
+
+  .skills__heading {
+    padding: 0 0 1rem;
+  }
+
+  .skills__heading h2 {
+    font-size: 24px;
+  }
+
+  /* GRID — single column */
+
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CERTIFICATIONS */
+
+  .skills__certs {
+    padding: 1rem 0;
+  }
+
+  .skills__cert {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .skills__cert-meta {
+    white-space: normal;
+  }
+}

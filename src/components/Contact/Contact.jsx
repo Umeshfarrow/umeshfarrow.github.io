@@ -17,6 +17,13 @@ function Contact() {
           </p>
 
           <div className="contact__info">
+            <a href="tel:+919538984603">
+              <span>phone</span>
+              <span>✆</span>
+              <span>+91 9538984603</span>
+              <span>↗</span>
+            </a>
+
             <a href="mailto:kelsakarya@gmail.com">
               <span>email</span>
               <span>✉</span>
@@ -52,6 +59,21 @@ function Contact() {
           <div className="contact__info">
             <span>Geo ⌖ Bengaluru, India</span>
             <span />
+          </div>
+
+          <div className="contact__info">
+            <div>
+              <span>education</span>
+              <span>◆</span>
+              <span>MCA · The Oxford College of Science</span>
+              <span>2015-2018</span>
+            </div>
+            <div>
+              <span>education</span>
+              <span>◆</span>
+              <span>BCA · BES College</span>
+              <span>2012-2015</span>
+            </div>
           </div>
 
           <HoverFill>

@@ -1,7 +1,9 @@
 import Header from "./components/Header/Header";
 import Intro from "./components/Intro/Intro";
-import Contact from "./components/Contact/Contact";
+import Skills from "./components/Skills/Skills";
 import Work from "./components/Work/Work";
+import Projects from "./components/Projects/Projects";
+import Contact from "./components/Contact/Contact";
 
 import "./App.css";
 
@@ -14,8 +16,16 @@ function App() {
           <Intro />
         </section>
 
-        <section className="snap-page">
+        <section className="snap-page" id="skills">
+          <Skills />
+        </section>
+
+        <section className="snap-page" id="work">
           <Work />
+        </section>
+
+        <section className="snap-page" id="projects">
+          <Projects />
         </section>
 
         <section className="snap-page">

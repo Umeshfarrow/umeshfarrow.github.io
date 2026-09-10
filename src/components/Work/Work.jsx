@@ -10,45 +10,47 @@ const works = [
       "Transforming Container Terminals: Dynamic Operations - Intent-Driven Solutions.",
     location: "Bengaluru",
     designation: "Senior DevOps engineer",
-    year: "Sept-2024 → Current",
+    year: "Oct-2024 → Present",
     linkedin: "https://www.linkedin.com/company/avlinoinc/",
     contribution: [
       "Led DevOps initiatives for AI/ML product lines, ensuring 99.5% uptime and scalable cloud-native applications across cloud environments.",
       "Implemented CI/CD pipelines in Jenkins with SonarQube integration, reducing release cycle time from weekly to daily and cutting deployment errors by 30%.",
       "Standardized infrastructure with Kubernetes, Docker, Helm, and Terraform, improving environment consistency and reducing provisioning time by 40%.",
+      "Built observability stack using Prometheus and Grafana, reducing mean time to resolution by 35% through real-time monitoring and alerting.",
       "Collaborated with developers and data scientists to enhance workflows, security, and compliance, improving release confidence and delivery speed.",
     ],
   },
   {
     number: "0.2.2",
-    organization: "Majorel - (Teleperformance)",
-    org_desc: "Outsourcing and Offshoring Consulting.",
+    organization: "Teleperformance (Majorel India)",
+    org_desc: "Global customer experience and business services.",
     location: "Bengaluru",
     designation: "Senior DevOps engineer",
-    year: "Nov-2021 → Sept-2023",
+    year: "Sep-2021 → Sep-2024",
     linkedin: "https://www.linkedin.com/company/majorel-global",
     contribution: [
-      "Delivered DevOps solutions for global customer experience platforms, ensuring 24/7 uptime and secure cloud operations.",
-      "Designed and maintained CI/CD pipelines across microservice-based applications, reducing deployment risks and accelerating delivery.",
-      "Implemented centralized monitoring and logging with Zabbix, improving incident detection and resolution.",
-      "Collaborated with cross-functional teams to enhance scalability, reduce cloud costs, and support seamless releases in multi-cloud setups (AWS/Orange cloud).",
+      "Delivered DevOps solutions for global customer experience platforms, ensuring 24/7 uptime and secure cloud operations supporting millions of users.",
+      "Designed and optimized CI/CD pipelines across microservices, reducing deployment risks and accelerating release frequency by 40%.",
+      "Managed Kubernetes clusters and automated infrastructure provisioning, cutting environment setup time by 50%.",
+      "Implemented centralized monitoring and logging using Zabbix, reducing incident alerting via MS Teams and response time by 30%.",
+      "Partnered with cross-functional teams to optimize multi-cloud deployments (AWS/Orange Cloud), achieving 15% infrastructure cost savings.",
     ],
   },
   {
     number: "0.2.1",
-    organization: "PRATIAN Technologies (India) Private Limited",
+    organization: "Pratian Technologies (India) Pvt Ltd",
     org_desc:
-      "A Digital Business Ecosystem​ powered by Deep Tech and Creativity.",
+      "A Digital Business Ecosystem powered by Deep Tech and Creativity.",
     location: "Bengaluru",
     designation: "DevOps engineer",
-    year: "Nov-2020 → Sept-2021",
+    year: "Jan-2020 → Sep-2021",
     linkedin:
       "https://www.linkedin.com/company/pratian-technologies-india-pvt-ltd",
     contribution: [
-      "Built and maintained CI/CD pipelines with Jenkins, integrating SonarQube for automated code quality checks to ensure secure and reliable deployments.",
-      "Delivered applications over HTTPS/TLS using Let’s Encrypt, enabling faster, secure releases across Azure and AWS environments.",
-      "Deployed Prometheus and Grafana to monitor performance and availability, improving visibility and reducing release risks.",
-      "Proactively self-learned Kubernetes and suggested its adoption, driving discussions on scaling, containerization, and future-ready infrastructure.",
+      "Built and maintained CI/CD pipelines with Jenkins, integrating SonarQube for automated code checks, reducing deployment errors by 25% and enabling bi-weekly secure releases.",
+      "Delivered applications over HTTPS/TLS using Let's Encrypt, improving platform security compliance and increasing customer trust.",
+      "Implemented monitoring with Prometheus and Grafana, improving visibility and reducing release risks, cutting downtime by 20%.",
+      "Proactively self-learned Kubernetes and advocated its adoption, initiating discussions on scaling, containerization, and future-ready infrastructure.",
     ],
   },
 ];
@@ -104,7 +106,7 @@ function Work() {
                     {work.year}
                   </span>
 
-                  {work.year.includes("Current") && (
+                  {(work.year.includes("Current") || work.year.includes("Present")) && (
                     <span
                       className="work__status-dot"
                       role="img"
