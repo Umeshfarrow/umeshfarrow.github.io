@@ -1,4 +1,4 @@
-import "./intro.css";
+import "./Intro.css";
 import PageMeta from "../PageMeta/PageMeta";
 import Metrics from "../Metrics/Metrics";
 import HoverFill from "../HoverFill/HoverFill";

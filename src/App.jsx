@@ -1,6 +1,5 @@
 import Header from "./components/Header/Header";
 import Intro from "./components/Intro/Intro";
-import Statement from "./components/Statement/Statement";
 import Contact from "./components/Contact/Contact";
 import Work from "./components/Work/Work";
 
