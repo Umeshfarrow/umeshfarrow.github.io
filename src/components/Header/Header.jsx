@@ -1,5 +1,5 @@
 import "./Header.css";
-import { playScroll } from "../../lib/sound";
+import { playScroll, stopScroll } from "../../lib/sound";
 
 function Header() {
   const handleAnchorClick = (event) => {
@@ -28,23 +28,24 @@ function Header() {
       </a>
 
       <nav className="header__nav" aria-label="Main navigation">
-        <a href="#skills" onMouseEnter={playScroll} onClick={handleAnchorClick}>
+        <a href="#skills" onMouseEnter={playScroll} onMouseLeave={stopScroll} onClick={handleAnchorClick}>
           0.1 Skills
         </a>
-        <a href="#work" onMouseEnter={playScroll} onClick={handleAnchorClick}>
+        <a href="#work" onMouseEnter={playScroll} onMouseLeave={stopScroll} onClick={handleAnchorClick}>
           0.2 Work
         </a>
         <a
           href="#projects"
           onMouseEnter={playScroll}
+          onMouseLeave={stopScroll}
           onClick={handleAnchorClick}
         >
           0.3 Projects
         </a>
-        <a href="#blog" onMouseEnter={playScroll} onClick={handleAnchorClick}>
+        <a href="#blog" onMouseEnter={playScroll} onMouseLeave={stopScroll} onClick={handleAnchorClick}>
           0.4 Blog
         </a>
-        <a href="#contact" onMouseEnter={playScroll} onClick={handleAnchorClick}>
+        <a href="#contact" onMouseEnter={playScroll} onMouseLeave={stopScroll} onClick={handleAnchorClick}>
           0.5 Contact
         </a>
       </nav>

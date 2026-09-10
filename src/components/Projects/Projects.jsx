@@ -1,6 +1,6 @@
 import "./Projects.css";
 import PageMeta from "../PageMeta/PageMeta";
-import { playScroll } from "../../lib/sound";
+import { playScroll, stopScroll } from "../../lib/sound";
 
 const projects = [
   {
@@ -81,6 +81,7 @@ function Projects() {
                 className="projects__item"
                 key={project.number}
                 onMouseEnter={playScroll}
+                  onMouseLeave={stopScroll}
               >
                 <div className="projects__header">
                   <span className="projects__number">{project.number}</span>
@@ -118,6 +119,7 @@ function Projects() {
                         className="projects__tag"
                         key={tech}
                         onMouseEnter={playScroll}
+                  onMouseLeave={stopScroll}
                       >
                         {tech}
                       </span>

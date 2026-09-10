@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./SoundToggle.css";
-import { playScroll, isSoundMuted, toggleSound } from "../../lib/sound";
+import { playScroll, stopScroll, isSoundMuted, toggleSound } from "../../lib/sound";
 
 function SoundToggle() {
   const [muted, setMuted] = useState(isSoundMuted);
@@ -15,6 +15,7 @@ function SoundToggle() {
       type="button"
       onClick={handleClick}
       onMouseEnter={playScroll}
+      onMouseLeave={stopScroll}
       aria-pressed={!muted}
       title={muted ? "Sound off — click to enable" : "Sound on — click to mute"}
     >

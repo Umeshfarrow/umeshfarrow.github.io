@@ -1,7 +1,7 @@
 import "./Contact.css";
 import PageMeta from "../PageMeta/PageMeta";
 import HoverFill from "../HoverFill/HoverFill";
-import { playScroll } from "../../lib/sound";
+import { playScroll, stopScroll } from "../../lib/sound";
 
 function Contact() {
   return (
@@ -25,6 +25,7 @@ function Contact() {
               className="contact__card"
               href="tel:+919538984603"
               onMouseEnter={playScroll}
+              onMouseLeave={stopScroll}
               
             >
               <span className="contact__card-icon" aria-hidden="true">
@@ -41,6 +42,7 @@ function Contact() {
               className="contact__card"
               href="mailto:kelsakarya@gmail.com"
               onMouseEnter={playScroll}
+              onMouseLeave={stopScroll}
               
             >
               <span className="contact__card-icon" aria-hidden="true">
@@ -60,6 +62,7 @@ function Contact() {
               rel="noopener noreferrer nofollow"
               referrerPolicy="no-referrer"
               onMouseEnter={playScroll}
+              onMouseLeave={stopScroll}
               
             >
               <span className="contact__card-icon" aria-hidden="true">
@@ -81,6 +84,7 @@ function Contact() {
               rel="noopener noreferrer nofollow"
               referrerPolicy="no-referrer"
               onMouseEnter={playScroll}
+              onMouseLeave={stopScroll}
               
             >
               <span className="contact__card-icon" aria-hidden="true">
@@ -100,7 +104,8 @@ function Contact() {
           <div className="contact__group">
             <span className="contact__group-label">geo</span>
 
-            <div className="contact__card" onMouseEnter={playScroll}>
+            <div className="contact__card" onMouseEnter={playScroll}
+              onMouseLeave={stopScroll}>
               <span className="contact__card-icon" aria-hidden="true">
                 ⌖
               </span>
@@ -114,7 +119,8 @@ function Contact() {
           <div className="contact__group">
             <span className="contact__group-label">education</span>
 
-            <div className="contact__card" onMouseEnter={playScroll}>
+            <div className="contact__card" onMouseEnter={playScroll}
+              onMouseLeave={stopScroll}>
               <span className="contact__card-icon" aria-hidden="true">
                 ◆
               </span>
@@ -125,7 +131,8 @@ function Contact() {
               <span className="contact__card-tag">2015-2018</span>
             </div>
 
-            <div className="contact__card" onMouseEnter={playScroll}>
+            <div className="contact__card" onMouseEnter={playScroll}
+              onMouseLeave={stopScroll}>
               <span className="contact__card-icon" aria-hidden="true">
                 ◆
               </span>
@@ -142,6 +149,7 @@ function Contact() {
               download="Umesh_S_Resume.pdf"
               className="contact__card contact__card--action"
               onMouseEnter={playScroll}
+              onMouseLeave={stopScroll}
               
             >
               <span className="contact__card-icon" aria-hidden="true">
@@ -173,6 +181,7 @@ function Contact() {
         <a
           href="mailto:kelsakarya@gmail.com"
           onMouseEnter={playScroll}
+              onMouseLeave={stopScroll}
           
         >
           kelsakarya@gmail.com
@@ -181,6 +190,7 @@ function Contact() {
         <a
           href="mailto:kelsakarya@gmail.com"
           onMouseEnter={playScroll}
+              onMouseLeave={stopScroll}
           
         >
           Get in touch ↗

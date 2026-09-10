@@ -1,6 +1,6 @@
 import "./Skills.css";
 import PageMeta from "../PageMeta/PageMeta";
-import { playScroll } from "../../lib/sound";
+import { playScroll, stopScroll } from "../../lib/sound";
 
 const stacks = [
   {
@@ -126,6 +126,7 @@ function Skills() {
                     className="skills__tag"
                     key={tag}
                     onMouseEnter={playScroll}
+                  onMouseLeave={stopScroll}
                   >
                     {tag}
                   </span>
@@ -151,6 +152,7 @@ function Skills() {
                 className="skills__cert-card"
                 key={cert.code}
                 onMouseEnter={playScroll}
+                  onMouseLeave={stopScroll}
               >
                 {/* STAMP + NAME */}
                 <div className="skills__cert-top">

@@ -2,19 +2,19 @@
  * Sound engine — the real GTA San Andreas menu click
  * (public/audio/menu.mp3, the Zedge ringtone).
  *
- * Zero-wait hover sound:
- * Browsers block *unmuted* play() until a user gesture, but muted
- * autoplay is always allowed. So we start the track playing silently
- * (muted, looped) the instant the pointer moves — by the time the
- * cursor reaches anything, the file is loaded, decoded and already
- * running. A hover then only needs to unmute and re-seek: that is not
- * treated as autoplay, so it fires instantly and without any
- * click-first "warm-up" wait.
+ * One-shot hover sound:
+ * A single <audio> is preloaded (hidden, silent-running while muted to
+ * satisfy the browser autoplay graph) ONLY so the audible hit can start
+ * instantly on the very first hover — no click-first warm-up wait.
+ *
+ * Audible play: restarts from the top and stops cleanly the moment the
+ * pointer leaves the element (onMouseLeave). No looping, no lingering.
  */
 
 let audio = null;
 let muted = false;
 let primed = false;
+let armed = false;
 
 try {
   muted = localStorage.getItem("portfolio.sound.muted") === "1";
@@ -26,8 +26,6 @@ function getAudio() {
   if (!audio) {
     audio = new Audio("/audio/menu.mp3");
     audio.preload = "auto";
-    audio.loop = true; // keep it silently running so blips can start instantly
-    audio.muted = true; // never makes noise on its own
   }
   return audio;
 }
@@ -38,6 +36,7 @@ function prime() {
   try {
     const a = getAudio();
     a.muted = true;
+    a.loop = true;
     a.volume = 1;
     a.play().catch(() => {});
   } catch {
@@ -51,28 +50,46 @@ function prime() {
   }
 );
 
-function playSound(volume) {
+function playSound() {
   if (muted) return;
   try {
-    const a = getAudio();
     prime();
-    if (a.paused) a.play().catch(() => {});
+    const a = getAudio();
+    a.loop = false; // one-shot for the audible bit
     a.muted = false;
-    a.volume = volume;
+    a.volume = 0.6;
     a.currentTime = 0;
+    a.play().catch(() => {});
+    armed = true;
   } catch {
     /* audio unavailable */
   }
 }
 
-/** Menu hover / orange-hover elements — the SA menu click. */
-export function playScroll() {
-  playSound(0.5);
+function stopSound() {
+  try {
+    const a = getAudio();
+    if (armed && !a.paused) {
+      a.pause();
+      a.muted = true;
+      a.currentTime = 0;
+    }
+    armed = false;
+  } catch {
+    /* ignore */
+  }
 }
 
-/** Selection — same click, slightly louder. */
-export function playSelect() {
-  playSound(0.7);
+/**
+ * Start the click on hover-enter and stop it on hover-leave.
+ * Wire both to the same element: onMouseEnter + onMouseLeave.
+ */
+export function playScroll() {
+  playSound();
+}
+
+export function stopScroll() {
+  stopSound();
 }
 
 export function isSoundMuted() {
@@ -91,10 +108,12 @@ export function toggleSound() {
     if (muted) {
       a.muted = true;
       a.pause();
+      armed = false;
     } else {
       prime();
       a.muted = false;
-      a.volume = 0.7;
+      a.loop = false;
+      a.volume = 0.6;
       a.currentTime = 0;
       a.play().catch(() => {});
     }
